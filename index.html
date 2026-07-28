@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saragozza 2026 — Piano di viaggio 10–14 agosto</title>
+<meta name="description" content="Piano di viaggio di quattro giorni a Saragozza (10–14 agosto 2026): Zaragoza Card, attrazioni con prezzi, itinerario giorno per giorno, trasporti da Delicias e mappa interattiva.">
+<meta name="theme-color" content="#B4532A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Saragozza 2026 — Piano di viaggio">
+<meta property="og:description" content="Quattro giorni a Saragozza tra mudéjar, Roma e l'eclissi del 12 agosto 2026.">
+<meta property="og:locale" content="it_IT">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23B4532A'/><text y='.9em' x='50' text-anchor='middle' font-size='62' font-family='Georgia,serif' fill='%23F5EDE0'>Z</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Salta al contenuto</a>
+
+<header class="header">
+  <div class="header__inner">
+    <a class="brand" href="#top">
+      <span class="brand__mark" aria-hidden="true">Z</span>
+      Saragozza 2026
+      <span class="brand__sub">10–14 agosto</span>
+    </a>
+
+    <button class="icon-btn nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList" aria-label="Apri il menu">☰</button>
+
+    <nav class="nav" aria-label="Navigazione principale">
+      <ul class="nav__list" id="navList">
+        <li><a class="nav__link" href="#panoramica">Panoramica</a></li>
+        <li><a class="nav__link" href="#card">Zaragoza Card</a></li>
+        <li><a class="nav__link" href="#attrazioni">Attrazioni</a></li>
+        <li><a class="nav__link" href="#itinerario">Itinerario</a></li>
+        <li><a class="nav__link" href="#mappa">Mappa</a></li>
+        <li><a class="nav__link" href="#trasporti">Trasporti</a></li>
+        <li><a class="nav__link" href="#note">Note</a></li>
+      </ul>
+    </nav>
+
+    <button class="icon-btn" id="themeToggle" aria-label="Cambia tema chiaro/scuro" title="Cambia tema">🌙</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================= HERO ============================= -->
+  <section class="hero" id="top">
+    <div class="wrap hero__inner">
+      <p class="hero__badge">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="countdown">10–14 agosto 2026</span>
+      </p>
+
+      <h1 class="hero__title">Quattro giorni a <em>Saragozza</em></h1>
+      <p class="hero__lead">
+        Mudéjar UNESCO, la Caesaraugusta romana, le tapas di El Tubo e l’eclissi solare
+        del 12 agosto. Un piano costruito attorno a due vincoli: il caldo di agosto e le
+        chiusure del lunedì.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#itinerario">Vedi l’itinerario</a>
+        <a class="btn btn--ghost" href="#mappa">Apri la mappa</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat stat--accent">
+          <span class="stat__value">4,5</span>
+          <span class="stat__label">giorni utili</span>
+        </div>
+        <div class="stat stat--ebro">
+          <span class="stat__value">24 €</span>
+          <span class="stat__label">Card 72 ore</span>
+        </div>
+        <div class="stat stat--gold">
+          <span class="stat__value">~40 €</span>
+          <span class="stat__label">valore incluso</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value" id="placeCount">19</span>
+          <span class="stat__label">luoghi mappati</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">35 °C+</span>
+          <span class="stat__label">clima previsto</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== PANORAMICA ========================== -->
+  <section class="section" id="panoramica">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Panoramica</p>
+        <h2 class="section__title">Il viaggio in breve</h2>
+        <p class="section__lead">
+          Base a ovest del centro, alla stazione Delicias. Il pomeriggio del 12 è bloccato
+          dall’eclissi, il lunedì è quasi tutto chiuso: il resto si organizza intorno a questo.
+        </p>
+      </header>
+
+      <div class="grid grid--2">
+        <div class="card">
+          <h3 class="card__title">📌 Dati principali</h3>
+          <dl class="deflist">
+            <div class="deflist__row"><dt>Destinazione</dt><dd>Saragozza (Zaragoza), Aragona, Spagna</dd></div>
+            <div class="deflist__row"><dt>Date</dt><dd>10–14 agosto 2026</dd></div>
+            <div class="deflist__row"><dt>Alloggio</dt><dd>Zona stazione Zaragoza-Delicias (ovest del centro)</dd></div>
+            <div class="deflist__row"><dt>Contesto</dt><dd>Viaggio culturale e osservazione dell’eclissi solare del 12 agosto 2026</dd></div>
+            <div class="deflist__row"><dt>Tappa successiva</dt><dd>Valencia, 14–16 agosto</dd></div>
+            <div class="deflist__row"><dt>Clima</dt><dd>Molto caldo, 35 °C+ tipici di agosto</dd></div>
+          </dl>
+        </div>
+
+        <div class="card">
+          <h3 class="card__title">🗓️ Finestre di disponibilità</h3>
+          <dl class="deflist" id="availList"></dl>
+          <p class="small mt-1">
+            Venerdì è in dubbio: dipende dall’orario di partenza per Valencia.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout--gold mt-2">
+        <span class="callout__icon" aria-hidden="true">🌒</span>
+        <div>
+          <p><strong>Mercoledì 12 agosto è il giorno dell’eclissi.</strong> Pomeriggio e sera restano
+          liberi per l’osservazione: in mattinata entrano solo due visite, entrambe in Plaza del Pilar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= ZARAGOZA CARD ========================= -->
+  <section class="section section--alt" id="card">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Zaragoza Card</p>
+        <h2 class="section__title">La tessera turistica ufficiale</h2>
+        <p class="section__lead">
+          La validità parte dal <strong>primo utilizzo</strong>, non dall’acquisto: si ritira all’arrivo
+          e si attiva il giorno giusto.
+        </p>
+      </header>
+
+      <div class="grid price-grid">
+        <div class="price">
+          <span class="price__dur">24 ore</span>
+          <span class="price__amount">18 €</span>
+          <p class="price__note">Troppo corta per questo itinerario.</p>
+          <p class="price__rides">5 corse di trasporto urbano</p>
+        </div>
+        <div class="price">
+          <span class="price__dur">48 ore</span>
+          <span class="price__amount">21 €</span>
+          <p class="price__note">Coprirebbe solo martedì e mercoledì.</p>
+          <p class="price__rides">7 corse di trasporto urbano</p>
+        </div>
+        <div class="price price--best">
+          <span class="price__flag">Scelta consigliata</span>
+          <span class="price__dur">72 ore</span>
+          <span class="price__amount">24 €</span>
+          <p class="price__note">Da attivare <strong>martedì 11</strong>: copre Aljafería, Ruta Caesaraugusta, La Seo e la torre del Pilar.</p>
+          <p class="price__rides">9 corse di trasporto urbano</p>
+        </div>
+      </div>
+
+      <div class="grid grid--2 mt-2">
+        <div class="card">
+          <h3 class="card__title">✅ Cosa include</h3>
+          <ul class="check-list" id="servicesList"></ul>
+          <div class="value-bar">
+            <span>Solo bus turistico, Aljafería, La Seo, Ruta Caesaraugusta e visita guidata valgono già <b>~40 €</b> contro i 24 € della 72 ore.</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card__title">🎟️ Dove ritirarla e come attivarla</h3>
+          <p>
+            Uffici del turismo di <strong>Plaza del Pilar</strong> e della <strong>stazione Delicias</strong>
+            (Calle Rioja 33, aperto tutti i giorni 10:00–20:00), oppure online.
+          </p>
+          <p>
+            Si attiva al primo ingresso in un sito incluso. Per questo il piano prevede di
+            ritirarla lunedì sera all’arrivo e di <strong>attivarla martedì mattina all’Aljafería</strong>:
+            il lunedì molti musei sono chiusi e mezza giornata di validità andrebbe sprecata.
+          </p>
+          <div class="callout mt-1">
+            <span class="callout__icon" aria-hidden="true">⚠️</span>
+            <p>Il trasporto pubblico incluso <strong>non è illimitato</strong>: 9 corse con la 72 ore.
+            Sufficienti, ma va contato.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== ATTRAZIONI =========================== -->
+  <section class="section" id="attrazioni">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Attrazioni</p>
+        <h2 class="section__title">Cosa copre la Card, e quanto costerebbe</h2>
+        <p class="section__lead">
+          Prezzi del biglietto singolo: sono quelli che la Card fa risparmiare.
+        </p>
+      </header>
+
+      <div class="grid attr-grid" id="attrGrid"></div>
+
+      <div class="callout callout--ebro mt-2">
+        <span class="callout__icon" aria-hidden="true">ℹ️</span>
+        <div>
+          <p>I quattro siti della <strong>Ruta Caesaraugusta</strong> hanno anche un bono combinato
+          a <strong>7 €</strong>, utile come riferimento di prezzo.</p>
+          <p>Alcuni prezzi singoli — in particolare La Seo — potrebbero essere leggermente più alti
+          nel 2026, ma il conto della convenienza non cambia.</p>
+        </div>
+      </div>
+
+      <h3 class="mt-2">Altri luoghi dell’itinerario, fuori Card</h3>
+      <div class="table-scroll">
+        <table>
+          <caption class="visually-hidden">Luoghi dell’itinerario non inclusi nella Zaragoza Card</caption>
+          <thead>
+            <tr><th scope="col">Luogo</th><th scope="col">Tipo</th><th scope="col">Note</th></tr>
+          </thead>
+          <tbody id="extraTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== ITINERARIO =========================== -->
+  <section class="section section--alt" id="itinerario">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Itinerario</p>
+        <h2 class="section__title">Giorno per giorno</h2>
+        <p class="section__lead">
+          All’aperto la mattina presto e la sera; dalle 14 alle 17 al chiuso o in pausa.
+        </p>
+      </header>
+
+      <div class="day-tabs" id="dayTabs" role="tablist" aria-label="Giorni del viaggio"></div>
+      <div id="dayPanels"></div>
+    </div>
+  </section>
+
+  <!-- ============================== MAPPA ============================== -->
+  <section class="section" id="mappa">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Mappa</p>
+        <h2 class="section__title">Tutti i luoghi sulla mappa</h2>
+        <p class="section__lead">
+          Filtra per categoria o per giorno. Tocca un marker per prezzi, orari e note.
+        </p>
+      </header>
+
+      <div class="map-filters" id="catFilters" role="group" aria-label="Filtra per categoria"></div>
+      <div class="map-filters" id="dayFilters" role="group" aria-label="Filtra per giorno"></div>
+
+      <div class="map-layout">
+        <div id="map" role="application" aria-label="Mappa interattiva dei luoghi del viaggio"></div>
+
+        <aside class="map-side" aria-label="Elenco dei luoghi visualizzati">
+          <div class="map-side__head">
+            <span>Luoghi visibili</span>
+            <span id="visibleCount">—</span>
+          </div>
+          <ul class="place-list" id="placeList"></ul>
+        </aside>
+      </div>
+
+      <p class="small mt-1">
+        Mappa OpenStreetMap via Leaflet. Le posizioni di <em>Termas Públicas</em> e
+        <em>Puerto Fluvial</em> sono approssimative: nei dati di origine c’era solo l’indirizzo.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================ TRASPORTI ============================ -->
+  <section class="section section--alt" id="trasporti">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Trasporti</p>
+        <h2 class="section__title">Da Delicias al centro</h2>
+        <p class="section__lead">
+          L’alloggio è a 2,8–3 km a ovest del centro storico: 35–40 minuti a piedi, sconsigliati sotto il sole.
+        </p>
+      </header>
+
+      <div class="grid grid--2">
+        <div>
+          <h3 class="card__title">🚌 Come arrivare in centro</h3>
+          <div class="table-scroll">
+            <table>
+              <caption class="visually-hidden">Collegamenti dalla stazione Delicias al centro</caption>
+              <thead><tr><th scope="col">Mezzo</th><th scope="col">Dettaglio</th><th scope="col" class="num">Tempo</th></tr></thead>
+              <tbody id="routesTable"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="card__title">🎫 Tariffe 2026</h3>
+          <div class="table-scroll">
+            <table>
+              <caption class="visually-hidden">Tariffe del trasporto pubblico urbano</caption>
+              <thead><tr><th scope="col">Titolo di viaggio</th><th scope="col" class="num">Prezzo</th></tr></thead>
+              <tbody id="faresTable"></tbody>
+            </table>
+          </div>
+          <p class="small mt-1">
+            <strong>Tarjeta Bus:</strong> 7 € (5 € di credito + 2 € di cauzione rimborsabile), ricariche
+            a multipli di 5 €, credito che non scade. Per poche corse extra <strong>non conviene</strong>:
+            meglio i biglietti singoli.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid--3 mt-2">
+        <div class="card">
+          <h3 class="card__title">🚶 Aljafería a piedi</h3>
+          <p>È a 12–15 minuti dalla stazione lungo la direttrice Avda. Madrid: martedì si parte a piedi, senza consumare corse.</p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">🐟 Acuario e zona Expo</h3>
+          <p>Sono sul lato ovest/nord, collegati a Delicias dalle linee 48, Ci1 e Ci2: giovedì si rientra diretti senza passare dal centro.</p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">🚏 Bus turistico</h3>
+          <p>Fa un anello nel centro e <strong>non passa da Delicias</strong>: per il tragitto alloggio–centro servono i bus urbani.</p>
+        </div>
+      </div>
+
+      <div class="callout callout--ebro mt-2">
+        <span class="callout__icon" aria-hidden="true">🧮</span>
+        <div>
+          <p><strong>Budget corse.</strong> Le 9 corse della Card 72 ore bastano: martedì l’Aljafería si
+          fa a piedi e giovedì la zona Expo è servita direttamente, per un totale di 6–7 corse.</p>
+          <p>Le corse fuori Card — lunedì sera e venerdì mattina — si pagano a biglietto singolo (1,70 €) o in taxi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== NOTE ============================== -->
+  <section class="section" id="note">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Note pratiche</p>
+        <h2 class="section__title">Le regole d’oro</h2>
+        <p class="section__lead">Sei cose da non sbagliare, in ordine di impatto sul piano.</p>
+      </header>
+
+      <ul class="rules" id="rulesList"></ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>Piano di viaggio · Saragozza, 10–14 agosto 2026</p>
+    <p>Verificare orari e prezzi ufficiali prima della partenza: possono cambiare.</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Torna all’inizio">↑</button>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+/* ==========================================================================
+   Saragozza 2026 — dati del viaggio
+   Fonte: saragozza-pianificazione.md
+   ========================================================================== */
+
+/* Categorie usate per colori, filtri e legenda della mappa */
+const CATEGORIES = {
+  card:      { label: 'Incluso nella Card', color: '#B4532A' },
+  panorama:  { label: 'Piazze e panorami',  color: '#1F5B78' },
+  food:      { label: 'Tapas e mercati',    color: '#C08A1E' },
+  extra:     { label: 'Altri luoghi',       color: '#4F7A5B' },
+  logistica: { label: 'Logistica',          color: '#6B6257' }
+};
+
+/* Giorni del viaggio: usati dal filtro della mappa e dalla timeline */
+const DAYS = [
+  { id: 1, short: 'Lun 10', label: 'Lunedì 10 agosto', avail: 'Solo dalla sera (arrivo)' },
+  { id: 2, short: 'Mar 11', label: 'Martedì 11 agosto', avail: 'Giornata intera' },
+  { id: 3, short: 'Mer 12', label: 'Mercoledì 12 agosto', avail: 'Solo mattina (eclissi nel pomeriggio)' },
+  { id: 4, short: 'Gio 13', label: 'Giovedì 13 agosto', avail: 'Giornata intera' },
+  { id: 5, short: 'Ven 14', label: 'Venerdì 14 agosto', avail: 'Eventualmente solo mattina' }
+];
+
+/* --------------------------------------------------------------------------
+   Luoghi con coordinate GPS (marker della mappa)
+   `approx: true` = coordinata ricostruita dall'indirizzo, non presente nei dati
+   -------------------------------------------------------------------------- */
+const PLACES = [
+  {
+    name: 'Palazzo dell’Aljafería',
+    cat: 'card',
+    lat: 41.6560942, lng: -0.8970488,
+    price: '~5 € (incluso)',
+    hours: 'Tutti i giorni 10:00–17:15',
+    days: [2],
+    note: 'Mudéjar UNESCO, ~1,5 h. Qui si attiva la Card. Ingresso a fasce orarie con quota: assicurarsi lo slot. A 12–15 min a piedi da Delicias.'
+  },
+  {
+    name: 'La Seo – Catedral del Salvador + Museo de Tapices',
+    cat: 'card',
+    lat: 41.6545606, lng: -0.8757358,
+    price: '~7 € (incluso)',
+    hours: 'Chiude a pranzo — andare presto',
+    days: [3],
+    note: 'Arazzi fiamminghi tra i migliori d’Europa.'
+  },
+  {
+    name: 'Basílica del Pilar — Torre panoramica e musei',
+    cat: 'card',
+    lat: 41.6568982, lng: -0.8785056,
+    price: 'Ascensore 4 € · Museo Pilarista ~2 € · Rosario de Cristal 5 € (tutti inclusi)',
+    hours: 'Basílica ~8:00–20:30',
+    days: [1, 3],
+    note: 'Interno della Basílica sempre gratuito. Lo stesso punto raccoglie ascensore panoramico, Museo Pilarista e Museo del Rosario de Cristal.'
+  },
+  {
+    name: 'Ruta Caesaraugusta — Museo del Foro',
+    cat: 'card',
+    lat: 41.6551667, lng: -0.8763235,
+    price: '4 € (incluso)',
+    hours: 'Lun chiuso · Mar–Sab 10–14 e 17–21 · Dom 10–14:30',
+    days: [2],
+    note: 'Primo dei quattro siti romani. Bono combinato dei 4 musei: 7 €.'
+  },
+  {
+    name: 'Ruta Caesaraugusta — Museo del Teatro',
+    cat: 'card',
+    lat: 41.6525348, lng: -0.8772734,
+    price: '4 € (incluso)',
+    hours: 'Lun chiuso · Mar–Sab 10–14 e 17–21 · Dom 10–14:30',
+    days: [2],
+    note: 'Il più scenografico dei quattro: teatro romano da 6.000 spettatori.'
+  },
+  {
+    name: 'Ruta Caesaraugusta — Termas Públicas',
+    cat: 'card',
+    lat: 41.6533, lng: -0.8767, approx: true,
+    price: '3 € (incluso)',
+    hours: 'Lun chiuso · Mar–Sab 10–14 e 17–21 · Dom 10–14:30',
+    days: [2],
+    note: 'Calle San Juan y San Pedro. Posizione sulla mappa approssimativa (nei dati c’era solo l’indirizzo).'
+  },
+  {
+    name: 'Ruta Caesaraugusta — Puerto Fluvial',
+    cat: 'card',
+    lat: 41.6549, lng: -0.8752, approx: true,
+    price: '3 € (incluso)',
+    hours: 'Lun chiuso · Mar–Sab 10–14 e 17–21 · Dom 10–14:30',
+    days: [2],
+    note: 'Plaza San Bruno, accanto a La Seo. Posizione sulla mappa approssimativa (nei dati c’era solo la piazza).'
+  },
+  {
+    name: 'Plaza del Pilar',
+    cat: 'panorama',
+    lat: 41.6566, lng: -0.8785,
+    price: 'Gratuito',
+    hours: 'Sempre',
+    days: [1, 3],
+    note: 'Cuore del centro storico. Qui c’è anche un ufficio del turismo dove ritirare la Card.'
+  },
+  {
+    name: 'Puente de Piedra',
+    cat: 'panorama',
+    lat: 41.6572038, lng: -0.8753503,
+    price: 'Gratuito',
+    hours: 'Sempre — migliore al tramonto',
+    days: [1],
+    note: 'La foto classica del Pilar riflesso sull’Ebro, all’ora blu.'
+  },
+  {
+    name: 'Iglesia de San Pablo',
+    cat: 'extra',
+    lat: 41.6560155, lng: -0.8858844,
+    price: 'Offerta libera',
+    hours: 'Mar–Sab 10:00–12:30',
+    days: [4],
+    note: 'La “terza cattedrale”. Torre mudéjar salibile con vista a 360°: finestra oraria stretta, arrivare alle 10.'
+  },
+  {
+    name: 'Mercado Central',
+    cat: 'food',
+    lat: 41.6561291, lng: -0.8828511,
+    price: 'Gratuito',
+    hours: 'Lun–Ven 9–14 e 17:30–20 · Sab fino 14:30 · Dom chiuso',
+    days: [4],
+    note: 'Ristrutturato di recente. Perfetto per aperitivo o spuntino a metà mattina.'
+  },
+  {
+    name: 'El Tubo',
+    cat: 'food',
+    lat: 41.6526, lng: -0.8795,
+    price: 'A consumazione',
+    hours: 'Sere',
+    days: [2],
+    note: 'Il quartiere delle tapas: calle Estébanes, Libertad, Cuatro de Agosto.'
+  },
+  {
+    name: 'Bula del Tubo',
+    cat: 'food',
+    lat: 41.6526206, lng: -0.8802795,
+    price: 'A consumazione',
+    hours: 'Aperto anche il lunedì',
+    days: [1],
+    note: 'Foie e madejas. È la scelta del lunedì sera, quando Meli è chiuso.'
+  },
+  {
+    name: 'Meli del Tubo',
+    cat: 'food',
+    lat: 41.6528, lng: -0.8798,
+    price: 'A consumazione',
+    hours: 'Chiuso lun–mar',
+    days: [4],
+    note: 'Da tenere per giovedì sera, l’unica serata piena in cui è aperto.'
+  },
+  {
+    name: 'Museo de Zaragoza',
+    cat: 'extra',
+    lat: 41.6510, lng: -0.8770,
+    price: 'Gratuito',
+    hours: 'Chiuso il lunedì',
+    days: [4],
+    note: 'Sale dedicate a Goya. Opzionale, da infilare se la mattina di giovedì avanza tempo.'
+  },
+  {
+    name: 'Acuario de Zaragoza',
+    cat: 'extra',
+    lat: 41.6692044, lng: -0.8986434,
+    price: '~ prezzo pieno, sconto con Card',
+    hours: '~10:00–20:00',
+    days: [4],
+    note: 'Il più grande acquario d’acqua dolce d’Europa, nel Parque del Agua. Linee 48 / Ci1 / Ci2 verso Delicias.'
+  },
+  {
+    name: 'Zona Expo 2008',
+    cat: 'panorama',
+    lat: 41.6690, lng: -0.8930,
+    price: 'Gratuito',
+    hours: 'Passeggiata serale',
+    days: [4],
+    note: 'Pabellón Puente, Torre del Agua e la scultura Alma del Ebro.'
+  },
+  {
+    name: 'Patio de la Infanta',
+    cat: 'extra',
+    lat: 41.6520, lng: -0.8830,
+    price: 'Gratuito',
+    hours: 'Orari d’ufficio',
+    days: [5],
+    note: 'Cortile rinascimentale in centro. Giro corto di chiusura del venerdì.'
+  },
+  {
+    name: 'Stazione Zaragoza-Delicias',
+    cat: 'logistica',
+    lat: 41.6588, lng: -0.9110,
+    price: '—',
+    hours: 'Ufficio turismo (C/ Rioja 33) 10:00–20:00 tutti i giorni',
+    days: [1, 2, 3, 4, 5],
+    note: 'Zona dell’alloggio e punto di ritiro della Card. A 2,8–3 km dal centro: bus Ci3 o 34, oppure taxi 9–12 €.'
+  }
+];
+
+/* --------------------------------------------------------------------------
+   Attrazioni incluse nella Zaragoza Card (tabella §3)
+   -------------------------------------------------------------------------- */
+const CARD_ATTRACTIONS = [
+  { name: 'Palazzo dell’Aljafería (con audioguida)', price: '~5 €', value: 5,
+    hours: 'Tutti i giorni 10:00–17:15', where: 'Ovest del centro' },
+  { name: 'La Seo – Catedral del Salvador + Museo de Tapices', price: '~7 €', value: 7,
+    hours: 'Chiude a pranzo, andare presto', where: 'Centro storico' },
+  { name: 'Ascensore panoramico Torre del Pilar', price: '4 €', value: 4,
+    hours: 'Basílica aperta ~8:00–20:30', where: 'Basílica del Pilar' },
+  { name: 'Museo Pilarista', price: '~2 €', value: 2,
+    hours: 'Dentro la Basílica del Pilar', where: 'Basílica del Pilar' },
+  { name: 'Museo del Rosario de Cristal', price: '5 €', value: 5,
+    hours: 'Dentro/presso la Basílica', where: 'Basílica del Pilar' },
+  { name: 'Ruta Caesaraugusta — Museo del Foro', price: '4 €', value: 4,
+    hours: 'Lun chiuso · Mar–Sab 10–14 e 17–21 · Dom 10–14:30', where: 'Plaza de la Seo' },
+  { name: 'Ruta Caesaraugusta — Museo del Teatro', price: '4 €', value: 4,
+    hours: 'Lun chiuso · Mar–Sab 10–14 e 17–21 · Dom 10–14:30', where: 'C/ San Jorge' },
+  { name: 'Ruta Caesaraugusta — Termas Públicas', price: '3 €', value: 3,
+    hours: 'Lun chiuso · Mar–Sab 10–14 e 17–21 · Dom 10–14:30', where: 'C/ San Juan y San Pedro' },
+  { name: 'Ruta Caesaraugusta — Puerto Fluvial', price: '3 €', value: 3,
+    hours: 'Lun chiuso · Mar–Sab 10–14 e 17–21 · Dom 10–14:30', where: 'Plaza San Bruno' },
+  { name: 'Musei civici (Gargallo, Pablo Serrano/IAACC, Centro de Historias, Palacio de Sástago, Etnológico, Cerámica, Museo del Fuego)',
+    price: 'Quasi tutti già gratuiti', value: 0,
+    hours: 'Molti chiusi il lunedì', where: 'Centro storico' },
+  { name: 'Casino de Zaragoza', price: 'Incluso', value: 0,
+    hours: '—', where: 'Centro' }
+];
+
+/* Servizi inclusi oltre agli ingressi */
+const CARD_SERVICES = [
+  { name: 'Bus turistico hop-on/hop-off 24 h', detail: 'Audioguida anche in italiano. Fa un anello nel centro e non passa da Delicias.', value: '~11 €' },
+  { name: 'Visita guidata a piedi', detail: 'Una a scelta. Le passeggiate tematiche (Romano / Mudéjar / Goya) girano soprattutto nei weekend.', value: '~10 €' },
+  { name: 'Tapa + bevanda', detail: 'In locale convenzionato; in alcune versioni una seconda alla caffetteria di El Corte Inglés.', value: '4–5 €' },
+  { name: 'Trasporto pubblico urbano', detail: 'Non illimitato: 5 corse (24 h) / 7 corse (48 h) / 9 corse (72 h).', value: 'incluso' },
+  { name: 'Sconti', detail: 'CaixaForum −30%, Acquario Fluviale, Parco Divertimenti, trenino Parque Grande −40%, Monasterio de Piedra, oltre 50 ristoranti e negozi.', value: 'variabile' }
+];
+
+/* --------------------------------------------------------------------------
+   Itinerario giorno per giorno
+   -------------------------------------------------------------------------- */
+const ITINERARY = [
+  {
+    day: 1, date: 'Lunedì 10 agosto', tag: 'Sera · senza Card',
+    intro: 'Serata a costo zero, tutto a piedi in centro. Ritirare — senza attivare — la Zaragoza Card all’ufficio del turismo della stazione Delicias.',
+    stops: [
+      { time: '20:00', title: 'Basílica del Pilar', note: 'Interno gratuito, aperta fino alle ~20:30. Bellissima al tramonto.', place: 'Basílica del Pilar — Torre panoramica e musei' },
+      { time: '20:45', title: 'Puente de Piedra', note: 'La foto classica del Pilar sull’Ebro nell’ora blu.', place: 'Puente de Piedra' },
+      { time: '21:30', title: 'Bula del Tubo', note: 'Cena a tapas. È aperto il lunedì, a differenza di Meli.', place: 'Bula del Tubo' }
+    ]
+  },
+  {
+    day: 2, date: 'Martedì 11 agosto', tag: 'Giornata piena · si attiva la Card',
+    intro: 'Il giorno più denso: mattina all’Aljafería, pausa nelle ore peggiori del caldo, pomeriggio–sera sulla Ruta Caesaraugusta.',
+    stops: [
+      { time: '10:00', title: 'Palazzo dell’Aljafería', note: 'Attivare qui la Card. Andare presto per il fresco: mudéjar UNESCO, ~1,5 h. A 12–15 min a piedi da Delicias.', place: 'Palazzo dell’Aljafería', highlight: true },
+      { time: '14:00–17:00', title: 'Pranzo e pausa caldo', note: 'I musei romani chiudono comunque in questa fascia: nessuna occasione persa.' },
+      { time: '17:00', title: 'Ruta Caesaraugusta', note: 'Foro → Puerto Fluvial → Termas → Teatro. Tutti vicini e aperti fino alle 21.', place: 'Ruta Caesaraugusta — Museo del Foro' },
+      { time: 'Sera', title: 'Cena a tapas in El Tubo', note: 'Calle Estébanes e dintorni.', place: 'El Tubo' }
+    ]
+  },
+  {
+    day: 3, date: 'Mercoledì 12 agosto', tag: 'Solo mattina · eclissi nel pomeriggio',
+    intro: 'Mattina compatta su due visite vicinissime, poi pomeriggio e sera liberi per l’eclissi solare.',
+    stops: [
+      { time: '10:00', title: 'La Seo + Museo de Tapices', note: 'Arazzi tra i migliori d’Europa. Chiude a pranzo: arrivare all’apertura.', place: 'La Seo – Catedral del Salvador + Museo de Tapices' },
+      { time: '11:30', title: 'Torre del Pilar + Museo Pilarista', note: 'Ascensore panoramico e vista sulla città, a due passi da La Seo.', place: 'Basílica del Pilar — Torre panoramica e musei' },
+      { time: '~12:30', title: 'Eclissi solare', note: 'Pomeriggio e sera dedicati all’osservazione: nessuna visita in programma.', highlight: true }
+    ]
+  },
+  {
+    day: 4, date: 'Giovedì 13 agosto', tag: 'Giornata piena',
+    intro: 'Mattina in centro con la finestra stretta di San Pablo, sera sul lato Expo con rientro diretto a Delicias.',
+    stops: [
+      { time: '10:00', title: 'Iglesia de San Pablo', note: 'Torre mudéjar salibile, vista a 360°. Aperta solo 10:00–12:30.', place: 'Iglesia de San Pablo' },
+      { time: '11:30', title: 'Mercado Central', note: 'Aperitivo o spuntino nel mercato ristrutturato.', place: 'Mercado Central' },
+      { time: 'Opzionale', title: 'Museo de Zaragoza', note: 'Sale dedicate a Goya, ingresso gratuito.', place: 'Museo de Zaragoza' },
+      { time: 'Pranzo', title: 'Pausa caldo', note: '—' },
+      { time: '18:00', title: 'Acuario e zona Expo / Parque del Agua', note: 'Raggiungibile col bus turistico incluso; passeggiata serale tra Pabellón Puente e Torre del Agua.', place: 'Acuario de Zaragoza' },
+      { time: 'Sera', title: 'Cena a tapas al Meli del Tubo', note: 'L’unica serata piena in cui è aperto.', place: 'Meli del Tubo' }
+    ]
+  },
+  {
+    day: 5, date: 'Venerdì 14 agosto', tag: 'Mattina · da confermare',
+    intro: 'Se la mattina resta libera: giro corto di chiusura in centro, poi partenza per Valencia.',
+    stops: [
+      { time: 'Mattina', title: 'Patio de la Infanta e calle Alfonso I', note: 'Giro breve, utile per recuperare ciò che manca.', place: 'Patio de la Infanta' },
+      { time: '—', title: 'Partenza per Valencia', note: 'Treno o bus dalla stazione Delicias.', place: 'Stazione Zaragoza-Delicias' }
+    ]
+  }
+];
+
+/* --------------------------------------------------------------------------
+   Trasporti
+   -------------------------------------------------------------------------- */
+const TRANSPORT_ROUTES = [
+  { mode: 'Bus Ci3', detail: 'Scende a Paseo Echegaray y Caballero / Hospedería, vicino al Pilar', time: '17–19 min' },
+  { mode: 'Bus 34', detail: 'Scende ad Avda. César Augusto / Mercado Central', time: '~20 min' },
+  { mode: 'Altre linee', detail: '21, 60, C1, C4, CI1, CI2, N1 (notturna)', time: '—' },
+  { mode: 'Taxi', detail: '9–12 €', time: '~6 min' },
+  { mode: 'A piedi', detail: 'Sconsigliato con il caldo di agosto', time: '35–40 min' }
+];
+
+const TRANSPORT_FARES = [
+  { title: 'Biglietto singolo (a bordo)', price: '1,70 €' },
+  { title: 'Viaggio con Tarjeta Bus / Multiviaje', price: '0,55 €' },
+  { title: 'Biglietto notturno', price: '1 €' },
+  { title: 'Linea aeroporto (con tessera)', price: '2,25 €' },
+  { title: 'Primo trasbordo entro l’ora', price: 'Gratuito' }
+];
+
+/* --------------------------------------------------------------------------
+   Note pratiche
+   -------------------------------------------------------------------------- */
+const RULES = [
+  { icon: '☀️', title: 'Caldo di agosto (35 °C+)',
+    text: 'Attività all’aperto la mattina presto e la sera; dalle 14 alle 17 al chiuso o in pausa. La chiusura pomeridiana dei musei romani aiuta a organizzare la siesta.' },
+  { icon: '🔒', title: 'Chiusure del lunedì',
+    text: 'Ruta Caesaraugusta e quasi tutti i musei civici sono chiusi il lunedì: non attivare la Card e non pianificare musei quel giorno.' },
+  { icon: '🎫', title: 'Attivazione della Card',
+    text: 'Ritirarla all’arrivo all’ufficio di Delicias, ma attivarla martedì 11 all’Aljafería. La validità parte dal primo utilizzo, non dall’acquisto.' },
+  { icon: '⏱️', title: 'Aljafería a fasce orarie',
+    text: 'L’ingresso ha quota per fascia oraria: assicurarsi lo slot anche se l’ingresso è incluso nella Card.' },
+  { icon: '🚶', title: 'Visita guidata inclusa',
+    text: 'Nei giorni feriali di solito c’è un walking tour del casco histórico invece delle passeggiate tematiche: verificare il calendario al ritiro della Card.' },
+  { icon: '🍷', title: 'Tapas e giorni di chiusura',
+    text: 'Meli del Tubo è chiuso lunedì e martedì (usarlo giovedì); Bula del Tubo è aperto il lunedì.' }
+];
