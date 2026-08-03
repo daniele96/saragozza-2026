@@ -13,12 +13,21 @@ HTML, CSS e JavaScript vanilla, nessun passaggio di build. Le uniche dipendenze 
 Google Fonts, tutti caricati da CDN.
 
 ```
-index.html              struttura della pagina
+index.html              piano condiviso: struttura della pagina
 assets/css/styles.css   palette sabbia / terracotta mudéjar / blu Ebro / oro, mobile-first
 assets/js/data.js       tutti i dati del viaggio (luoghi, prezzi, itinerario, trasporti)
 assets/js/app.js        rendering delle sezioni, filtri e mappa
+
+privato.html            pagina di lavoro personale, non collegata dal piano condiviso
+assets/css/privato.css  stili specifici, accento sul blu Ebro per distinguerla
+assets/js/privato.js    checklist, budget, piano eclissi e appunti
+
 saragozza-pianificazione.md   documento di partenza da cui derivano i dati
 ```
+
+La pagina personale tiene spunte e appunti nel `localStorage` del browser: nulla viene inviato
+altrove, ma nulla è nemmeno sincronizzato tra dispositivi. Il pulsante *Esporta stato in .md*
+serve per portarsi via il contenuto.
 
 Per modificare contenuti si tocca solo `assets/js/data.js`: le sezioni Panoramica, Card,
 Attrazioni, Itinerario, Mappa, Trasporti e Note sono generate da quelle strutture.

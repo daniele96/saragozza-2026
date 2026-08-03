@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appunti privati — Saragozza 2026</title>
+<meta name="description" content="Pagina di lavoro personale per il viaggio a Saragozza: prenotazioni, budget, piano eclissi e appunti.">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#1F5B78">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231F5B78'/><text y='.9em' x='50' text-anchor='middle' font-size='58' font-family='Georgia,serif' fill='%23DEEAF1'>P</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/privato.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Salta al contenuto</a>
+
+<div class="ribbon">
+  <b>Pagina personale</b>
+  <span>non collegata dal sito del gruppo · spunte e appunti restano in questo browser</span>
+  <a href="index.html">→ vai al piano condiviso</a>
+</div>
+
+<header class="header">
+  <div class="header__inner">
+    <a class="brand" href="#top">
+      <span class="brand__mark" aria-hidden="true" style="background:linear-gradient(140deg,#1F5B78,#4F7A5B)">P</span>
+      Appunti privati
+      <span class="brand__sub">Saragozza 2026</span>
+    </a>
+
+    <nav class="pnav" aria-label="Navigazione della pagina">
+      <ul>
+        <li><a class="nav__link" href="#decisioni">Decisioni</a></li>
+        <li><a class="nav__link" href="#prima">Prima di partire</a></li>
+        <li><a class="nav__link" href="#eclissi">Eclissi</a></li>
+        <li><a class="nav__link" href="#budget">Soldi</a></li>
+        <li><a class="nav__link" href="#giorni">Giorni</a></li>
+        <li><a class="nav__link" href="#appunti">Appunti</a></li>
+      </ul>
+    </nav>
+
+    <button class="icon-btn" id="themeToggle" aria-label="Cambia tema chiaro/scuro" title="Cambia tema">🌙</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================ INTESTAZIONE ============================ -->
+  <section class="phead" id="top">
+    <div class="wrap">
+      <p class="phead__meta">
+        <span class="pill"><span id="countdown">—</span></span>
+        <span class="pill pill--warn"><b id="openDecisions">—</b> decisioni ancora aperte</span>
+      </p>
+
+      <h1 class="phead__title">Appunti privati</h1>
+      <p class="phead__lead">
+        La parte operativa del viaggio: cosa prenotare, quanto costa, dove guardare l’eclissi e
+        cosa difendo se il programma si accorcia. Il piano da mostrare al gruppo è
+        <a href="index.html">l’altra pagina</a>.
+      </p>
+
+      <div class="progress">
+        <div class="progress__top">
+          <span>Preparativi</span>
+          <span id="progressLabel">—</span>
+        </div>
+        <div class="progress__track" id="progressTrack" role="progressbar"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Avanzamento dei preparativi">
+          <div class="progress__bar" id="progressBar"></div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn--ghost" id="exportBtn">⬇︎ Esporta stato in .md</button>
+        <button class="btn btn--ghost" id="resetBtn">Azzera tutto</button>
+        <span class="save-state" id="saveState">Salvato</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= DECISIONI ============================= -->
+  <section class="section" id="decisioni">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Decisioni</p>
+        <h2 class="section__title">Cosa devo ancora decidere</h2>
+        <p class="section__lead">
+          Le prime tre bloccano altre cose, quindi vanno chiuse per prime. Spuntando una decisione
+          la si archivia.
+        </p>
+      </header>
+      <div class="dec-grid" id="decisions"></div>
+    </div>
+  </section>
+
+  <!-- ========================== PRIMA DI PARTIRE ========================== -->
+  <section class="section section--alt" id="prima">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Prima di partire</p>
+        <h2 class="section__title">Prenotazioni, verifiche, valigia</h2>
+        <p class="section__lead">Le spunte restano salvate in questo browser.</p>
+      </header>
+      <div class="check-grid" id="checklists"></div>
+    </div>
+  </section>
+
+  <!-- ============================== ECLISSI ============================== -->
+  <section class="section" id="eclissi">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Mercoledì 12 agosto</p>
+        <h2 class="section__title">Piano eclissi</h2>
+        <p class="section__lead">È la ragione vera del viaggio, quindi ha una sezione a sé.</p>
+      </header>
+
+      <div class="eclipse-warn">
+        <h3>⚠️ Da confermare su una fonte astronomica prima di fissare il punto</h3>
+        <p>
+          Il punto critico: questa eclissi avviene <strong>con il Sole molto basso, vicino al
+          tramonto</strong>. Se è confermato, non basta essere nel posto giusto — serve la
+          <strong>linea di vista libera verso ovest/nord-ovest</strong>. In centro storico, tra
+          palazzi e vicoli, il Sole a pochi gradi di altezza è semplicemente coperto. Per questo il
+          punto va scelto prima, non improvvisato.
+        </p>
+        <ul class="chk-list mt-1" id="eclipseVerify"></ul>
+        <p class="small mt-1">
+          Verificare su timeanddate.com o fonte equivalente cercando esattamente “Zaragoza”.
+        </p>
+      </div>
+
+      <h3 class="mt-2">Candidati come punto di osservazione</h3>
+      <div class="table-scroll">
+        <table>
+          <caption class="visually-hidden">Punti di osservazione candidati per l’eclissi</caption>
+          <thead><tr><th scope="col">Luogo</th><th scope="col">Pro</th><th scope="col">Contro</th></tr></thead>
+          <tbody id="spots"></tbody>
+        </table>
+      </div>
+
+      <div class="grid grid--2 mt-2">
+        <div class="card">
+          <h3 class="card__title">🌥️ Piano B meteo</h3>
+          <p>
+            Se la sera del 12 il cielo a ovest è coperto: verificare la mattina stessa dove le
+            nuvole basse sono meno probabili e valutare uno spostamento breve.
+            <strong>Decisione entro mezzogiorno del 12</strong>, non dopo.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">🕑 Conseguenza sul pomeriggio</h3>
+          <p>
+            Il piano pubblico tiene libero <em>tutto</em> il pomeriggio. Se la totalità è vicina al
+            tramonto, il pomeriggio è più libero del necessario: si potrebbe infilare un museo
+            civico gratuito nelle ore calde (14–17). <strong>Da decidere solo dopo aver verificato
+            gli orari</strong>: non voglio essere altrove nel momento sbagliato.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout--ebro mt-2">
+        <span class="callout__icon" aria-hidden="true">👥</span>
+        <p>
+          <strong>Nota logistica onesta:</strong> se Saragozza è in fascia di totalità, quel giorno
+          la città sarà piena — alloggi, treni e ristoranti. Va dato per scontato e prenotato prima.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== BUDGET =============================== -->
+  <section class="section section--alt" id="budget">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Soldi</p>
+        <h2 class="section__title">Budget personale</h2>
+        <p class="section__lead">Totali calcolati dalle voci qui sotto, per persona.</p>
+      </header>
+
+      <div class="grid grid--2">
+        <div>
+          <div class="table-scroll">
+            <table>
+              <caption class="visually-hidden">Budget personale del viaggio</caption>
+              <thead><tr><th scope="col">Voce</th><th scope="col" class="num">Costo</th></tr></thead>
+              <tbody id="budgetTable"></tbody>
+            </table>
+          </div>
+          <p class="small mt-1" id="budgetFoot"></p>
+        </div>
+
+        <div class="grid" style="align-content:start">
+          <div class="card">
+            <h3 class="card__title">🚫 Perché non prendo la Tarjeta Bus</h3>
+            <p>
+              Costa 7 € (5 € di credito + 2 € di cauzione) per far scendere la corsa da 1,70 € a
+              0,55 €. Con circa 4 corse fuori Card il risparmio è di pochi euro e resta il giro
+              della cauzione da recuperare: <strong>biglietti singoli, e non ci penso più.</strong>
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="card__title">❓ Da chiedere al ritiro della Card</h3>
+            <p>
+              Se la versione consegnata include anche la <strong>seconda consumazione</strong> alla
+              caffetteria di El Corte Inglés, oltre alla tapa con bevanda.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================ GIORNI ================================ -->
+  <section class="section" id="giorni">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Giorno per giorno</p>
+        <h2 class="section__title">Note operative</h2>
+        <p class="section__lead">
+          Solo le cose che sul sito del gruppo non ci sono: cosa non sbagliare, e cosa si sacrifica.
+        </p>
+      </header>
+      <div class="dn-grid" id="dayNotes"></div>
+    </div>
+  </section>
+
+  <!-- ============================== PRIORITÀ ============================== -->
+  <section class="section section--alt" id="priorita">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Priorità</p>
+        <h2 class="section__title">Cosa difendo, in ordine</h2>
+        <p class="section__lead">
+          Se il caldo, la stanchezza o il gruppo tagliano il programma, si taglia dal fondo.
+        </p>
+      </header>
+
+      <div class="grid grid--2">
+        <ol class="prio-list" id="priorities"></ol>
+
+        <div>
+          <h3 class="card__title">⚠️ Rischi e come li gestisco</h3>
+          <div class="table-scroll">
+            <table>
+              <caption class="visually-hidden">Rischi del viaggio e relative contromisure</caption>
+              <thead><tr><th scope="col">Rischio</th><th scope="col">Contromisura</th></tr></thead>
+              <tbody id="risks"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== APPUNTI =============================== -->
+  <section class="section" id="appunti">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Appunti</p>
+        <h2 class="section__title">Diario di viaggio</h2>
+        <p class="section__lead">
+          Si salva da sé mentre scrivi, nel browser di questo dispositivo. Con
+          <em>Esporta stato in .md</em> te lo porti via.
+        </p>
+      </header>
+      <div class="notes-grid" id="notes"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>Pagina di lavoro personale · Saragozza, 10–14 agosto 2026</p>
+    <p><a href="index.html">Piano condiviso del gruppo →</a></p>
+  </div>
+</footer>
+
+<script src="assets/js/privato.js"></script>
+</body>
+</html>

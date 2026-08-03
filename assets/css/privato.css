@@ -1,0 +1,337 @@
+/* ==========================================================================
+   Saragozza 2026 — stili della pagina di lavoro personale
+   Estende styles.css. Accento spostato sul blu Ebro per distinguerla a vista
+   dalla pagina pubblica.
+   ========================================================================== */
+
+/* Nastro superiore: rende evidente che non è la pagina del gruppo */
+.ribbon {
+  background: var(--ebro-dark);
+  color: #fff;
+  font-size: .8rem;
+  text-align: center;
+  padding: .45rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem .7rem;
+  align-items: center;
+  justify-content: center;
+}
+.ribbon b { letter-spacing: .08em; text-transform: uppercase; font-size: .72rem; }
+.ribbon a { color: #fff; }
+:root[data-theme="dark"] .ribbon { background: #14212A; color: var(--text); }
+:root[data-theme="dark"] .ribbon a { color: var(--link); }
+
+/* Navigazione della pagina personale: sempre in riga, scorrevole su schermi piccoli */
+.pnav { margin-left: auto; min-width: 0; overflow: hidden; }
+.pnav ul {
+  display: flex;
+  align-items: center;
+  gap: .15rem;
+  list-style: none;
+  margin: 0; padding: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.pnav ul::-webkit-scrollbar { display: none; }
+.pnav .nav__link { white-space: nowrap; }
+@media (max-width: 900px) {
+  .pnav .nav__link { padding: .42rem .5rem; font-size: .82rem; }
+  .brand__sub { display: none; }
+}
+/* Sotto questa soglia i link verrebbero tagliati a metà: meglio nasconderli */
+@media (max-width: 760px) {
+  .pnav { display: none; }
+}
+
+/* Intestazione della pagina */
+.phead {
+  padding-block: clamp(2rem, 6vw, 3.25rem) clamp(1.5rem, 4vw, 2.25rem);
+  background:
+    radial-gradient(110% 100% at 90% 0%, var(--ebro-soft) 0%, transparent 55%),
+    var(--bg);
+  border-bottom: 1px solid var(--border-soft);
+}
+.phead__title { font-size: clamp(1.9rem, 6vw, 2.9rem); margin-bottom: .4rem; }
+.phead__lead { color: var(--text-muted); max-width: 62ch; }
+
+.phead__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem .75rem;
+  align-items: center;
+  margin-bottom: 1.1rem;
+  font-size: .84rem;
+  color: var(--text-muted);
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .28rem .7rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+.pill b { color: var(--text); }
+.pill--warn { background: var(--gold-soft); border-color: color-mix(in srgb, var(--gold) 35%, transparent); }
+
+/* Barra di avanzamento */
+.progress { margin-top: 1.5rem; max-width: 560px; }
+.progress__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: .4rem;
+}
+.progress__track {
+  height: 9px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+}
+.progress__bar {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ebro), var(--green));
+  transition: width .35s ease;
+}
+
+/* Barra azioni */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  align-items: center;
+  margin-top: 1.25rem;
+}
+.actions .small { margin-left: auto; }
+.save-state { opacity: 0; transition: opacity .2s ease; font-size: .8rem; color: var(--green); font-weight: 600; }
+.save-state.is-on { opacity: 1; }
+
+/* --------------------------------------------------------------------------
+   Decisioni aperte
+   -------------------------------------------------------------------------- */
+.dec-grid { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); }
+
+.dec {
+  display: flex;
+  gap: .85rem;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-left: 3px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow-sm);
+  transition: opacity .2s ease;
+}
+.dec--alta  { border-left-color: var(--terracotta); }
+.dec--media { border-left-color: var(--gold); }
+.dec--bassa { border-left-color: var(--green); }
+.dec.is-done { opacity: .5; }
+.dec.is-done .dec__what span { text-decoration: line-through; }
+
+.dec__num {
+  flex: 0 0 auto;
+  width: 26px; height: 26px;
+  display: grid; place-items: center;
+  border-radius: 8px;
+  background: var(--surface-2);
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.dec__body { min-width: 0; }
+.dec__what {
+  display: flex;
+  gap: .55rem;
+  align-items: flex-start;
+  font-size: .96rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: .3rem;
+}
+.dec__why { font-size: .88rem; color: var(--text-muted); margin: 0 0 .5rem; }
+.dec__when {
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ebro-dark);
+  background: var(--ebro-soft);
+  padding: .2rem .55rem;
+  border-radius: 999px;
+}
+
+/* --------------------------------------------------------------------------
+   Checkbox e liste
+   -------------------------------------------------------------------------- */
+input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 18px; height: 18px;
+  margin: .15rem 0 0;
+  accent-color: var(--ebro);
+  cursor: pointer;
+}
+
+.chk-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .1rem; }
+.chk label {
+  display: flex;
+  gap: .6rem;
+  align-items: flex-start;
+  padding: .4rem .45rem;
+  border-radius: var(--radius-sm);
+  font-size: .92rem;
+  cursor: pointer;
+  transition: background .12s ease;
+}
+.chk label:hover { background: var(--surface-2); }
+.chk input:checked + span { color: var(--text-muted); text-decoration: line-through; }
+
+.clist { display: flex; flex-direction: column; }
+.clist__note { font-size: .85rem; color: var(--text-muted); margin: -.1rem 0 .6rem; }
+.clist__count {
+  margin-left: auto;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border-radius: 999px;
+  padding: .1rem .5rem;
+  font-variant-numeric: tabular-nums;
+}
+.clist__count.is-complete { background: color-mix(in srgb, var(--green) 22%, transparent); color: var(--green); }
+.clist .card__title { align-items: center; }
+
+.check-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+
+/* --------------------------------------------------------------------------
+   Eclissi
+   -------------------------------------------------------------------------- */
+.eclipse-warn {
+  background: var(--gold-soft);
+  border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+  border-radius: var(--radius);
+  padding: 1.15rem 1.3rem;
+}
+.eclipse-warn h3 { font-family: var(--font-body); font-size: .98rem; margin: 0 0 .5rem; }
+.eclipse-warn p { font-size: .93rem; }
+
+/* --------------------------------------------------------------------------
+   Budget
+   -------------------------------------------------------------------------- */
+.bd__note { display: block; font-size: .8rem; color: var(--text-muted); margin-top: .15rem; }
+.bd__head td {
+  background: var(--surface-2);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.bd__total td {
+  border-top: 2px solid var(--border);
+  font-weight: 700;
+  font-size: 1rem;
+  background: color-mix(in srgb, var(--ebro-soft) 55%, transparent);
+}
+.bd__total td.num { font-family: var(--font-display); font-size: 1.15rem; }
+
+/* --------------------------------------------------------------------------
+   Note per giorno
+   -------------------------------------------------------------------------- */
+.dn-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.dn {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  box-shadow: var(--shadow-sm);
+}
+.dn__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .6rem; margin-bottom: .7rem; }
+.dn__title { font-size: 1.15rem; margin: 0; }
+.dn__sub { font-size: .78rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--text-muted); }
+.dn__list { margin: 0; padding-left: 1.15rem; display: grid; gap: .45rem; }
+.dn__list li { font-size: .91rem; color: var(--text-muted); }
+.dn__list li strong { color: var(--text); }
+.dn__key {
+  list-style: none;
+  margin-left: -1.15rem;
+  padding: .6rem .8rem;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--text) !important;
+  border-left: 3px solid var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   Priorità
+   -------------------------------------------------------------------------- */
+.prio-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; counter-reset: p; }
+.prio {
+  display: flex;
+  gap: .7rem;
+  align-items: baseline;
+  padding: .5rem .7rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  font-size: .93rem;
+}
+.prio__n {
+  flex: 0 0 auto;
+  width: 22px; height: 22px;
+  display: grid; place-items: center;
+  border-radius: 6px;
+  background: var(--surface-2);
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.prio:nth-child(1) .prio__n,
+.prio:nth-child(2) .prio__n,
+.prio:nth-child(3) .prio__n { background: var(--accent); color: #fff; }
+:root[data-theme="dark"] .prio:nth-child(-n+3) .prio__n { color: #201A16; }
+.prio__note { color: var(--text-muted); }
+
+/* --------------------------------------------------------------------------
+   Appunti
+   -------------------------------------------------------------------------- */
+.notes-grid { display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.note { display: grid; gap: .35rem; }
+.note__label {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.note textarea {
+  width: 100%;
+  resize: vertical;
+  padding: .7rem .8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: .92rem;
+  line-height: 1.55;
+  box-shadow: var(--shadow-sm);
+}
+.note textarea:focus-visible { outline: 2px solid var(--ebro); outline-offset: 1px; }
+
+@media print {
+  .ribbon, .actions, .progress { display: none !important; }
+}
