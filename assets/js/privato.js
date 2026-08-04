@@ -777,7 +777,9 @@
           '<span class="wb__tag">' + BAG_TARGET + ' kg Wizz, il limite che conta</span>' +
         '</p>' +
         '<p class="small">Restano <strong>' + kgFmt(Math.max(0, BAG_TARGET - total)) +
-        '</strong> di margine sul limite Wizz, da tenere per il ritorno.</p>';
+        '</strong> di margine sul limite Wizz. Per il ritorno servono ' +
+        '<strong>~0,5 kg</strong>: qualche calamita e due magliette. Il margine basta con ' +
+        'quasi un chilo di avanzo.</p>';
     }
 
     // Liquidi
