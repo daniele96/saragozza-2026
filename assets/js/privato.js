@@ -246,7 +246,7 @@
         { id: 't10', text: 'Ciabatte da doccia — indispensabili al campeggio', kg: 0.25 },
         { id: 't11', text: 'Necessaire: spazzolino, dentifricio, rasoio, pettine — il deodorante lo compri lì', kg: 0.4 },
         { id: 't12', text: 'Busta liquidi da 1 litro: shampoo, maschera capelli, crema ricci, crema modellante, doposole', kg: 0.6 },
-        { id: 't12b', text: 'Filtro per la doccia / raccogli-capelli', kg: 0.1 },
+        { id: 't12b', text: 'Raccogli-capelli da scarico — solido, non occupa la busta liquidi', kg: 0.05 },
         { id: 't13', text: 'Salviette umidificate e gel per le mani', kg: 0.2 },
         { id: 't14', text: 'Kit salute: ibuprofene, cerotti per vesciche, sali minerali, antidiarroico, doposole', kg: 0.3 },
         { id: 't15', text: 'Detersivo da viaggio, 4 mollette, 2 m di cordino', kg: 0.15 },
