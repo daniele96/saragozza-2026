@@ -346,7 +346,7 @@
     { when: '15 ago', where: 'Suites Rooms Valencia — senza lavatrice',
       what: 'Lavaggio a mano nel lavandino: magliette, slip, calze. A 35 °C asciuga in poche ore. È l’ultimo bagno privato prima di 7 notti in tenda' },
     { when: '16–22 ago', where: 'Campeggio del Rototom — laundry box',
-      what: 'Nel campeggio ci sono lavatrici e asciugatrici a monete: mettere da parte le monete, non spenderle al bar', key: true },
+      what: 'Lavatrici e asciugatrici a monete. Il prezzo non è pubblicato: in Spagna un lavaggio parte da ~4,50 € e l’asciugatura costa altrettanto, quindi metti da parte 10–15 € in monete da 1 e 2 €. Con 35 °C l’asciugatrice puoi saltarla: stendi sul cordino e paghi solo il lavaggio', key: true },
     { when: 'Riserva', where: 'Benicàssim paese — LAVAMAC',
       what: 'Lavanderia self service in C/ Mossén Elies 6, la stessa via dell’ufficio del festival. Utile se il laundry box è in coda o guasto' }
   ];
