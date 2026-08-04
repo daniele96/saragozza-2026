@@ -231,17 +231,22 @@
       note: 'L’unico contenitore con un limite controllato. Le stime di peso sono indicative.',
       items: [
         { id: 't1', text: '5 magliette leggere', kg: 0.6 },
+        { id: 't1b', text: '2 canottiere — per le giornate “scialla” al Rototom', kg: 0.2 },
+        { id: 't1c', text: '4 camicie leggere — con 3 risparmi 0,19 kg', kg: 0.75 },
         { id: 't2', text: '2 pantaloncini', kg: 0.4 },
+        { id: 't2b', text: '2 pantaloni lunghi super leggeri — uno lo indossi in aereo, quindi nel trolley ne pesa uno', kg: 0.25 },
         { id: 't3', text: '1 maglia a maniche lunghe leggera — chiese, aria condizionata, sere in tenda', kg: 0.2 },
         { id: 't4', text: '8 slip', kg: 0.3 },
-        { id: 't5', text: '4 paia di calze corte', kg: 0.15 },
+        { id: 't5', text: '5 paia di calze corte', kg: 0.2 },
         { id: 't6', text: '1 costume da bagno — Benicàssim e Valencia sono sul mare', kg: 0.15 },
         { id: 't7', text: '1 telo in microfibra grande: asciugamano e telo mare insieme', kg: 0.3 },
+        { id: 't7b', text: 'Secondo telo in microfibra piccolo, solo per il mare — opzionale', kg: 0.2 },
         { id: 't8', text: 'Cappello', kg: 0.1 },
         { id: 't9', text: 'Poncho o K-way ultraleggero', kg: 0.15 },
         { id: 't10', text: 'Ciabatte da doccia — indispensabili al campeggio', kg: 0.25 },
-        { id: 't11', text: 'Necessaire: spazzolino, dentifricio, deodorante, rasoio, pettine', kg: 0.5 },
-        { id: 't12', text: 'Busta trasparente da 1 litro con i liquidi da max 100 ml', kg: 0.5 },
+        { id: 't11', text: 'Necessaire: spazzolino, dentifricio, rasoio, pettine — il deodorante lo compri lì', kg: 0.4 },
+        { id: 't12', text: 'Busta liquidi da 1 litro: shampoo, maschera capelli, crema ricci, crema modellante, doposole', kg: 0.6 },
+        { id: 't12b', text: 'Filtro per la doccia / raccogli-capelli', kg: 0.1 },
         { id: 't13', text: 'Salviette umidificate e gel per le mani', kg: 0.2 },
         { id: 't14', text: 'Kit salute: ibuprofene, cerotti per vesciche, sali minerali, antidiarroico, doposole', kg: 0.3 },
         { id: 't15', text: 'Detersivo da viaggio, 4 mollette, 2 m di cordino', kg: 0.15 },
@@ -334,9 +339,24 @@
   ];
 
   const LAUNDRY = [
-    { when: '10–13 ago', where: 'Alloggio a Saragozza', what: 'Verificare se c’è la lavatrice: è l’occasione migliore' },
-    { when: '15 ago', where: 'Suites Rooms Valencia', what: 'Il lavaggio importante: è l’ultimo bagno vero prima di 7 notti in tenda. Parti per il festival con tutto pulito', key: true },
-    { when: '16–22 ago', where: 'Campeggio', what: 'Lavaggio a mano di magliette e biancheria, asciugatura al sole sul cordino' }
+    { when: '12 o 13 ago', where: 'Alloggio a Saragozza — c’è la lavatrice',
+      what: 'Il lavaggio grosso, l’unico in lavatrice con calma. Farlo il 12 o la mattina del 13, non la sera del 13: deve essere asciutto prima di partire il 14', key: true },
+    { when: '15 ago', where: 'Suites Rooms Valencia — senza lavatrice',
+      what: 'Lavaggio a mano nel lavandino: magliette, slip, calze. A 35 °C asciuga in poche ore. È l’ultimo bagno privato prima di 7 notti in tenda' },
+    { when: '16–22 ago', where: 'Campeggio del Rototom — laundry box',
+      what: 'Nel campeggio ci sono lavatrici e asciugatrici a monete: mettere da parte le monete, non spenderle al bar', key: true },
+    { when: 'Riserva', where: 'Benicàssim paese — LAVAMAC',
+      what: 'Lavanderia self service in C/ Mossén Elies 6, la stessa via dell’ufficio del festival. Utile se il laundry box è in coda o guasto' }
+  ];
+
+  /* Consumabili da comprare in Spagna invece di portarli */
+  const BUY_THERE = [
+    { what: 'Deodorante', why: 'generico, si trova ovunque, e se è stick non occupa la busta liquidi' },
+    { what: 'Bagnoschiuma', why: 'inutile portarlo: 100 ml non bastano per 14 giorni' },
+    { what: 'Detersivo per lavatrice', why: 'serve sia a Saragozza sia al laundry box del campeggio' },
+    { what: 'Crema solare, confezione grande', why: 'il flaconcino da 100 ml copre due o tre giorni, non due settimane' },
+    { what: 'Shampoo, ma solo se è un prodotto qualsiasi', why: 'se usi uno specifico per ricci, portalo: lì rischi di non trovare l’equivalente' },
+    { what: 'Acqua', why: 'ogni giorno, e la borraccia si riempie alle fontane' }
   ];
 
   const FINAL_CHECK = [
@@ -779,6 +799,13 @@
       nb.innerHTML = NOT_BRING.map((n) =>
         '<li><strong>' + esc(n.text) + '</strong>' +
         (n.why !== '—' ? ' — <span class="nb__why">' + esc(n.why) + '</span>' : '') + '</li>'
+      ).join('');
+    }
+
+    const buy = $('#buyThere');
+    if (buy) {
+      buy.innerHTML = BUY_THERE.map((b) =>
+        '<li><strong>' + esc(b.what) + '</strong> — <span class="nb__why">' + esc(b.why) + '</span></li>'
       ).join('');
     }
 

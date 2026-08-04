@@ -32,8 +32,8 @@ const PLACES = [
     lat: 41.6560942, lng: -0.8970488,
     price: '~5 € (incluso)',
     hours: 'Tutti i giorni 10:00–17:15',
-    days: [2],
-    note: 'Mudéjar UNESCO, ~1,5 h. Qui si attiva la Card. Ingresso a fasce orarie con quota: assicurarsi lo slot. A 12–15 min a piedi da Delicias.'
+    days: [4],
+    note: 'Mudéjar UNESCO, ~1,5 h. Chiude alle 17:15: nelle ore calde è la visita al chiuso giusta. Ingresso a fasce orarie con quota: assicurarsi lo slot. A 12–15 min a piedi da Delicias.'
   },
   {
     name: 'La Seo – Catedral del Salvador + Museo de Tapices',
@@ -60,7 +60,7 @@ const PLACES = [
     price: '4 € (incluso)',
     hours: 'Lun chiuso · Mar–Sab 10–14 e 17–21 · Dom 10–14:30',
     days: [2],
-    note: 'Primo dei quattro siti romani. Bono combinato dei 4 musei: 7 €.'
+    note: 'Primo dei quattro siti romani, e primo ingresso incluso del viaggio: qui si attiva la Card. Bono combinato dei 4 musei: 7 €.'
   },
   {
     name: 'Ruta Caesaraugusta — Museo del Teatro',
@@ -158,8 +158,8 @@ const PLACES = [
     lat: 41.6510, lng: -0.8770,
     price: 'Gratuito',
     hours: 'Chiuso il lunedì',
-    days: [4],
-    note: 'Sale dedicate a Goya. Opzionale, da infilare se la mattina di giovedì avanza tempo.'
+    days: [2],
+    note: 'Sale dedicate a Goya. Opzionale e gratuito, da infilare se la mattina di martedì avanza tempo dopo i siti romani.'
   },
   {
     name: 'Acuario de Zaragoza',
@@ -252,11 +252,12 @@ const ITINERARY = [
   },
   {
     day: 2, date: 'Martedì 11 agosto', tag: 'Giornata piena · si attiva la Card',
-    intro: 'Il giorno più denso: mattina all’Aljafería, pausa nelle ore peggiori del caldo, pomeriggio–sera sulla Ruta Caesaraugusta.',
+    intro: 'La giornata della Caesaraugusta romana, spezzata in due dalla chiusura di metà giornata dei musei. Tutto nel centro storico, a piedi.',
     stops: [
-      { time: '10:00', title: 'Palazzo dell’Aljafería', note: 'Attivare qui la Card. Andare presto per il fresco: mudéjar UNESCO, ~1,5 h. A 12–15 min a piedi da Delicias.', place: 'Palazzo dell’Aljafería', highlight: true },
+      { time: '10:00', title: 'Ruta Caesaraugusta — Foro e Puerto Fluvial', note: 'Attivare qui la Card, al Museo del Foro: è il primo ingresso incluso del viaggio. I due siti sono entrambi in Plaza de la Seo.', place: 'Ruta Caesaraugusta — Museo del Foro', highlight: true },
+      { time: '~12:30', title: 'Museo de Zaragoza', note: 'Opzionale, gratuito e al chiuso: sale dedicate a Goya. Utile per riempire la mattina prima della pausa.', place: 'Museo de Zaragoza' },
       { time: '14:00–17:00', title: 'Pranzo e pausa caldo', note: 'I musei romani chiudono comunque in questa fascia: nessuna occasione persa.' },
-      { time: '17:00', title: 'Ruta Caesaraugusta', note: 'Foro → Puerto Fluvial → Termas → Teatro. Tutti vicini e aperti fino alle 21.', place: 'Ruta Caesaraugusta — Museo del Foro' },
+      { time: '17:00', title: 'Ruta Caesaraugusta — Termas e Teatro', note: 'Aperti fino alle 21. Il Teatro è il più scenografico dei quattro.', place: 'Ruta Caesaraugusta — Museo del Teatro' },
       { time: 'Sera', title: 'Cena a tapas in El Tubo', note: 'Calle Estébanes e dintorni.', place: 'El Tubo' }
     ]
   },
@@ -271,13 +272,13 @@ const ITINERARY = [
   },
   {
     day: 4, date: 'Giovedì 13 agosto', tag: 'Giornata piena',
-    intro: 'Mattina in centro con la finestra stretta di San Pablo, sera sul lato Expo con rientro diretto a Delicias.',
+    intro: 'La giornata più piena, e scorre tutta da est a ovest: la finestra stretta di San Pablo, l’Aljafería nelle ore calde, la zona Expo la sera e rientro diretto a Delicias.',
     stops: [
-      { time: '10:00', title: 'Iglesia de San Pablo', note: 'Torre mudéjar salibile, vista a 360°. Aperta solo 10:00–12:30.', place: 'Iglesia de San Pablo' },
-      { time: '11:30', title: 'Mercado Central', note: 'Aperitivo o spuntino nel mercato ristrutturato.', place: 'Mercado Central' },
-      { time: 'Opzionale', title: 'Museo de Zaragoza', note: 'Sale dedicate a Goya, ingresso gratuito.', place: 'Museo de Zaragoza' },
-      { time: 'Pranzo', title: 'Pausa caldo', note: '—' },
-      { time: '18:00', title: 'Acuario e zona Expo / Parque del Agua', note: 'Raggiungibile col bus turistico incluso; passeggiata serale tra Pabellón Puente e Torre del Agua.', place: 'Acuario de Zaragoza' },
+      { time: '10:00', title: 'Iglesia de San Pablo', note: 'Torre mudéjar salibile, vista a 360°. Aperta solo 10:00–12:30: è l’unico giorno utile del viaggio.', place: 'Iglesia de San Pablo' },
+      { time: '11:30', title: 'Mercado Central', note: 'Aperitivo o spuntino nel mercato ristrutturato. Chiude alle 14.', place: 'Mercado Central' },
+      { time: '13:00', title: 'Pranzo', note: 'Breve: il pomeriggio è pieno.' },
+      { time: '15:00', title: 'Palazzo dell’Aljafería', note: 'Mudéjar UNESCO, ~1,5 h. Chiude alle 17:15, quindi bisogna essere dentro entro le 15:30. Al chiuso nelle ore peggiori del caldo, e sulla strada verso ovest.', place: 'Palazzo dell’Aljafería', highlight: true },
+      { time: '18:00', title: 'Acuario e zona Expo / Parque del Agua', note: 'Passeggiata serale tra Pabellón Puente e Torre del Agua. Linee 48 / Ci1 / Ci2 per rientrare a Delicias.', place: 'Acuario de Zaragoza' },
       { time: 'Sera', title: 'Cena a tapas al Meli del Tubo', note: 'L’unica serata piena in cui è aperto.', place: 'Meli del Tubo' }
     ]
   },
@@ -319,7 +320,7 @@ const RULES = [
   { icon: '🔒', title: 'Chiusure del lunedì',
     text: 'Ruta Caesaraugusta e quasi tutti i musei civici sono chiusi il lunedì: non attivare la Card e non pianificare musei quel giorno.' },
   { icon: '🎫', title: 'Attivazione della Card',
-    text: 'Ritirarla all’arrivo all’ufficio di Delicias, ma attivarla martedì 11 all’Aljafería. La validità parte dal primo utilizzo, non dall’acquisto.' },
+    text: 'Ritirarla all’arrivo all’ufficio di Delicias, ma attivarla martedì 11 al Museo del Foro, primo ingresso incluso del viaggio. La validità parte dal primo utilizzo, non dall’acquisto: attivata martedì mattina, copre anche l’Aljafería di giovedì.' },
   { icon: '⏱️', title: 'Aljafería a fasce orarie',
     text: 'L’ingresso ha quota per fascia oraria: assicurarsi lo slot anche se l’ingresso è incluso nella Card.' },
   { icon: '🚶', title: 'Visita guidata inclusa',
