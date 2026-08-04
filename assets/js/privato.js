@@ -249,8 +249,7 @@
         { id: 't17', text: 'Tappi per le orecchie e mascherina per dormire', kg: 0.05 },
         { id: 't18', text: 'Adattatore Schuko o ciabattina piccola', kg: 0.2 },
         { id: 't19', text: 'Occhiali da eclissi ISO 12312-2, uno più uno di scorta', kg: 0.05 },
-        { id: 't20', text: 'Filtro solare per l’obiettivo, se fotografi', kg: 0.1 },
-        { id: 't21', text: 'Treppiede: mini da tavolo (~0,3 kg) o quello vero (1–1,5 kg) — con 10 kg reali ci sta', kg: 0.3 }
+        { id: 't20', text: 'Filtro solare per l’obiettivo, solo se porti una fotocamera con ottica', kg: 0.1 }
       ]
     },
     {
@@ -282,13 +281,17 @@
   /* Liquidi in cabina: va tutto a mano, quindi si passano i controlli tre volte */
   const LIQUIDS = {
     rules: [
-      'Massimo <strong>100 ml per contenitore</strong> (100 g per le creme).',
-      'Tutti i contenitori in <strong>una sola busta trasparente richiudibile da 1 litro</strong>, circa 20 × 20 cm. Una busta per passeggero, non una per bagaglio.',
+      'Massimo <strong>100 ml per contenitore</strong> (100 g per le creme). Contenitori più piccoli, tipo da 75 ml, vanno benissimo: il limite è un massimo, non una misura obbligata.',
+      'Tutti i contenitori in <strong>una sola busta trasparente richiudibile da massimo 1 litro</strong>, circa 20 × 20 cm. Una busta per passeggero, non una per bagaglio.',
       'La busta va <strong>tirata fuori e mostrata</strong> al controllo: tienila in cima o nello zaino.'
     ],
     trap: 'Conta la <strong>capacità dichiarata del contenitore</strong>, non quanto c’è dentro. ' +
           'Un flacone da 200 ml mezzo vuoto viene sequestrato. Travasare in flaconcini da 100 ml, ' +
           'non “portare quello grande quasi finito”.',
+    trap2: 'Il litro <strong>non è una quantità di liquido a cui hai diritto</strong>: è la capacità ' +
+           'della busta, che deve chiudersi senza forzare. In una busta da 20 × 20 cm entrano ' +
+           'realisticamente <strong>8–9 flaconi da 100 ml</strong>, qualcuno in più se sono da 75. ' +
+           'Il vincolo vero è lo spazio nella busta, non la somma dei millilitri.',
     counts: [
       'Creme, crema solare, doposole',
       'Gel, dentifricio, deodorante roll-on e spray, schiuma da barba',
@@ -364,7 +367,7 @@
       con: 'Alberatura da evitare. Sarà il posto più affollato della città.' },
     { name: 'Puente del Tercer Milenio',
       pro: 'Ponte alto sull’Ebro, vista aperta lungo il fiume.',
-      con: 'Passerella pubblica: folla e vibrazioni, scomodo col treppiede.' },
+      con: 'Passerella pubblica: folla e passaggio continuo, poco spazio per fermarsi.' },
     { name: 'Riva dell’Ebro, lato nord',
       pro: 'Il fiume apre l’orizzonte, ampia scelta di punti.',
       con: 'Da verificare che il Sole non tramonti dietro l’edificato.' },
@@ -766,6 +769,8 @@
     fill('#liqExceptions', LIQUIDS.exceptions);
     const liqTrap = $('#liqTrap');
     if (liqTrap) liqTrap.innerHTML = LIQUIDS.trap;
+    const liqTrap2 = $('#liqTrap2');
+    if (liqTrap2) liqTrap2.innerHTML = LIQUIDS.trap2;
     const liqChk = $('#liqCheck');
     if (liqChk) liqChk.innerHTML = LIQUIDS.checklist.map((c) => checkbox(c.id, esc(c.text))).join('');
 
