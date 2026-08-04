@@ -279,6 +279,44 @@
     }
   ];
 
+  /* Liquidi in cabina: va tutto a mano, quindi si passano i controlli tre volte */
+  const LIQUIDS = {
+    rules: [
+      'Massimo <strong>100 ml per contenitore</strong> (100 g per le creme).',
+      'Tutti i contenitori in <strong>una sola busta trasparente richiudibile da 1 litro</strong>, circa 20 × 20 cm. Una busta per passeggero, non una per bagaglio.',
+      'La busta va <strong>tirata fuori e mostrata</strong> al controllo: tienila in cima o nello zaino.'
+    ],
+    trap: 'Conta la <strong>capacità dichiarata del contenitore</strong>, non quanto c’è dentro. ' +
+          'Un flacone da 200 ml mezzo vuoto viene sequestrato. Travasare in flaconcini da 100 ml, ' +
+          'non “portare quello grande quasi finito”.',
+    counts: [
+      'Creme, crema solare, doposole',
+      'Gel, dentifricio, deodorante roll-on e spray, schiuma da barba',
+      'Mascara, balsamo labbra in vasetto, profumi',
+      'Soluzione per lenti a contatto',
+      'Miele, marmellata, yogurt, formaggi molli — se compri souvenir alimentari'
+    ],
+    solids: [
+      'Deodorante <strong>stick</strong>',
+      '<strong>Sapone e shampoo solido</strong>',
+      '<strong>Dentifricio in pastiglie</strong>',
+      'Crema solare stick, balsamo labbra stick'
+    ],
+    exceptions: [
+      'Farmaci liquidi oltre i 100 ml: ammessi se necessari, con prescrizione o documentazione, da dichiarare al controllo',
+      'Alimenti per bambini ed esigenze dietetiche particolari'
+    ],
+    checklist: [
+      { id: 'l1', text: 'Busta trasparente richiudibile da 1 litro, una sola' },
+      { id: 'l2', text: 'Travasare tutto in flaconcini da massimo 100 ml di capacità' },
+      { id: 'l3', text: 'Controllare la capacità stampata su ogni contenitore, non il contenuto residuo' },
+      { id: 'l4', text: 'Sostituire con i solidi: deodorante stick, sapone solido, dentifricio in pastiglie' },
+      { id: 'l5', text: 'Eventuali farmaci liquidi con documentazione, dichiarati al controllo' },
+      { id: 'l6', text: 'Busta raggiungibile senza smontare la valigia' },
+      { id: 'l7', text: 'Se vuoi una bottiglia da portare a casa: comprarla in duty free a Valencia il 23' }
+    ]
+  };
+
   const NOT_BRING = [
     { text: 'Materasso, lenzuola, torcia, lucchetto', why: 'sono già nella tenda, e il regolamento vieta di portarli fuori' },
     { text: 'Jeans', why: 'pesano, occupano, e a 35 °C non li metti' },
@@ -717,6 +755,20 @@
         '</strong> di margine sul limite Wizz, da tenere per il ritorno.</p>';
     }
 
+    // Liquidi
+    const fill = (id, items) => {
+      const el = $(id);
+      if (el) el.innerHTML = items.map((i) => '<li>' + i + '</li>').join('');
+    };
+    fill('#liqRules', LIQUIDS.rules);
+    fill('#liqCounts', LIQUIDS.counts);
+    fill('#liqSolids', LIQUIDS.solids);
+    fill('#liqExceptions', LIQUIDS.exceptions);
+    const liqTrap = $('#liqTrap');
+    if (liqTrap) liqTrap.innerHTML = LIQUIDS.trap;
+    const liqChk = $('#liqCheck');
+    if (liqChk) liqChk.innerHTML = LIQUIDS.checklist.map((c) => checkbox(c.id, esc(c.text))).join('');
+
     const nb = $('#notBring');
     if (nb) {
       nb.innerHTML = NOT_BRING.map((n) =>
@@ -865,6 +917,7 @@
     const ids = DECISIONS.map((d) => d.id).concat(ECLIPSE_VERIFY.map((e) => e.id));
     CHECKLISTS.forEach((g) => g.items.forEach((it) => ids.push(it.id)));
     PACK.forEach((g) => g.items.forEach((it) => ids.push(it.id)));
+    LIQUIDS.checklist.forEach((c) => ids.push(c.id));
     FINAL_CHECK.forEach((f) => ids.push(f.id));
     return ids;
   }
@@ -972,6 +1025,10 @@
         (it.kg ? ' (' + kgFmt(it.kg) + ')' : '')));
       out.push('');
     });
+
+    out.push('## Liquidi');
+    LIQUIDS.checklist.forEach((c) => out.push('- ' + mark(c.id) + ' ' + c.text));
+    out.push('');
 
     out.push('## Controllo finale, la sera del 9');
     FINAL_CHECK.forEach((f) => out.push('- ' + mark(f.id) + ' ' + f.text));

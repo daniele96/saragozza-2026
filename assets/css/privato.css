@@ -425,6 +425,11 @@ input[type="checkbox"] {
   white-space: nowrap;
 }
 
+/* Liquidi */
+.liq-list { margin: .2rem 0 0; padding-left: 1.3rem; display: grid; gap: .45rem; }
+.liq-list li { font-size: .91rem; }
+.liq-list li strong { color: var(--text); }
+
 /* Cosa non portare */
 .nb-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
 .nb-list li { font-size: .9rem; display: flex; gap: .55rem; }
