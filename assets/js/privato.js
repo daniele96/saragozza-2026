@@ -172,50 +172,141 @@
       ]
     },
     {
-      id: 'bag', icon: '🎒', title: 'Bagaglio',
-      note: 'Un solo bagaglio per tre contesti: città a 35 °C, una settimana in tenda, due compagnie diverse.',
+      id: 'bag', icon: '⚖️', title: 'Verifiche sul bagaglio',
+      note: 'Da chiudere prima di fare la valigia: cambiano cosa ci sta dentro.',
       items: [
-        { id: 'b1', text: 'Verificare la franchigia di bagaglio a mano + zainetto su Wizz Air (10 ago) e ITA (23 ago): sono misure diverse' },
-        { id: 'b2', text: 'Pesare e misurare il bagaglio a casa, non all’aeroporto' },
-        { id: 'b3', text: 'NON portare materasso, lenzuola, torcia e lucchetto: sono già nella tenda' },
-        { id: 'b4', text: 'Borsa morbida meglio del trolley rigido: in tenda lo spazio è poco' },
-        { id: 'b5', text: 'Ciabatte per le docce del campeggio' },
-        { id: 'b6', text: 'Powerbank capiente: al campeggio le prese sono un problema' },
-        { id: 'b7', text: 'Tappi per le orecchie e mascherina per dormire' },
-        { id: 'b8', text: 'Occhiali da eclissi ISO 12312-2: servono il 12, quindi in valigia dal 10' }
+        { id: 'b10', text: 'Verificare che sulla prenotazione Wizz del 10 ci sia Wizz Priority, altrimenti il trolley da 10 kg non sale' },
+        { id: 'b1', text: 'Misurare il trolley col metro: Wizz al gate usa il sizer ed è inflessibile, 55 × 40 × 23' },
+        { id: 'b9', text: 'Confermare le misure ITA sulla prenotazione: le fonti danno 55 × 35 × 25, cioè 5 cm più stretto di Wizz' },
+        { id: 'b2', text: 'Pesare il trolley pieno sulla bilancia di casa: obiettivo sotto 10 kg' },
+        { id: 'b11', text: 'Controllare le spine dei caricatori: se una è tipo L serve l’adattatore Schuko' },
+        { id: 'b12', text: 'Chiedere all’alloggio di Saragozza se c’è la lavatrice' },
+        { id: 'b13', text: 'Verificare prezzo e posizione dei lockers al Rototom' }
       ]
     },
     {
-      id: 'doc', icon: '📄', title: 'Documenti e cose da avere addosso',
+      id: 'doc', icon: '📄', title: 'Documenti',
       items: [
         { id: 'd1', text: 'Carta d’identità o passaporto in corso di validità' },
         { id: 'd2', text: 'Tessera sanitaria con retro TEAM per la Spagna' },
-        { id: 'd3', text: 'Carte di pagamento, più una di riserva separata' },
+        { id: 'd3', text: 'Carte di pagamento, più una di riserva tenuta separata' },
         { id: 'd4', text: 'Carte d’imbarco dei tre voli salvate offline' },
-        { id: 'd5', text: 'Screenshot sul telefono: glamping #VU8YwLWr con check-in confermato, transfer #3984, prenotazione Valencia' },
+        { id: 'd5', text: 'Screenshot: glamping #VU8YwLWr con check-in confermato, transfer #3984, prenotazione Valencia' },
         { id: 'd6', text: 'Codice occupante tenda CA58804RF a portata di mano' }
       ]
-    },
+    }
+  ];
+
+  /* ======================================================================
+     Valigia: franchigie, contenitori, pesi stimati
+     ====================================================================== */
+  const ALLOWANCE = [
+    { airline: 'Wizz Air', when: '10 ago, andata', bag: '55 × 40 × 23 cm', kg: '10 kg',
+      note: 'Con Wizz Priority. Borsa piccola 40 × 30 × 20 gratuita. Low cost: al gate misurano e a volte pesano',
+      strict: true },
+    { airline: 'ITA Airways', when: '23 ago, ritorno', bag: '55 × 35 × 25 cm', kg: '8 kg',
+      note: 'Limite formale più basso, ma di linea: raramente pesano. Le misure però restano più strette' }
+  ];
+
+  /* Peso a vuoto del contenitore, da sommare al contenuto */
+  const BAG_EMPTY = 1.8;
+  const BAG_TARGET = 10;   // Wizz: il limite davvero controllato, all'andata
+  const BAG_FORMAL = 8;    // ITA: limite formale al ritorno, raramente verificato
+
+  const PACK = [
     {
-      id: 'ecl', icon: '🌒', title: 'Valigia — eclissi',
+      id: 'addosso', icon: '🧍', title: 'Addosso in aereo',
+      note: 'Le cose più pesanti si indossano: non pesano mai.',
+      noWeight: true,
       items: [
-        { id: 'e1', text: 'Occhiali da eclissi certificati ISO 12312-2, uno per persona più uno di scorta' },
-        { id: 'e2', text: 'Filtro solare per l’obiettivo, se si fotografa — gli occhiali non bastano per la fotocamera' },
-        { id: 'e3', text: 'Treppiede' },
-        { id: 'e4', text: 'Batterie cariche e schede di memoria vuote' },
-        { id: 'e5', text: 'Torcia frontale a luce rossa: dopo il tramonto si smonta nel buio' }
+        { id: 'a1', text: 'Scarpe da camminata — le più pesanti che porti' },
+        { id: 'a2', text: 'Pantalone lungo leggero' },
+        { id: 'a3', text: 'Maglietta' },
+        { id: 'a4', text: 'Giacca a vento o felpa leggera, in mano o in vita' },
+        { id: 'a5', text: 'Orologio e occhiali da sole' }
       ]
     },
     {
-      id: 'caldo', icon: '☀️', title: 'Valigia — caldo 35 °C+',
+      id: 'trolley', icon: '🧳', title: 'Trolley',
+      note: 'L’unico contenitore con un limite controllato. Le stime di peso sono indicative.',
       items: [
-        { id: 'c1', text: 'Cappello, occhiali da sole, crema solare alta' },
-        { id: 'c2', text: 'Borraccia da riempire alle fontane' },
-        { id: 'c3', text: 'Scarpe già rodate: le giornate piene sono tutte a piedi' },
-        { id: 'c4', text: 'Sali minerali o integratori' },
-        { id: 'c6', text: 'Una maglia leggera a maniche lunghe per le chiese' }
+        { id: 't1', text: '5 magliette leggere', kg: 0.6 },
+        { id: 't2', text: '2 pantaloncini', kg: 0.4 },
+        { id: 't3', text: '1 maglia a maniche lunghe leggera — chiese, aria condizionata, sere in tenda', kg: 0.2 },
+        { id: 't4', text: '8 slip', kg: 0.3 },
+        { id: 't5', text: '4 paia di calze corte', kg: 0.15 },
+        { id: 't6', text: '1 costume da bagno — Benicàssim e Valencia sono sul mare', kg: 0.15 },
+        { id: 't7', text: '1 telo in microfibra grande: asciugamano e telo mare insieme', kg: 0.3 },
+        { id: 't8', text: 'Cappello', kg: 0.1 },
+        { id: 't9', text: 'Poncho o K-way ultraleggero', kg: 0.15 },
+        { id: 't10', text: 'Ciabatte da doccia — indispensabili al campeggio', kg: 0.25 },
+        { id: 't11', text: 'Necessaire: spazzolino, dentifricio, deodorante, rasoio, pettine', kg: 0.5 },
+        { id: 't12', text: 'Busta trasparente da 1 litro con i liquidi da max 100 ml', kg: 0.5 },
+        { id: 't13', text: 'Salviette umidificate e gel per le mani', kg: 0.2 },
+        { id: 't14', text: 'Kit salute: ibuprofene, cerotti per vesciche, sali minerali, antidiarroico, doposole', kg: 0.3 },
+        { id: 't15', text: 'Detersivo da viaggio, 4 mollette, 2 m di cordino', kg: 0.15 },
+        { id: 't16', text: 'Sacca impermeabile per i panni sporchi', kg: 0.1 },
+        { id: 't17', text: 'Tappi per le orecchie e mascherina per dormire', kg: 0.05 },
+        { id: 't18', text: 'Adattatore Schuko o ciabattina piccola', kg: 0.2 },
+        { id: 't19', text: 'Occhiali da eclissi ISO 12312-2, uno più uno di scorta', kg: 0.05 },
+        { id: 't20', text: 'Filtro solare per l’obiettivo, se fotografi', kg: 0.1 },
+        { id: 't21', text: 'Treppiede: mini da tavolo (~0,3 kg) o quello vero (1–1,5 kg) — con 10 kg reali ci sta', kg: 0.3 }
+      ]
+    },
+    {
+      id: 'zaino', icon: '🎒', title: 'Zaino sotto il sedile',
+      note: 'Qui va ciò che è pesante e piccolo: è il contenitore che nessuno pesa.',
+      noWeight: true,
+      items: [
+        { id: 'z1', text: 'Documenti, portafoglio, carte' },
+        { id: 'z2', text: 'Telefono e caricatore multiporta con due cavi lunghi' },
+        { id: 'z3', text: 'Powerbank — per regolamento deve stare in cabina, e al campeggio salva' },
+        { id: 'z4', text: 'Carte d’imbarco dei tre voli, offline' },
+        { id: 'z5', text: 'Borraccia vuota, da riempire dopo i controlli' },
+        { id: 'z6', text: 'Snack per il 10: dalle 05:15 alle 15:40 sei in viaggio' },
+        { id: 'z7', text: 'Maglia a maniche lunghe per l’aria condizionata' }
+      ]
+    },
+    {
+      id: 'cuscino', icon: '🛌', title: 'Cuscino da collo imbottibile',
+      note: 'La mossa migliore che hai: sposta ~0,8 kg fuori dal trolley, ti serve in volo e ti dà un cuscino in più in tenda. Riempilo anche al ritorno.',
+      noWeight: true,
+      items: [
+        { id: 'k1', text: '3–4 magliette' },
+        { id: 'k2', text: 'Slip e calze' },
+        { id: 'k3', text: 'Costume da bagno' }
       ]
     }
+  ];
+
+  const NOT_BRING = [
+    { text: 'Materasso, lenzuola, torcia, lucchetto', why: 'sono già nella tenda, e il regolamento vieta di portarli fuori' },
+    { text: 'Jeans', why: 'pesano, occupano, e a 35 °C non li metti' },
+    { text: 'Asciugamano di spugna', why: 'la microfibra pesa un terzo e asciuga' },
+    { text: 'Sacco a pelo', why: 'la biancheria è fornita' },
+    { text: 'Asciugacapelli', why: '—' },
+    { text: 'Più di due paia di scarpe', why: 'il terzo paio costa 0,5–0,8 kg: è il primo taglio se sfori' },
+    { text: 'Coltellini, multiuso, forbici', why: 'va tutto in cabina: te li sequestrano ai controlli' },
+    { text: 'Fornelletti e bombole da campeggio', why: 'vietati in cabina' },
+    { text: 'Libri di carta', why: 'usa il telefono' },
+    { text: 'Vestiti “per ogni eventualità”', why: 'l’eventualità è il caldo, e sono sempre 35 °C' }
+  ];
+
+  const LAUNDRY = [
+    { when: '10–13 ago', where: 'Alloggio a Saragozza', what: 'Verificare se c’è la lavatrice: è l’occasione migliore' },
+    { when: '15 ago', where: 'Suites Rooms Valencia', what: 'Il lavaggio importante: è l’ultimo bagno vero prima di 7 notti in tenda. Parti per il festival con tutto pulito', key: true },
+    { when: '16–22 ago', where: 'Campeggio', what: 'Lavaggio a mano di magliette e biancheria, asciugatura al sole sul cordino' }
+  ];
+
+  const FINAL_CHECK = [
+    { id: 'f1', text: 'Trolley pesato sulla bilancia di casa, non a occhio: obiettivo sotto 10 kg' },
+    { id: 'f2', text: 'Liquidi già nella busta trasparente, in cima e raggiungibili' },
+    { id: 'f3', text: 'Powerbank e caricatori nello zaino' },
+    { id: 'f4', text: 'Carte d’imbarco offline dei tre voli' },
+    { id: 'f5', text: 'Occhiali da eclissi in valigia: servono il 12, ma partono il 10' },
+    { id: 'f6', text: 'Cuscino da collo imbottito' },
+    { id: 'f7', text: 'Documenti e carte addosso, non nel trolley' },
+    { id: 'f8', text: 'Sveglia per le 04:30: il treno da Bitonto è alle 05:15' }
   ];
 
   /* ======================================================================
@@ -555,6 +646,97 @@
     ).join('');
   }
 
+  /* --------------------------------------------------------------------
+     Valigia
+     -------------------------------------------------------------------- */
+  const kgFmt = (n) => n.toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 2 }) + ' kg';
+
+  function renderAllowance() {
+    const el = $('#allowance');
+    if (!el) return;
+    el.innerHTML = ALLOWANCE.map((a) =>
+      '<article class="allow' + (a.strict ? ' allow--strict' : '') + '">' +
+        '<header class="allow__head">' +
+          '<h3 class="allow__airline">' + esc(a.airline) + '</h3>' +
+          '<span class="allow__when">' + esc(a.when) + '</span>' +
+        '</header>' +
+        '<p class="allow__kg">' + esc(a.kg) + '</p>' +
+        '<p class="allow__bag">' + esc(a.bag) + '</p>' +
+        '<p class="allow__note">' + esc(a.note) + '</p>' +
+      '</article>'
+    ).join('');
+  }
+
+  /* Peso stimato del solo trolley: le voci spuntate non cambiano il totale,
+     serve sapere quanto pesa la lista completa. */
+  function trolleyWeight() {
+    const group = PACK.find((g) => g.id === 'trolley');
+    if (!group) return 0;
+    return group.items.reduce((t, it) => t + (it.kg || 0), 0);
+  }
+
+  function renderPack() {
+    const el = $('#pack');
+    if (el) {
+      el.innerHTML = PACK.map((g) => {
+        const sub = g.noWeight ? null : g.items.reduce((t, it) => t + (it.kg || 0), 0);
+        return '<section class="clist card">' +
+          '<h3 class="card__title"><span aria-hidden="true">' + g.icon + '</span> ' + esc(g.title) +
+            (sub !== null ? ' <span class="pack__kg">' + kgFmt(sub) + '</span>' : '') +
+            ' <span class="clist__count" data-count="' + g.id + '"></span></h3>' +
+          (g.note ? '<p class="clist__note">' + esc(g.note) + '</p>' : '') +
+          '<ul class="chk-list">' + g.items.map((it) =>
+            checkbox(it.id, esc(it.text) + (it.kg ? ' <span class="item__kg">' + kgFmt(it.kg) + '</span>' : ''))
+          ).join('') + '</ul>' +
+        '</section>';
+      }).join('');
+    }
+
+    // Bilancio del peso
+    const content = trolleyWeight();
+    const total = content + BAG_EMPTY;
+    const budget = $('#weightBudget');
+    if (budget) {
+      const pct = Math.min(100, Math.round((total / BAG_TARGET) * 100));
+      budget.innerHTML =
+        '<div class="wb__rows">' +
+          '<div class="wb__row"><span>Contenuto del trolley, stimato</span><b>' + kgFmt(content) + '</b></div>' +
+          '<div class="wb__row"><span>Trolley vuoto, se morbido</span><b>' + kgFmt(BAG_EMPTY) + '</b></div>' +
+          '<div class="wb__row wb__row--total"><span>Totale</span><b>' + kgFmt(total) + '</b></div>' +
+        '</div>' +
+        '<div class="wb__bar" role="img" aria-label="Peso stimato ' + kgFmt(total) + ' su un limite di ' + BAG_TARGET + ' kg">' +
+          '<div class="wb__fill" style="width:' + pct + '%"></div>' +
+          '<span class="wb__mark" style="left:' + (BAG_FORMAL / BAG_TARGET * 100) + '%" title="Limite formale ITA"></span>' +
+        '</div>' +
+        '<p class="wb__legend">' +
+          '<span class="wb__tag">▮ stimato ' + kgFmt(total) + '</span>' +
+          '<span class="wb__tag">┃ ' + BAG_FORMAL + ' kg formali ITA</span>' +
+          '<span class="wb__tag">' + BAG_TARGET + ' kg Wizz, il limite che conta</span>' +
+        '</p>' +
+        '<p class="small">Restano <strong>' + kgFmt(Math.max(0, BAG_TARGET - total)) +
+        '</strong> di margine sul limite Wizz, da tenere per il ritorno.</p>';
+    }
+
+    const nb = $('#notBring');
+    if (nb) {
+      nb.innerHTML = NOT_BRING.map((n) =>
+        '<li><strong>' + esc(n.text) + '</strong>' +
+        (n.why !== '—' ? ' — <span class="nb__why">' + esc(n.why) + '</span>' : '') + '</li>'
+      ).join('');
+    }
+
+    const lau = $('#laundry');
+    if (lau) {
+      lau.innerHTML = LAUNDRY.map((l) =>
+        '<tr' + (l.key ? ' class="tr--key"' : '') + '><td><strong>' + esc(l.when) + '</strong></td>' +
+        '<td>' + esc(l.where) + '</td><td>' + esc(l.what) + '</td></tr>'
+      ).join('');
+    }
+
+    const fin = $('#finalCheck');
+    if (fin) fin.innerHTML = FINAL_CHECK.map((f) => checkbox(f.id, esc(f.text))).join('');
+  }
+
   function renderEclipse() {
     const verify = $('#eclipseVerify');
     if (verify) verify.innerHTML = ECLIPSE_VERIFY.map((it) => checkbox(it.id, esc(it.text))).join('');
@@ -682,6 +864,8 @@
   function allCheckIds() {
     const ids = DECISIONS.map((d) => d.id).concat(ECLIPSE_VERIFY.map((e) => e.id));
     CHECKLISTS.forEach((g) => g.items.forEach((it) => ids.push(it.id)));
+    PACK.forEach((g) => g.items.forEach((it) => ids.push(it.id)));
+    FINAL_CHECK.forEach((f) => ids.push(f.id));
     return ids;
   }
 
@@ -702,7 +886,7 @@
     const label = $('#progressLabel');
     if (label) label.textContent = done + ' / ' + ids.length + ' · ' + pct + '%';
 
-    CHECKLISTS.forEach((g) => {
+    CHECKLISTS.concat(PACK).forEach((g) => {
       const el = $('[data-count="' + g.id + '"]');
       if (!el) return;
       const n = g.items.filter((it) => checks[it.id]).length;
@@ -782,11 +966,16 @@
     DECISIONS.forEach((d) => out.push('- ' + mark(d.id) + ' **' + d.what + '** — ' + d.phase + ', ' + d.when));
     out.push('');
 
-    CHECKLISTS.forEach((g) => {
+    CHECKLISTS.concat(PACK).forEach((g) => {
       out.push('## ' + g.title);
-      g.items.forEach((it) => out.push('- ' + mark(it.id) + ' ' + it.text));
+      g.items.forEach((it) => out.push('- ' + mark(it.id) + ' ' + it.text +
+        (it.kg ? ' (' + kgFmt(it.kg) + ')' : '')));
       out.push('');
     });
+
+    out.push('## Controllo finale, la sera del 9');
+    FINAL_CHECK.forEach((f) => out.push('- ' + mark(f.id) + ' ' + f.text));
+    out.push('');
 
     out.push('## Eclissi — da verificare');
     ECLIPSE_VERIFY.forEach((e) => out.push('- ' + mark(e.id) + ' ' + e.text));
@@ -820,6 +1009,8 @@
     renderLegs();
     renderDecisions();
     renderChecklists();
+    renderAllowance();
+    renderPack();
     renderEclipse();
     renderBudget();
     renderDays();

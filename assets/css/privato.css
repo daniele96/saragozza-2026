@@ -347,6 +347,93 @@ input[type="checkbox"] {
 .check-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
 
 /* --------------------------------------------------------------------------
+   Valigia: franchigie, bilancio del peso, contenitori
+   -------------------------------------------------------------------------- */
+.allow {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-left: 3px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  box-shadow: var(--shadow-sm);
+}
+.allow--strict { border-left-color: var(--terracotta); }
+.allow__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .7rem; }
+.allow__airline { font-family: var(--font-body); font-size: 1rem; font-weight: 700; margin: 0; }
+.allow__when { font-size: .76rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--text-muted); }
+.allow__kg {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  line-height: 1;
+  margin: .5rem 0 .1rem;
+}
+.allow--strict .allow__kg { color: var(--accent-ink); }
+.allow__bag { font-size: .9rem; margin: 0 0 .4rem; font-variant-numeric: tabular-nums; }
+.allow__note { font-size: .85rem; color: var(--text-muted); margin: 0; }
+
+/* Bilancio del peso */
+.wb__rows { display: grid; gap: 0; margin-bottom: 1rem; }
+.wb__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .5rem 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: .93rem;
+}
+.wb__row b { font-variant-numeric: tabular-nums; }
+.wb__row--total { border-bottom: 0; border-top: 2px solid var(--border); font-weight: 700; padding-top: .6rem; }
+.wb__row--total b { font-family: var(--font-display); font-size: 1.2rem; }
+
+.wb__bar {
+  position: relative;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+}
+.wb__fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--gold)); border-radius: 999px; }
+.wb__mark {
+  position: absolute;
+  top: -3px; bottom: -3px;
+  width: 2px;
+  background: var(--terracotta);
+  transform: translateX(-1px);
+}
+.wb__legend { display: flex; flex-wrap: wrap; gap: .3rem .9rem; margin: .55rem 0 .5rem; }
+.wb__tag { font-size: .78rem; color: var(--text-muted); }
+
+/* Pesi nelle liste */
+.pack__kg {
+  margin-left: .4rem;
+  font-family: var(--font-body);
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--ebro-dark);
+  background: var(--ebro-soft);
+  border-radius: 999px;
+  padding: .1rem .5rem;
+  font-variant-numeric: tabular-nums;
+}
+.item__kg {
+  font-size: .78rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Cosa non portare */
+.nb-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.nb-list li { font-size: .9rem; display: flex; gap: .55rem; }
+.nb-list li::before { content: "✕"; flex: 0 0 auto; color: var(--terracotta); font-weight: 700; }
+.nb__why { color: var(--text-muted); }
+
+tr.tr--key td { background: var(--accent-soft); }
+
+/* --------------------------------------------------------------------------
    Eclissi
    -------------------------------------------------------------------------- */
 .eclipse-warn {

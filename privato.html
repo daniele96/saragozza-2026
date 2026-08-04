@@ -39,6 +39,7 @@
         <li><a class="nav__link" href="#trasferimenti">Trasferimenti</a></li>
         <li><a class="nav__link" href="#decisioni">Decisioni</a></li>
         <li><a class="nav__link" href="#prima">Preparativi</a></li>
+        <li><a class="nav__link" href="#valigia">Valigia</a></li>
         <li><a class="nav__link" href="#eclissi">Eclissi</a></li>
         <li><a class="nav__link" href="#budget">Soldi</a></li>
         <li><a class="nav__link" href="#prenotazioni">Prenotazioni</a></li>
@@ -150,8 +151,98 @@
     </div>
   </section>
 
+  <!-- ============================== VALIGIA ============================== -->
+  <section class="section" id="valigia">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Valigia</p>
+        <h2 class="section__title">Solo bagagli a mano, 14 giorni</h2>
+        <p class="section__lead">
+          Tre contesti in una borsa: città a 35 °C, una settimana in tenda, due voli con regole
+          diverse. Nessuna stiva: questo comanda tutto il resto.
+        </p>
+      </header>
+
+      <div class="grid grid--2" id="allowance"></div>
+
+      <div class="callout callout--gold mt-2">
+        <span class="callout__icon" aria-hidden="true">⚖️</span>
+        <div>
+          <p><strong>Il limite che conta è quello di Wizz all'andata: 10 kg.</strong> ITA al ritorno
+          ne dichiara 8, ma è una compagnia di linea e raramente pesa il bagaglio a mano: in pratica
+          il collo di bottiglia è il gate di Fiumicino del 10, dove Wizz misura col sizer ed è
+          inflessibile.</p>
+          <p>Quello che <strong>non</strong> si allenta sono le <strong>misure</strong>: ITA dichiara
+          55 × 35 × 25, cioè <strong>5 cm più stretto</strong> di Wizz sulla larghezza. Un trolley
+          rigido da 40 cm passa all'andata e rischia al ritorno; uno morbido si comprime.</p>
+        </div>
+      </div>
+
+      <div class="card mt-2">
+        <h3 class="card__title">📊 Bilancio del peso</h3>
+        <div id="weightBudget"></div>
+      </div>
+
+      <h3 class="mt-2">Cosa va dove</h3>
+      <p class="small">
+        Le cose pesanti si indossano o vanno nello zaino sotto il sedile, che non viene pesato.
+        Il cuscino da collo imbottibile è volume in più che non conta.
+      </p>
+      <div class="check-grid mt-1" id="pack"></div>
+
+      <div class="grid grid--2 mt-2">
+        <div class="card card--danger">
+          <h3 class="card__title">🚫 Cosa NON portare</h3>
+          <ul class="nb-list" id="notBring"></ul>
+        </div>
+
+        <div class="grid" style="align-content:start">
+          <div class="card">
+            <h3 class="card__title">🧴 Crema solare: comprala in Spagna</h3>
+            <p>
+              Per 14 giorni a 35 °C serve molto più di 100 ml, e 100 ml è il limite in cabina. Porta
+              un flaconcino piccolo e <strong>compra la confezione grande al primo supermercato di
+              Saragozza</strong>. Stesso ragionamento per bagnoschiuma e shampoo.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="card__title">🔌 Prese: il dettaglio che frega gli italiani</h3>
+            <p>
+              La Spagna usa prese <strong>Schuko, tipo F</strong>; l'Italia il <strong>tipo L</strong>.
+              I caricatori con spinotto europeo sottile entrano, ma qualsiasi spina italiana a tre
+              punte in linea <strong>non entra</strong>. Controlla i tuoi caricatori: se anche uno
+              solo è tipo L, serve l'adattatore.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="card__title">🔒 In tenda non è una cassaforte</h3>
+            <p>
+              Il lucchetto c'è, ma documenti, carte e telefono non si lasciano in tenda. Il Rototom
+              ha un servizio di <em>consigne</em>: da valutare per i giorni in cui giri.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="mt-2">Lavaggio: senza, 14 giorni non stanno in una borsa</h3>
+      <p class="small">Cinque magliette per due settimane funzionano solo lavando. A 35 °C asciuga tutto in poche ore.</p>
+      <div class="table-scroll mt-1">
+        <table>
+          <caption class="visually-hidden">Quando e dove lavare i vestiti</caption>
+          <thead><tr><th scope="col">Quando</th><th scope="col">Dove</th><th scope="col">Cosa</th></tr></thead>
+          <tbody id="laundry"></tbody>
+        </table>
+      </div>
+
+      <div class="card mt-2">
+        <h3 class="card__title">✔️ Controllo finale, la sera del 9</h3>
+        <ul class="chk-list" id="finalCheck"></ul>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================== ECLISSI ============================== -->
-  <section class="section" id="eclissi">
+  <section class="section section--alt" id="eclissi">
     <div class="wrap">
       <header class="section__head">
         <p class="section__eyebrow">Mercoledì 12 agosto</p>
@@ -206,7 +297,7 @@
   </section>
 
   <!-- ============================= SARAGOZZA ============================= -->
-  <section class="section section--alt" id="saragozza">
+  <section class="section" id="saragozza">
     <div class="wrap">
       <header class="section__head">
         <p class="section__eyebrow">Saragozza · 10–14 agosto</p>
@@ -241,7 +332,7 @@
   </section>
 
   <!-- =============================== BUDGET =============================== -->
-  <section class="section" id="budget">
+  <section class="section section--alt" id="budget">
     <div class="wrap">
       <header class="section__head">
         <p class="section__eyebrow">Soldi</p>
@@ -294,7 +385,7 @@
   </section>
 
   <!-- ============================ PRENOTAZIONI ============================ -->
-  <section class="section section--alt" id="prenotazioni">
+  <section class="section" id="prenotazioni">
     <div class="wrap">
       <header class="section__head">
         <p class="section__eyebrow">Prenotazioni</p>
@@ -316,7 +407,7 @@
   </section>
 
   <!-- ============================= CAMPEGGIO ============================= -->
-  <section class="section" id="campeggio">
+  <section class="section section--alt" id="campeggio">
     <div class="wrap">
       <header class="section__head">
         <p class="section__eyebrow">Benicàssim · 16–23 agosto</p>
@@ -361,7 +452,7 @@
   </section>
 
   <!-- =============================== APPUNTI =============================== -->
-  <section class="section section--alt" id="appunti">
+  <section class="section" id="appunti">
     <div class="wrap">
       <header class="section__head">
         <p class="section__eyebrow">Appunti</p>
