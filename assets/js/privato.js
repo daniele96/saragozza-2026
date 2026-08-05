@@ -251,7 +251,12 @@
         { id: 't12', text: 'Busta liquidi da 1 litro: shampoo, maschera capelli, crema ricci, crema modellante, doposole', kg: 0.6 },
         { id: 't12b', text: 'Raccogli-capelli da scarico — solido, non occupa la busta liquidi', kg: 0.05 },
         { id: 't13', text: 'Salviette umidificate e gel per le mani', kg: 0.2 },
-        { id: 't14', text: 'Kit salute: ibuprofene, cerotti per vesciche, sali minerali, antidiarroico, doposole', kg: 0.3 },
+        { id: 't14', text: 'Farmaci personali nelle confezioni originali: pillole lattasi, Oki, antistaminici, antiasmatici', kg: 0.2 },
+        { id: 't14b', text: 'Paracetamolo e antidiarroico — il paracetamolo serve quando non vuoi un terzo antinfiammatorio', kg: 0.05 },
+        { id: 't14c', text: 'Cerotti normali, cerotti per vesciche, disinfettante, garze', kg: 0.15 },
+        { id: 't14d', text: 'Spruzzino per il naso e collirio — polvere del campeggio e allergie. Sono liquidi, ma da 10–20 ml: entrano nella busta senza pesare', kg: 0.1 },
+        { id: 't14e', text: 'Gel per punture d’insetto', kg: 0.05 },
+        { id: 't14f', text: 'Sali minerali', kg: 0.05 },
         { id: 't15', text: 'Detersivo da viaggio, 4 mollette, 2 m di cordino', kg: 0.15 },
         { id: 't16', text: 'Sacca impermeabile per i panni sporchi', kg: 0.1 },
         { id: 't17', text: 'Tappi per le orecchie e mascherina per dormire', kg: 0.05 },
@@ -271,7 +276,8 @@
         { id: 'z4', text: 'Carte d’imbarco dei tre voli, offline' },
         { id: 'z5', text: 'Borraccia vuota, da riempire dopo i controlli' },
         { id: 'z6', text: 'Snack per il 10: dalle 05:15 alle 15:40 sei in viaggio' },
-        { id: 'z7', text: 'Maglia a maniche lunghe per l’aria condizionata' }
+        { id: 'z7', text: 'Maglia a maniche lunghe per l’aria condizionata' },
+        { id: 'z8', text: 'Puff e dose del giorno sempre addosso, non nel bagaglio grande e mai lasciati in tenda' }
       ]
     },
     {
@@ -327,6 +333,22 @@
       { id: 'l7', text: 'Se vuoi una bottiglia da portare a casa: comprarla in duty free a Valencia il 23' }
     ]
   };
+
+  /* Salute: punti specifici per asma e allergie in un viaggio di 14 giorni */
+  const HEALTH = [
+    { id: 'h1', icon: '🫁', title: 'Il puff di emergenza c’è?',
+      text: 'Il trivalente è terapia di fondo, non serve per una crisi. Se il medico ti ha prescritto anche un <strong>broncodilatatore di emergenza</strong> (tipo salbutamolo), quello va in viaggio e va tenuto <strong>addosso</strong>, non in borsone. È l’unica voce di questa lista che non si compra e non si improvvisa.' },
+    { id: 'h2', icon: '➕', title: '14 dosi per 14 giorni è zero margine',
+      text: 'Antistaminici e antiasmatici sono contati esattamente: se perdi un blister, se un giorno di allergia ne chiede uno in più o se il rientro slitta, resti a secco. Porta <strong>3–4 dosi di scorta</strong> per ciascuno. Pesano zero.' },
+    { id: 'h3', icon: '🌡️', title: 'La tenda supera i 40 °C',
+      text: 'Le bombolette dei puff e i farmaci non vanno lasciati in tenda tutto il giorno: il calore li degrada e le bombolette pressurizzate non amano stare al sole. Tienili nello zaino con te, o nella <strong>consigna</strong> del campeggio.' },
+    { id: 'h4', icon: '📄', title: 'Confezioni originali e ricetta',
+      text: 'Tutto nelle scatole originali con il foglietto. Porta anche una <strong>foto della ricetta</strong> del puff: serve se te lo chiedono al controllo e soprattutto se in Spagna devi farti dare un ricambio in farmacia.' },
+    { id: 'h5', icon: '💨', title: 'Fumo e polvere, per una settimana',
+      text: 'Un festival reggae in campeggio significa fumo, polvere e sabbia per sette giorni: per un asmatico è il contesto che chiede più attenzione di tutto il viaggio. Appena arrivi, individua l’<strong>assistenza medica 24 h</strong> del campeggio — c’è, ed è meglio saperlo prima che cercarla di notte.' },
+    { id: 'h6', icon: '⚠️', title: 'Oki e ibuprofene sono la stessa famiglia',
+      text: 'Sono entrambi antinfiammatori: si alternano, non si sommano. È il motivo per cui vale la pena avere anche il <strong>paracetamolo</strong>, che agisce in modo diverso.' }
+  ];
 
   const NOT_BRING = [
     { text: 'Materasso, lenzuola, torcia, lucchetto', why: 'sono già nella tenda, e il regolamento vieta di portarli fuori' },
@@ -806,6 +828,16 @@
       nb.innerHTML = NOT_BRING.map((n) =>
         '<li><strong>' + esc(n.text) + '</strong>' +
         (n.why !== '—' ? ' — <span class="nb__why">' + esc(n.why) + '</span>' : '') + '</li>'
+      ).join('');
+    }
+
+    const hea = $('#health');
+    if (hea) {
+      hea.innerHTML = HEALTH.map((h) =>
+        '<article class="card">' +
+          '<h3 class="card__title"><span aria-hidden="true">' + h.icon + '</span> ' + esc(h.title) + '</h3>' +
+          '<p>' + h.text + '</p>' +
+        '</article>'
       ).join('');
     }
 
