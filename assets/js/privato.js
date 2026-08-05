@@ -202,11 +202,11 @@
      ====================================================================== */
   const ALLOWANCE = [
     { airline: 'Wizz Air', when: '10 ago, andata', bag: '55 × 40 × 23 cm', kg: '10 kg',
-      small: 'Zaino 40 × 30 × 20 cm, gratuito e con <strong>10 kg suoi</strong>',
+      small: 'Zaino <strong>40 × 30 × 20 cm</strong>, gratuito e con <strong>10 kg suoi</strong>. È il limite più stretto dei due: misura lo zaino su questo',
       note: 'Con Wizz Priority. Le ruote possono aggiungere al massimo 5 cm. Low cost: al gate misurano e a volte pesano',
       strict: true },
     { airline: 'ITA Airways', when: '23 ago, ritorno', bag: '55 × 35 × 25 cm', kg: '8 kg',
-      small: 'Zaino <strong>40 × 30 × 15 cm</strong>: 5 cm più sottile di Wizz, e solo sotto il sedile',
+      small: 'Zaino 45 × 36 × 20 cm, sotto il sedile: <strong>più generoso di Wizz</strong> su lunghezza e larghezza',
       note: 'Limite formale più basso sul trolley, ma di linea: raramente pesano. Le misure però restano più strette' }
   ];
 
@@ -262,7 +262,7 @@
     },
     {
       id: 'zaino', icon: '🎒', title: 'Zaino sotto il sedile',
-      note: 'Qui va ciò che è pesante e piccolo. Sul peso sei libero: Wizz gli dà 10 kg suoi e ITA non pubblica limiti. Il vincolo è lo spessore: 20 cm su Wizz ma solo 15 su ITA, quindi non gonfiarlo.',
+      note: 'Qui va ciò che è pesante e piccolo, e sul peso sei libero: Wizz gli dà 10 kg suoi, ITA non pubblica limiti. Misuralo sul limite Wizz (40 × 30 × 20): ITA è più generosa, quindi se passa all’andata passa anche al ritorno.',
       noWeight: true,
       items: [
         { id: 'z1', text: 'Documenti, portafoglio, carte' },
