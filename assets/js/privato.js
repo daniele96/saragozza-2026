@@ -162,7 +162,7 @@
         { time: '11:15', what: 'Iglesia de los Santos Juanes', note: 'Stessa piazza, nessuno spostamento' },
         { time: '12:30', what: 'Ciutat de les Arts i les Ciències', note: 'L’architettura di Calatrava, Umbracle e specchi d’acqua. Ci si arriva col Jardí del Túria a piedi, ma sono 4 km: col sole a picco meglio bus' },
         { time: '13:30–17:30', what: 'Oceanogràfic', note: 'Il più grande acquario d’Europa, al chiuso e climatizzato nelle ore peggiori: è la mossa giusta della giornata', key: true },
-        { time: '20:00', what: 'Malvarrosa', note: 'Spiaggia urbana, tram dal centro. Tramonto e cena sul mare. Variante più bella: La Albufera e le risaie, ma serve più logistica' }
+        { time: '20:00', what: 'Ruzafa', note: 'Il mare lo fai a Benicàssim, quindi la sera del 15 non serve andare alla Malvarrosa: meglio Ruzafa, che è anche la scelta migliore per la serata. Restano come alternative il tramonto alla Malvarrosa o La Albufera con le risaie' }
       ]
     },
     {
@@ -324,9 +324,9 @@
         { id: 't3', text: '1 maglia a maniche lunghe leggera — chiese, aria condizionata, sere in tenda', kg: 0.2 },
         { id: 't4', text: '8 slip', kg: 0.3 },
         { id: 't5', text: '5 paia di calze corte', kg: 0.2 },
-        { id: 't6', text: '1 costume da bagno — Benicàssim e Valencia sono sul mare', kg: 0.15 },
+        { id: 't6', text: '2 costumi da bagno — con 7 mattine di mare a Benicàssim, uno asciuga mentre usi l’altro', kg: 0.3 },
         { id: 't7', text: '1 telo in microfibra grande: asciugamano e telo mare insieme', kg: 0.3 },
-        { id: 't7b', text: 'Secondo telo in microfibra piccolo, solo per il mare — opzionale', kg: 0.2 },
+        { id: 't7b', text: 'Secondo telo in microfibra per il mare — con 7 mattine in spiaggia serve davvero: uno resta sabbioso, l’altro è quello della doccia', kg: 0.2 },
         { id: 't8', text: '2 cappellini — uno resta sempre nello zaino, così non ti trovi mai senza', kg: 0.2 },
         { id: 't9', text: 'Poncho o K-way ultraleggero', kg: 0.15 },
         { id: 't10', text: 'Ciabatte per doccia, mare e tenda — meglio con suola spessa: 7 giorni di ghiaia fino alle docce', kg: 0.25 },
@@ -433,6 +433,18 @@
       text: 'Un festival reggae in campeggio significa fumo, polvere e sabbia per sette giorni: per un asmatico è il contesto che chiede più attenzione di tutto il viaggio. Appena arrivi, individua l’<strong>assistenza medica 24 h</strong> del campeggio — c’è, ed è meglio saperlo prima che cercarla di notte.' },
     { id: 'h6', icon: '⚠️', title: 'Oki e ibuprofene sono la stessa famiglia',
       text: 'Sono entrambi antinfiammatori: si alternano, non si sommano. È il motivo per cui vale la pena avere anche il <strong>paracetamolo</strong>, che agisce in modo diverso.' }
+  ];
+
+  /* Il mare si fa a Benicàssim, non a Saragozza né a Valencia */
+  const BEACH = [
+    { id: 'be1', text: 'Il recinto è a meno di 1 km dalle spiagge e il campeggio a 350 m dal recinto: sono ~1,3 km a piedi' },
+    { id: 'be2', text: 'C’è un bus del festival che collega il recinto alla spiaggia per tutta la durata: da verificare orari e fermata all’arrivo' },
+    { id: 'be3', text: 'La finestra buona è 8:00–11:00: sole ancora gestibile e spiaggia vuota' },
+    { id: 'be4', text: 'Se torni alle 3–4 di notte, la “mattina” slitta alle 11:00–13:00, che è la fascia peggiore. Scegli 2–3 mattine, non 7, e mettile dopo le sere più tranquille' },
+    { id: 'be5', text: '11:00–16:00 è la fascia da evitare: una scottata il primo giorno ti rovina la settimana' },
+    { id: 'be6', text: 'Non portare niente di valore: la tenda non è sicura e la spiaggia meno. Usa la consigna del campeggio' },
+    { id: 'be7', text: 'Ciabatte anche in spiaggia: a Benicàssim alcuni tratti sono ghiaiosi' },
+    { id: 'be8', text: 'La crema solare grande comprata a Saragozza serve soprattutto qui' }
   ];
 
   const NOT_BRING = [
@@ -1090,6 +1102,9 @@
     list('#campDuties', CAMP.duties);
     list('#campIncluded', CAMP.included);
 
+    const be = $('#beach');
+    if (be) be.innerHTML = BEACH.map((b) => checkbox(b.id, esc(b.text))).join('');
+
     const dmg = $('#campDamage');
     if (dmg) {
       dmg.innerHTML = CAMP.damage.map((d) =>
@@ -1119,7 +1134,8 @@
     const ids = DECISIONS.map((d) => d.id)
       .concat(ECLIPSE_VERIFY.map((e) => e.id))
       .concat(DESERT.map((d) => d.id))
-      .concat(NIGHT_TIPS.map((t) => t.id));
+      .concat(NIGHT_TIPS.map((t) => t.id))
+      .concat(BEACH.map((b) => b.id));
     CHECKLISTS.forEach((g) => g.items.forEach((it) => ids.push(it.id)));
     PACK.forEach((g) => g.items.forEach((it) => ids.push(it.id)));
     LIQUIDS.checklist.forEach((c) => ids.push(c.id));
