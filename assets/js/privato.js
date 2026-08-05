@@ -101,6 +101,41 @@
   /* ======================================================================
      Valencia, 14–16 agosto
      ====================================================================== */
+  /* Riserve per Valencia: cose da infilare se avanza tempo o se il caldo obbliga al chiuso */
+  const VAL_EXTRA = [
+    { what: 'Museo de Bellas Artes', why: 'Tra i più importanti di Spagna: Goya, Velázquez, Sorolla. <strong>Ingresso gratuito</strong> e al chiuso — la miglior riserva per le ore calde', tag: 'gratis · al chiuso' },
+    { what: 'La Almoina', why: 'Il centro archeologico sotto la piazza della cattedrale: la Valentia romana. Se ti è piaciuta la Caesaraugusta di Saragozza, è il seguito naturale', tag: 'al chiuso' },
+    { what: 'Mercat de Colón', why: 'Edificio modernista oggi spazio gastronomico. Aperto anche la domenica, quando il Mercat Central è chiuso', tag: 'gratis' },
+    { what: 'Jardí del Túria in bici', why: 'Il vecchio letto del fiume, 9 km di parco che attraversa la città fino alla Ciutat de les Arts. Valencia è piatta e piena di bici pubbliche', tag: 'all’aperto' },
+    { what: 'Estació del Nord', why: 'La stazione modernista è un edificio da vedere, e il 16 ci passi comunque per prendere il treno', tag: 'gratis' },
+    { what: 'Museo Fallero', why: 'I ninots salvati dal rogo delle Fallas, uno per anno. Curioso, piccolo e al chiuso', tag: 'al chiuso' }
+  ];
+
+  /* Le due sere a Valencia: 14 venerdì e 15 sabato festivo, le migliori della settimana */
+  const NIGHTLIFE = [
+    { zone: 'Ruzafa', best: 'La sera del 15',
+      why: 'Il quartiere migliore per bere e conoscere gente: cocktail bar, vini naturali, birra artigianale e bodegas storiche, con locali che di giorno sono caffè. Pubblico <strong>più locale</strong> e prezzi più bassi del centro. Vie da battere: Cádiz, Sueca, Literato Azorín.',
+      top: true },
+    { zone: 'Barrio del Carmen', best: 'La sera del 14',
+      why: 'Centro storico, bar attaccati uno all’altro nei vicoli, terrazze, birra da ~1,50 € e aperti fino alle 3. Il pubblico mescola studenti, valenciani e viaggiatori, quindi <strong>è più facile attaccare bottone</strong>, anche in inglese. Arteria principale calle Caballeros, più Plaza del Tossal.' },
+    { zone: 'Malvarrosa e El Cabanyal', best: 'Se segui il piano del 15',
+      why: 'Ad agosto la vita serale si sposta al mare: chiringuiti e terrazze sulla spiaggia. Se il 15 vai alla Malvarrosa per il tramonto, la serata continua lì senza rientrare.' },
+    { zone: 'Marina e Ciutat de les Arts', best: 'Se vuoi la notte lunga',
+      why: 'La zona dei club grossi, con terrazze all’aperto d’estate. Si riempiono verso l’1:30 e si va avanti fino all’alba: è l’opzione "una notte sola ma fino a tardi", non quella da due sere di fila.' }
+  ];
+
+  const NIGHT_TIPS = [
+    { id: 'nl1', text: 'Gli orari: cena 21:00–22:30, i bar si riempiono dalle 23:00, i club dall’1:00. Se esci alle 22:00 trovi il vuoto e pensi che sia morta' },
+    { id: 'nl2', text: 'La città è compatta: dal Carmen a Ruzafa sono 15 minuti a piedi, quindi in una sera puoi fare entrambe' },
+    { id: 'nl3', text: 'Bar degli hostel con terrazza o rooftop, aperti anche a chi non dorme lì: è il posto più efficace in assoluto se viaggi da solo' },
+    { id: 'nl4', text: 'Pub crawl serali: partono dal Carmen e sono organizzati esattamente per conoscere gente' },
+    { id: 'nl5', text: 'Serate di intercambio de idiomas nei bar: molto comuni a Valencia, di solito infrasettimanali — verificare se ce n’è una il 14' },
+    { id: 'nl6', text: 'Free walking tour la mattina: si conosce gente e ci si ritrova la sera' },
+    { id: 'nl7', text: 'Ordina un Agua de Valencia — cava, succo d’arancia, gin e vodka: è il cocktail della città ed è già un argomento di conversazione. Va giù facile, tienilo presente' },
+    { id: 'nl8', text: 'Rientro: dall’alloggio in Extramurs il Carmen è ~2 km e Ruzafa ~3. A piedi si fanno, ma di notte valuta il taxi: la metro chiude prima della fine della serata' },
+    { id: 'nl9', text: 'Metà agosto molti valenciani sono in vacanza e il pubblico pende verso stranieri e turisti: per fare amicizia è un vantaggio, non un difetto' }
+  ];
+
   const VALENCIA = [
     {
       id: 'val14', date: 'Venerdì 14 agosto', title: 'Dal pranzo',
@@ -737,6 +772,30 @@
   function renderLegs() {
     legsInto('#legs', LEGS);
     legsInto('#valencia', VALENCIA);
+
+    const ex = $('#valExtra');
+    if (ex) {
+      ex.innerHTML = VAL_EXTRA.map((e) =>
+        '<li><strong>' + esc(e.what) + '</strong> <span class="badge badge--ok">' + esc(e.tag) + '</span>' +
+        '<span class="nb__why"> — ' + e.why + '</span></li>'
+      ).join('');
+    }
+
+    const nl = $('#nightlife');
+    if (nl) {
+      nl.innerHTML = NIGHTLIFE.map((n) =>
+        '<article class="allow' + (n.top ? ' allow--strict' : '') + '">' +
+          '<header class="allow__head">' +
+            '<h4 class="allow__airline">' + esc(n.zone) + '</h4>' +
+            '<span class="allow__when">' + esc(n.best) + '</span>' +
+          '</header>' +
+          '<p class="allow__note">' + n.why + '</p>' +
+        '</article>'
+      ).join('');
+    }
+
+    const nt = $('#nightTips');
+    if (nt) nt.innerHTML = NIGHT_TIPS.map((t) => checkbox(t.id, esc(t.text))).join('');
   }
 
   function legsInto(sel, list) {
@@ -1059,7 +1118,8 @@
   function allCheckIds() {
     const ids = DECISIONS.map((d) => d.id)
       .concat(ECLIPSE_VERIFY.map((e) => e.id))
-      .concat(DESERT.map((d) => d.id));
+      .concat(DESERT.map((d) => d.id))
+      .concat(NIGHT_TIPS.map((t) => t.id));
     CHECKLISTS.forEach((g) => g.items.forEach((it) => ids.push(it.id)));
     PACK.forEach((g) => g.items.forEach((it) => ids.push(it.id)));
     LIQUIDS.checklist.forEach((c) => ids.push(c.id));
