@@ -16,7 +16,7 @@ const CATEGORIES = {
 const DAYS = [
   { id: 1, short: 'Lun 10', label: 'Lunedì 10 agosto', avail: 'Solo dalla sera (arrivo)' },
   { id: 2, short: 'Mar 11', label: 'Martedì 11 agosto', avail: 'Giornata intera' },
-  { id: 3, short: 'Mer 12', label: 'Mercoledì 12 agosto', avail: 'Solo mattina (eclissi nel pomeriggio)' },
+  { id: 3, short: 'Mer 12', label: 'Mercoledì 12 agosto', avail: 'Solo fino alle 13:00, poi off per l’eclissi' },
   { id: 4, short: 'Gio 13', label: 'Giovedì 13 agosto', avail: 'Giornata intera' },
   { id: 5, short: 'Ven 14', label: 'Venerdì 14 agosto', avail: 'Eventualmente solo mattina' }
 ];
@@ -262,12 +262,13 @@ const ITINERARY = [
     ]
   },
   {
-    day: 3, date: 'Mercoledì 12 agosto', tag: 'Solo mattina · eclissi nel pomeriggio',
-    intro: 'Mattina compatta su due visite vicinissime, poi pomeriggio e sera liberi per l’eclissi solare.',
+    day: 3, date: 'Mercoledì 12 agosto', tag: 'Solo mattina · off dalle 13:00',
+    intro: 'Mattina tutta in Plaza del Pilar, senza spostamenti. Dalle 13:00 il programma si chiude: pomeriggio e sera sono dedicati all’eclissi.',
     stops: [
       { time: '10:00', title: 'La Seo + Museo de Tapices', note: 'Arazzi tra i migliori d’Europa. Chiude a pranzo: arrivare all’apertura.', place: 'La Seo – Catedral del Salvador + Museo de Tapices' },
-      { time: '11:30', title: 'Torre del Pilar + Museo Pilarista', note: 'Ascensore panoramico e vista sulla città, a due passi da La Seo.', place: 'Basílica del Pilar — Torre panoramica e musei' },
-      { time: '~12:30', title: 'Eclissi solare', note: 'Pomeriggio e sera dedicati all’osservazione: nessuna visita in programma.', highlight: true }
+      { time: '11:15', title: 'Basílica del Pilar — la Virgen del Pilar', note: 'Interno della Basílica, sempre gratuito, con la cappella della Virgen del Pilar. A pochi passi da La Seo, nella stessa piazza.', place: 'Basílica del Pilar — Torre panoramica e musei' },
+      { time: '12:00', title: 'Torre panoramica e Museo Pilarista', note: 'Ascensore e vista sulla città, tutto nello stesso punto della Basílica.', place: 'Basílica del Pilar — Torre panoramica e musei' },
+      { time: 'dalle 13:00', title: 'Off — eclissi solare', note: 'Nessuna visita in programma: pomeriggio e sera liberi per l’osservazione dell’eclissi.', highlight: true }
     ]
   },
   {
