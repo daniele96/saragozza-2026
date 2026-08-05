@@ -202,10 +202,12 @@
      ====================================================================== */
   const ALLOWANCE = [
     { airline: 'Wizz Air', when: '10 ago, andata', bag: '55 × 40 × 23 cm', kg: '10 kg',
-      note: 'Con Wizz Priority. Borsa piccola 40 × 30 × 20 gratuita. Low cost: al gate misurano e a volte pesano',
+      small: 'Zaino 40 × 30 × 20 cm, gratuito e con <strong>10 kg suoi</strong>',
+      note: 'Con Wizz Priority. Le ruote possono aggiungere al massimo 5 cm. Low cost: al gate misurano e a volte pesano',
       strict: true },
     { airline: 'ITA Airways', when: '23 ago, ritorno', bag: '55 × 35 × 25 cm', kg: '8 kg',
-      note: 'Limite formale più basso, ma di linea: raramente pesano. Le misure però restano più strette' }
+      small: 'Zaino <strong>40 × 30 × 15 cm</strong>: 5 cm più sottile di Wizz, e solo sotto il sedile',
+      note: 'Limite formale più basso sul trolley, ma di linea: raramente pesano. Le misure però restano più strette' }
   ];
 
   /* Peso a vuoto del contenitore scelto: borsone 55 × 35 × 23, pesato in casa */
@@ -260,7 +262,7 @@
     },
     {
       id: 'zaino', icon: '🎒', title: 'Zaino sotto il sedile',
-      note: 'Qui va ciò che è pesante e piccolo: è il contenitore che nessuno pesa.',
+      note: 'Qui va ciò che è pesante e piccolo. Sul peso sei libero: Wizz gli dà 10 kg suoi e ITA non pubblica limiti. Il vincolo è lo spessore: 20 cm su Wizz ma solo 15 su ITA, quindi non gonfiarlo.',
       noWeight: true,
       items: [
         { id: 'z1', text: 'Documenti, portafoglio, carte' },
@@ -725,6 +727,7 @@
         '</header>' +
         '<p class="allow__kg">' + esc(a.kg) + '</p>' +
         '<p class="allow__bag">' + esc(a.bag) + '</p>' +
+        (a.small ? '<p class="allow__small">🎒 ' + a.small + '</p>' : '') +
         '<p class="allow__note">' + esc(a.note) + '</p>' +
       '</article>'
     ).join('');

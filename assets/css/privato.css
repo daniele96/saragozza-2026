@@ -371,6 +371,13 @@ input[type="checkbox"] {
 }
 .allow--strict .allow__kg { color: var(--accent-ink); }
 .allow__bag { font-size: .9rem; margin: 0 0 .4rem; font-variant-numeric: tabular-nums; }
+.allow__small {
+  font-size: .85rem;
+  margin: 0 0 .4rem;
+  padding: .4rem .55rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
 .allow__note { font-size: .85rem; color: var(--text-muted); margin: 0; }
 
 /* Bilancio del peso */
