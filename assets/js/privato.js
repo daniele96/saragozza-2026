@@ -208,8 +208,8 @@
       note: 'Limite formale più basso, ma di linea: raramente pesano. Le misure però restano più strette' }
   ];
 
-  /* Peso a vuoto del contenitore, da sommare al contenuto */
-  const BAG_EMPTY = 1.8;
+  /* Peso a vuoto del contenitore scelto: borsone 55 × 35 × 23, pesato in casa */
+  const BAG_EMPTY = 1.4;
   const BAG_TARGET = 10;   // Wizz: il limite davvero controllato, all'andata
   const BAG_FORMAL = 8;    // ITA: limite formale al ritorno, raramente verificato
 
@@ -763,8 +763,8 @@
       const pct = Math.min(100, Math.round((total / BAG_TARGET) * 100));
       budget.innerHTML =
         '<div class="wb__rows">' +
-          '<div class="wb__row"><span>Contenuto del trolley, stimato</span><b>' + kgFmt(content) + '</b></div>' +
-          '<div class="wb__row"><span>Trolley vuoto, se morbido</span><b>' + kgFmt(BAG_EMPTY) + '</b></div>' +
+          '<div class="wb__row"><span>Contenuto, stimato</span><b>' + kgFmt(content) + '</b></div>' +
+          '<div class="wb__row"><span>Borsone 55 × 35 × 23 vuoto, pesato</span><b>' + kgFmt(BAG_EMPTY) + '</b></div>' +
           '<div class="wb__row wb__row--total"><span>Totale</span><b>' + kgFmt(total) + '</b></div>' +
         '</div>' +
         '<div class="wb__bar" role="img" aria-label="Peso stimato ' + kgFmt(total) + ' su un limite di ' + BAG_TARGET + ' kg">' +
