@@ -111,9 +111,12 @@
     { id: 'dec-8', phase: 'Festival', what: 'Treno del 16 per Benicàssim: orario e biglietto',
       why: 'Domenica con servizio ridotto e tutti che vanno allo stesso posto. Verificare su Renfe se serve la prenotazione del posto.',
       when: 'entro il 14', level: 'alta' },
-    { id: 'dec-2', phase: 'Saragozza', what: 'Punto di osservazione dell’eclissi',
-      why: 'Serve orizzonte libero verso ovest, e in centro è difficile. Se bisogna uscire da Saragozza cambia anche il trasporto.',
-      when: 'entro il 7 agosto', level: 'alta' },
+    { id: 'dec-13', phase: 'Eclissi', what: 'Chi guida nel deserto, e con quale auto',
+      why: 'Il deserto risolve il problema dell’orizzonte, ma serve un mezzo: andata nel pomeriggio, rientro di notte. Da chiarire chi guida, quanti posti ci sono e se il pieno è fatto — là non ci sono distributori.',
+      when: 'entro il 10', level: 'alta' },
+    { id: 'dec-14', phase: 'Eclissi', what: 'Punto esatto nel deserto e ora di partenza',
+      why: 'Va scelto un punto preciso con orizzonte libero a ovest, salvato come pin offline. Bisogna arrivare con luce per riconoscere il posto, quindi l’ora di partenza dipende dall’orario della totalità.',
+      when: 'entro l’11', level: 'alta' },
     { id: 'dec-4', phase: 'Saragozza', what: 'Zaragoza Card online o all’ufficio di Delicias?',
       why: 'L’ufficio è comodo (10–20 tutti i giorni, in stazione), ma online si evita la coda del 10 agosto.',
       when: 'entro l’8 agosto', level: 'media' },
@@ -135,6 +138,7 @@
   ];
 
   const RESOLVED = [
+    'Punto di osservazione dell’eclissi — si va nel deserto: orizzonte libero a ovest, nessun edificio davanti',
     'Scalo di Roma del 23 — stessa compagnia, stessa prenotazione, solo bagaglio a mano',
     'Check-in online glamping — fatto a marzo, ordine #VU8YwLWr',
     'Abbonamento festival con diritto di campeggio — acquistato con camping'
@@ -224,7 +228,7 @@
         { id: 'a1', text: 'Scarpe da ginnastica — le più pesanti che porti, quindi ai piedi e non in valigia' },
         { id: 'a2', text: 'Pantalone lungo leggero' },
         { id: 'a3', text: 'Maglietta' },
-        { id: 'a4', text: 'Giacca a vento o felpa leggera, in mano o in vita' },
+        { id: 'a4', text: 'Felpa — la stessa che ti serve per la notte nel deserto. Indossala il 10: alle 5 del mattino a Bitonto e in aereo serve comunque, e così pesa zero' },
         { id: 'a5', text: 'Orologio e occhiali da sole' }
       ]
     },
@@ -243,7 +247,7 @@
         { id: 't6', text: '1 costume da bagno — Benicàssim e Valencia sono sul mare', kg: 0.15 },
         { id: 't7', text: '1 telo in microfibra grande: asciugamano e telo mare insieme', kg: 0.3 },
         { id: 't7b', text: 'Secondo telo in microfibra piccolo, solo per il mare — opzionale', kg: 0.2 },
-        { id: 't8', text: 'Cappello', kg: 0.1 },
+        { id: 't8', text: '2 cappellini — uno resta sempre nello zaino, così non ti trovi mai senza', kg: 0.2 },
         { id: 't9', text: 'Poncho o K-way ultraleggero', kg: 0.15 },
         { id: 't10', text: 'Ciabatte per doccia, mare e tenda — meglio con suola spessa: 7 giorni di ghiaia fino alle docce', kg: 0.25 },
         { id: 't10b', text: '1 paio per uscire, il più leggero che hai — non di pelle: al campeggio è polvere, e con la pioggia fango', kg: 0.5 },
@@ -262,6 +266,7 @@
         { id: 't17', text: 'Tappi per le orecchie e mascherina per dormire', kg: 0.05 },
         { id: 't18', text: 'Adattatore Schuko o ciabattina piccola', kg: 0.2 },
         { id: 't19', text: 'Occhiali da eclissi ISO 12312-2, uno più uno di scorta', kg: 0.05 },
+        { id: 't19b', text: 'Torcia frontale, meglio con luce rossa — nel deserto si torna all’auto nel buio totale', kg: 0.1 },
         { id: 't20', text: 'Filtro solare per l’obiettivo, solo se porti una fotocamera con ottica', kg: 0.1 }
       ]
     },
@@ -405,6 +410,20 @@
     { id: 'ev3', text: 'Durata della totalità in secondi' },
     { id: 'ev4', text: 'Altezza del Sole sull’orizzonte durante la totalità' },
     { id: 'ev5', text: 'Azimut esatto del Sole in quell’istante' }
+  ];
+
+  /* Notte nel deserto: cosa serve e cosa non c'è là fuori */
+  const DESERT = [
+    { id: 'ds1', text: 'Felpa: 20 °C di notte con il vento del deserto si sentono, e resti fermo per ore. Indossala già il 10, così non pesa in valigia' },
+    { id: 'ds2', text: 'Pantaloni lunghi leggeri, non felpati: a 20 °C bastano, e a terra al buio proteggono le gambe' },
+    { id: 'ds3', text: 'Scarpe da ginnastica chiuse, mai ciabatte: terreno sassoso e irregolare, e al crepuscolo escono gli insetti' },
+    { id: 'ds4', text: 'Torcia frontale, meglio a luce rossa: preserva la visione notturna e ti lascia le mani libere' },
+    { id: 'ds5', text: 'Acqua, molta più di quanta pensi: là non c’è nulla, e ci arrivi dopo una giornata a 35 °C' },
+    { id: 'ds6', text: 'Qualcosa da mangiare: nessun bar, nessun chiosco, e la sera si allunga' },
+    { id: 'ds7', text: 'Mappa offline scaricata prima, e un pin salvato sia sul punto sia sull’auto' },
+    { id: 'ds8', text: 'Pieno di benzina fatto prima di uscire da Saragozza: nel deserto non ci sono distributori' },
+    { id: 'ds9', text: 'Powerbank carico: senza copertura il telefono cerca rete e si scarica più in fretta' },
+    { id: 'ds10', text: 'Un telo o una stuoia per sedersi a terra, se hai spazio' }
   ];
 
   const SPOTS = [
@@ -864,6 +883,9 @@
     const verify = $('#eclipseVerify');
     if (verify) verify.innerHTML = ECLIPSE_VERIFY.map((it) => checkbox(it.id, esc(it.text))).join('');
 
+    const des = $('#desert');
+    if (des) des.innerHTML = DESERT.map((d) => checkbox(d.id, esc(d.text))).join('');
+
     const spots = $('#spots');
     if (spots) {
       spots.innerHTML = SPOTS.map((s) =>
@@ -985,7 +1007,9 @@
      Avanzamento
      ====================================================================== */
   function allCheckIds() {
-    const ids = DECISIONS.map((d) => d.id).concat(ECLIPSE_VERIFY.map((e) => e.id));
+    const ids = DECISIONS.map((d) => d.id)
+      .concat(ECLIPSE_VERIFY.map((e) => e.id))
+      .concat(DESERT.map((d) => d.id));
     CHECKLISTS.forEach((g) => g.items.forEach((it) => ids.push(it.id)));
     PACK.forEach((g) => g.items.forEach((it) => ids.push(it.id)));
     LIQUIDS.checklist.forEach((c) => ids.push(c.id));
@@ -1107,6 +1131,10 @@
 
     out.push('## Eclissi — da verificare');
     ECLIPSE_VERIFY.forEach((e) => out.push('- ' + mark(e.id) + ' ' + e.text));
+    out.push('');
+
+    out.push('## Notte nel deserto');
+    DESERT.forEach((d) => out.push('- ' + mark(d.id) + ' ' + d.text));
     out.push('');
 
     out.push('## Appunti');
