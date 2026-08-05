@@ -99,6 +99,51 @@
   ];
 
   /* ======================================================================
+     Valencia, 14–16 agosto
+     ====================================================================== */
+  const VALENCIA = [
+    {
+      id: 'val14', date: 'Venerdì 14 agosto', title: 'Dal pranzo',
+      tag: 'Arrivo',
+      warn: 'L’orario dipende dal passaggio in auto, ancora da definire: con partenza da Saragozza entro le 09:00–10:00 arrivi per pranzo.',
+      rows: [
+        { time: '~13:00', what: 'Pranzo: paella valenciana', note: 'È il momento giusto del viaggio: a Valencia la paella è piatto da pranzo, molti posti non la fanno la sera. Quella autentica è con pollo e coniglio, non il misto di mare', key: true },
+        { time: '15:00–19:00', what: 'Check-in e pausa', note: 'Dopo 3h30 di auto a 35 °C non è tempo perso' },
+        { time: '17:30', what: 'Ciutat Vella', note: 'Plaza de la Virgen, Plaza de la Reina, Basílica de la Virgen de los Desamparados' },
+        { time: '18:30', what: 'Catedral e torre del Micalet', note: 'La torre si sale: è il panorama classico della città' },
+        { time: '19:30', what: 'Barrio del Carmen', note: 'Il quartiere più bello da girare a piedi al tramonto' },
+        { time: '20:30', what: 'Torres de Serranos', note: 'Porta medievale sul Turia, bellissima all’ora blu' },
+        { time: '21:30', what: 'Cena a tapas', note: 'Carmen oppure Ruzafa, il quartiere più vivo la sera' }
+      ]
+    },
+    {
+      id: 'val15', date: 'Sabato 15 agosto', title: 'La giornata piena',
+      tag: 'Sabato festivo',
+      warn: 'Il 15 cade di sabato e nella Comunitat Valenciana l’apertura commerciale è permessa: il Mercat Central è visitabile, ed è l’unica finestra del viaggio.',
+      rows: [
+        { time: '08:30', what: 'Colazione: horchata e fartons', note: 'La cosa locale da fare' },
+        { time: '09:30', what: 'Mercat Central', note: 'Modernista, tra i mercati coperti più grandi d’Europa. Chiude alle 15:00, e domenica è chiuso: è ora o mai', key: true },
+        { time: '10:45', what: 'Llotja de la Seda', note: 'Patrimonio UNESCO, proprio di fronte al mercato' },
+        { time: '11:15', what: 'Iglesia de los Santos Juanes', note: 'Stessa piazza, nessuno spostamento' },
+        { time: '12:30', what: 'Ciutat de les Arts i les Ciències', note: 'L’architettura di Calatrava, Umbracle e specchi d’acqua. Ci si arriva col Jardí del Túria a piedi, ma sono 4 km: col sole a picco meglio bus' },
+        { time: '13:30–17:30', what: 'Oceanogràfic', note: 'Il più grande acquario d’Europa, al chiuso e climatizzato nelle ore peggiori: è la mossa giusta della giornata', key: true },
+        { time: '20:00', what: 'Malvarrosa', note: 'Spiaggia urbana, tram dal centro. Tramonto e cena sul mare. Variante più bella: La Albufera e le risaie, ma serve più logistica' }
+      ]
+    },
+    {
+      id: 'val16', date: 'Domenica 16 agosto', title: 'Mattina, poi treno',
+      tag: 'Materiale di riserva',
+      warn: 'Sai già che partirai prima col treno: questo serve solo se il treno è tardi.',
+      rows: [
+        { time: '10:00–10:30', what: 'Check-out', note: 'Finestra fissa' },
+        { time: '10:30', what: 'Mercat de Colón', note: 'Modernista, oggi spazio gastronomico: la domenica è aperto, a differenza del Mercat Central' },
+        { time: '11:15', what: 'Torres de Quart o Jardí del Túria', note: 'Giro corto vicino all’alloggio, senza impegno' },
+        { time: '—', what: 'Treno per Benicàssim da València Nord', note: 'Biglietto in anticipo: è la domenica di apertura del festival' }
+      ]
+    }
+  ];
+
+  /* ======================================================================
      Decisioni e cose da definire — tutto il viaggio, per urgenza
      ====================================================================== */
   const DECISIONS = [
@@ -690,9 +735,14 @@
   }
 
   function renderLegs() {
-    const el = $('#legs');
+    legsInto('#legs', LEGS);
+    legsInto('#valencia', VALENCIA);
+  }
+
+  function legsInto(sel, list) {
+    const el = $(sel);
     if (!el) return;
-    el.innerHTML = LEGS.map((leg) =>
+    el.innerHTML = list.map((leg) =>
       '<article class="leg" id="' + leg.id + '">' +
         '<header class="leg__head">' +
           '<div>' +
