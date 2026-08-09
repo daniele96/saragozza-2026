@@ -260,7 +260,7 @@
         { id: 'b1', text: 'Misurare il trolley col metro: Wizz al gate usa il sizer ed è inflessibile, 55 × 40 × 23' },
         { id: 'b9', text: 'Confermare le misure ITA sulla prenotazione: le fonti danno 55 × 35 × 25, cioè 5 cm più stretto di Wizz' },
         { id: 'b2', text: 'Pesare il trolley pieno sulla bilancia di casa: obiettivo sotto 10 kg' },
-        { id: 'b11', text: 'Controllare le spine dei caricatori: se una è tipo L serve l’adattatore Schuko' },
+        { id: 'b11', text: '✅ Spine dei caricatori verificate: sono tutte bipolari europee, quindi entrano nelle prese spagnole senza adattatore' },
         { id: 'b12', text: 'Chiedere all’alloggio di Saragozza se c’è la lavatrice' },
         { id: 'b13', text: 'Verificare prezzo e posizione dei lockers al Rototom' }
       ]
@@ -295,6 +295,7 @@
   const BAG_EMPTY = 1.4;
   const BAG_TARGET = 10;   // Wizz: il limite davvero controllato, all'andata
   const BAG_FORMAL = 8;    // ITA: limite formale al ritorno, raramente verificato
+  const BAG_MEASURED = 7.9; // Pesato in casa a borsone chiuso: batte qualsiasi stima
 
   const PACK = [
     {
@@ -331,17 +332,16 @@
         { id: 't11', text: 'Necessaire: spazzolino, dentifricio, rasoio, pettine — il deodorante lo compri lì', kg: 0.4 },
         { id: 't12', text: 'Busta liquidi da 1 litro: shampoo, maschera capelli, crema ricci, crema modellante, doposole', kg: 0.6 },
         { id: 't12b', text: 'Raccogli-capelli da scarico — solido, non occupa la busta liquidi', kg: 0.05 },
-        { id: 't13', text: 'Salviette umidificate e gel per le mani', kg: 0.2 },
+        { id: 't6b', text: 'Crema solare da 50 ml per i primi giorni — la confezione grande si compra a Saragozza', kg: 0.06 },
         { id: 't14', text: 'Farmaci personali nelle confezioni originali: pillole lattasi, Oki, antistaminici, antiasmatici', kg: 0.2 },
         { id: 't14b', text: 'Paracetamolo e antidiarroico — il paracetamolo serve quando non vuoi un terzo antinfiammatorio', kg: 0.05 },
         { id: 't14c', text: 'Cerotti normali, cerotti per vesciche, disinfettante, garze', kg: 0.15 },
         { id: 't14d', text: 'Spruzzino per il naso e collirio — polvere del campeggio e allergie. Sono liquidi, ma da 10–20 ml: entrano nella busta senza pesare', kg: 0.1 },
         { id: 't14e', text: 'Gel per punture d’insetto', kg: 0.05 },
         { id: 't14f', text: 'Sali minerali', kg: 0.05 },
-        { id: 't15', text: 'Detersivo da viaggio, 4 mollette, 2 m di cordino', kg: 0.15 },
+        { id: 't15', text: '4 mollette da bucato — leggere, il cordino si compra lì', kg: 0.03 },
         { id: 't16', text: 'Sacca impermeabile per i panni sporchi', kg: 0.1 },
         { id: 't17', text: 'Tappi per le orecchie e mascherina per dormire', kg: 0.05 },
-        { id: 't18', text: 'Adattatore Schuko o ciabattina piccola', kg: 0.2 },
         { id: 't19', text: 'Occhiali da eclissi ISO 12312-2, uno più uno di scorta', kg: 0.05 },
         { id: 't19b', text: 'Torcia frontale, meglio con luce rossa — nel deserto si torna all’auto nel buio totale', kg: 0.1 },
         { id: 't20', text: 'Filtro solare per l’obiettivo, solo se porti una fotocamera con ottica', kg: 0.1 }
@@ -473,9 +473,9 @@
   const BUY_THERE = [
     { what: 'Deodorante', why: 'generico, si trova ovunque, e se è stick non occupa la busta liquidi' },
     { what: 'Bagnoschiuma', why: 'inutile portarlo: 100 ml non bastano per 14 giorni' },
-    { what: 'Detersivo per lavatrice', why: 'serve sia a Saragozza sia al laundry box del campeggio' },
-    { what: 'Crema solare, confezione grande', why: 'il flaconcino da 100 ml copre due o tre giorni, non due settimane' },
-    { what: 'Shampoo, ma solo se è un prodotto qualsiasi', why: 'se usi uno specifico per ricci, portalo: lì rischi di non trovare l’equivalente' },
+    { what: 'Salviette umidificate e gel per le mani', why: 'ingombranti da portare e si trovano in qualsiasi supermercato' },
+    { what: 'Detersivo da viaggio e cordino per stendere', why: 'il detersivo serve sia a Saragozza sia al laundry box del campeggio. Le mollette invece pesano nulla e le porti da casa' },
+    { what: 'Crema solare, confezione grande', why: 'i 50 ml che porti coprono due o tre giorni, non due settimane. Da prendere al primo supermercato' },
     { what: 'Acqua', why: 'ogni giorno, e la borraccia si riempie alle fontane' }
   ];
 
@@ -930,15 +930,15 @@
 
     // Bilancio del peso
     const content = trolleyWeight();
-    const total = content + BAG_EMPTY;
+    const total = BAG_MEASURED;
     const budget = $('#weightBudget');
     if (budget) {
       const pct = Math.min(100, Math.round((total / BAG_TARGET) * 100));
       budget.innerHTML =
         '<div class="wb__rows">' +
-          '<div class="wb__row"><span>Contenuto, stimato</span><b>' + kgFmt(content) + '</b></div>' +
-          '<div class="wb__row"><span>Borsone 55 × 35 × 23 vuoto, pesato</span><b>' + kgFmt(BAG_EMPTY) + '</b></div>' +
-          '<div class="wb__row wb__row--total"><span>Totale</span><b>' + kgFmt(total) + '</b></div>' +
+          '<div class="wb__row"><span>Contenuto, stima dalla lista</span><b>' + kgFmt(content) + '</b></div>' +
+          '<div class="wb__row"><span>Borsone 55 × 35 × 23 vuoto</span><b>' + kgFmt(BAG_EMPTY) + '</b></div>' +
+          '<div class="wb__row wb__row--total"><span>✅ Pesato davvero, borsone chiuso</span><b>' + kgFmt(total) + '</b></div>' +
         '</div>' +
         '<div class="wb__bar" role="img" aria-label="Peso stimato ' + kgFmt(total) + ' su un limite di ' + BAG_TARGET + ' kg">' +
           '<div class="wb__fill" style="width:' + pct + '%"></div>' +
@@ -949,10 +949,11 @@
           '<span class="wb__tag">┃ ' + BAG_FORMAL + ' kg formali ITA</span>' +
           '<span class="wb__tag">' + BAG_TARGET + ' kg Wizz, il limite che conta</span>' +
         '</p>' +
-        '<p class="small">Restano <strong>' + kgFmt(Math.max(0, BAG_TARGET - total)) +
-        '</strong> di margine sul limite Wizz. Per il ritorno servono ' +
-        '<strong>~0,5 kg</strong>: qualche calamita e due magliette. Il margine basta con ' +
-        'quasi un chilo di avanzo.</p>';
+        '<p class="small"><strong>Sei sotto anche gli 8 kg formali di ITA</strong>, quindi sei a norma ' +
+        'su entrambi i voli senza dover tagliare niente. Restano <strong>' +
+        kgFmt(Math.max(0, BAG_TARGET - total)) + '</strong> di margine sul limite Wizz e ' +
+        '<strong>' + kgFmt(Math.max(0, BAG_FORMAL - total)) + '</strong> su quello ITA: gli acquisti ' +
+        'previsti sono ~0,5 kg, quindi al ritorno resti comodo anche sul più stretto dei due.</p>';
     }
 
     // Liquidi
