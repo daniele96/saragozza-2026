@@ -16,7 +16,7 @@ const CATEGORIES = {
 const DAYS = [
   { id: 1, short: 'Lun 10', label: 'Lunedì 10 agosto', avail: 'Solo dalla sera (arrivo)' },
   { id: 2, short: 'Mar 11', label: 'Martedì 11 agosto', avail: 'Giornata intera' },
-  { id: 3, short: 'Mer 12', label: 'Mercoledì 12 agosto', avail: 'Solo fino alle 13:00, poi off per l’eclissi' },
+  { id: 3, short: 'Mer 12', label: 'Mercoledì 12 agosto', avail: 'Città fino alle 13:00, poi escursione alle Bardenas fino all’1:30' },
   { id: 4, short: 'Gio 13', label: 'Giovedì 13 agosto', avail: 'Giornata intera' },
   { id: 5, short: 'Ven 14', label: 'Venerdì 14 agosto', avail: 'Eventualmente solo mattina' }
 ];
@@ -263,13 +263,19 @@ const ITINERARY = [
     ]
   },
   {
-    day: 3, date: 'Mercoledì 12 agosto', tag: 'Solo mattina · off dalle 13:00',
-    intro: 'Si parte alle 9:00 e si sta tutti in Plaza del Pilar, senza spostamenti. Dalle 13:00 il programma si chiude: pomeriggio e sera sono dedicati all’eclissi.',
+    day: 3, date: 'Mercoledì 12 agosto', tag: 'Mattina in città · pomeriggio e notte alle Bardenas',
+    intro: 'Si parte alle 9:00 e la mattina resta tutta in Plaza del Pilar, senza spostamenti. Alle 13:00 il programma cittadino chiude e alle 14:00 parte l’escursione per l’eclissi nel deserto delle Bardenas, con rientro all’1:30.',
     stops: [
       { time: '09:00', title: 'Basílica del Pilar — la Virgen del Pilar', note: 'Interno sempre gratuito, con la cappella della Virgen del Pilar. La Basílica apre verso le 8:00, quindi alle 9 si entra con calma e senza folla.', place: 'Basílica del Pilar — Torre panoramica e musei', highlight: true },
       { time: '10:00', title: 'La Seo + Museo de Tapices', note: 'Apre alle 10:00 e chiude a pranzo: arrivare all’apertura. Arazzi tra i migliori d’Europa.', place: 'La Seo – Catedral del Salvador + Museo de Tapices' },
       { time: '11:30', title: 'Torre panoramica e Museo Pilarista', note: 'Ascensore e vista sulla città, tutto nello stesso punto della Basílica.', place: 'Basílica del Pilar — Torre panoramica e musei' },
-      { time: 'dalle 13:00', title: 'Off — eclissi solare', note: 'Nessuna visita in programma: pomeriggio e sera liberi per l’osservazione dell’eclissi.', highlight: true }
+      { time: '13:00', title: 'Fine del programma in città', note: 'Da qui in poi conta solo l’escursione: pranzo veloce o snack, poi in stazione.' },
+      { time: '14:00', title: 'Partenza dalla stazione di Saragozza', note: 'Inizio dell’escursione per l’eclissi. Essere in stazione con anticipo.', highlight: true },
+      { time: '16:00', title: 'Cadreita — Restaurante Las Piscinas', note: 'Sosta e pasto. Sono due ore dalla fine del programma in città: portarsi qualcosa per l’attesa.' },
+      { time: '18:15', title: 'Partenza per il deserto delle Bardenas', note: 'Escursione con stop fotografici sui mirador.' },
+      { time: '19:30', title: 'Arrivo al punto di osservazione', note: 'Orizzonte libero: è il motivo per cui si esce dalla città.', highlight: true },
+      { time: '22:00', title: 'Centro di osservazione, presso Hostal Virgen del Yugo', note: 'Seconda parte della serata sotto il cielo delle Bardenas.' },
+      { time: '01:30', title: 'Rientro a Saragozza', note: 'Notte corta: giovedì il programma riparte alle 9:00.' }
     ]
   },
   {

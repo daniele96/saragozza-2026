@@ -191,11 +191,8 @@
     { id: 'dec-8', phase: 'Festival', what: 'Treno del 16 per Benicàssim: orario e biglietto',
       why: 'Domenica con servizio ridotto e tutti che vanno allo stesso posto. Verificare su Renfe se serve la prenotazione del posto.',
       when: 'entro il 14', level: 'alta' },
-    { id: 'dec-13', phase: 'Eclissi', what: 'Chi guida nel deserto, e con quale auto',
-      why: 'Il deserto risolve il problema dell’orizzonte, ma serve un mezzo: andata nel pomeriggio, rientro di notte. Da chiarire chi guida, quanti posti ci sono e se il pieno è fatto — là non ci sono distributori.',
-      when: 'entro il 10', level: 'alta' },
-    { id: 'dec-14', phase: 'Eclissi', what: 'Punto esatto nel deserto e ora di partenza',
-      why: 'Va scelto un punto preciso con orizzonte libero a ovest, salvato come pin offline. Bisogna arrivare con luce per riconoscere il posto, quindi l’ora di partenza dipende dall’orario della totalità.',
+    { id: 'dec-15', phase: 'Eclissi', what: 'Come arrivare in stazione per le 14:00 del 12',
+      why: 'Il programma in città chiude alle 13:00 in Plaza del Pilar e l’escursione parte dalla stazione alle 14:00. Serve capire con che mezzo e con quanto anticipo, e mangiare qualcosa: il pasto dell’escursione è alle 16:00 a Cadreita.',
       when: 'entro l’11', level: 'alta' },
     { id: 'dec-4', phase: 'Saragozza', what: 'Zaragoza Card online o all’ufficio di Delicias?',
       why: 'L’ufficio è comodo (10–20 tutti i giorni, in stazione), ma online si evita la coda del 10 agosto.',
@@ -218,7 +215,7 @@
   ];
 
   const RESOLVED = [
-    'Punto di osservazione dell’eclissi — si va nel deserto: orizzonte libero a ovest, nessun edificio davanti',
+    'Punto di osservazione dell’eclissi — escursione organizzata alle Bardenas: trasporto, punto e orari sono decisi da loro',
     'Scalo di Roma del 23 — stessa compagnia, stessa prenotazione, solo bagaglio a mano',
     'Check-in online glamping — fatto a marzo, ordine #VU8YwLWr',
     'Abbonamento festival con diritto di campeggio — acquistato con camping'
@@ -505,17 +502,28 @@
   ];
 
   /* Notte nel deserto: cosa serve e cosa non c'è là fuori */
+  /* Roadmap dell'escursione organizzata alle Bardenas, 12 agosto */
+  const ECLIPSE_DAY = [
+    { time: '13:00', what: 'Fine del programma in città', note: 'Sei in Plaza del Pilar. Da qui devi arrivare in stazione' },
+    { time: '14:00', what: 'Partenza dalla stazione di Saragozza', note: 'Inizio escursione', key: true },
+    { time: '16:00', what: 'Cadreita — Restaurante Las Piscinas', note: 'Il pasto è qui: sono 3 ore dopo la fine del programma in città' },
+    { time: '18:15', what: 'Partenza per il deserto delle Bardenas', note: 'Escursione con stop fotografici sui mirador' },
+    { time: '19:30', what: 'Arrivo al punto di osservazione', note: 'Orizzonte libero: è il motivo di tutto', key: true },
+    { time: '22:00', what: 'Centro di osservazione, presso Hostal Virgen del Yugo', note: 'Seconda parte della serata sotto il cielo delle Bardenas' },
+    { time: '01:30', what: 'Rientro a Saragozza', note: 'Notte corta: giovedì riparte alle 9:00', key: true }
+  ];
+
   const DESERT = [
-    { id: 'ds1', text: 'Felpa: 20 °C di notte con il vento del deserto si sentono, e resti fermo per ore. Indossala già il 10, così non pesa in valigia' },
+    { id: 'ds1', text: 'Felpa: sei fuori dalle 19:30 all’1:30, sei ore all’aperto di notte. Con il vento delle Bardenas i 20 °C si sentono. Indossala già il 10, così non pesa in valigia' },
     { id: 'ds2', text: 'Pantaloni lunghi leggeri, non felpati: a 20 °C bastano, e a terra al buio proteggono le gambe' },
     { id: 'ds3', text: 'Scarpe da ginnastica chiuse, mai ciabatte: terreno sassoso e irregolare, e al crepuscolo escono gli insetti' },
     { id: 'ds4', text: 'Torcia frontale, meglio a luce rossa: preserva la visione notturna e ti lascia le mani libere' },
-    { id: 'ds5', text: 'Acqua, molta più di quanta pensi: là non c’è nulla, e ci arrivi dopo una giornata a 35 °C' },
-    { id: 'ds6', text: 'Qualcosa da mangiare: nessun bar, nessun chiosco, e la sera si allunga' },
-    { id: 'ds7', text: 'Mappa offline scaricata prima, e un pin salvato sia sul punto sia sull’auto' },
-    { id: 'ds8', text: 'Pieno di benzina fatto prima di uscire da Saragozza: nel deserto non ci sono distributori' },
-    { id: 'ds9', text: 'Powerbank carico: senza copertura il telefono cerca rete e si scarica più in fretta' },
-    { id: 'ds10', text: 'Un telo o una stuoia per sedersi a terra, se hai spazio' }
+    { id: 'ds5', text: 'Acqua per tutta la sera: dopo Cadreita non è detto che ci sia altro' },
+    { id: 'ds6', text: 'Qualcosa da mangiare: il pasto è alle 16:00 e poi si arriva all’1:30. Snack per il pomeriggio e per la notte' },
+    { id: 'ds7', text: 'Powerbank carico: senza copertura il telefono cerca rete e si scarica più in fretta' },
+    { id: 'ds8', text: 'Un telo per sedersi a terra, se hai spazio: al punto di osservazione stai fermo 2 ore e mezza' },
+    { id: 'ds9', text: 'Occhiali da eclissi ISO 12312-2 addosso, non nel borsone in albergo' },
+    { id: 'ds10', text: 'Puff e farmaci con te: sei fuori 11 ore e mezza, dalle 14:00 all’1:30' }
   ];
 
   const SPOTS = [
@@ -1006,6 +1014,16 @@
 
     const des = $('#desert');
     if (des) des.innerHTML = DESERT.map((d) => checkbox(d.id, esc(d.text))).join('');
+
+    const road = $('#eclipseDay');
+    if (road) {
+      road.innerHTML = '<ol class="timeline">' + ECLIPSE_DAY.map((r) =>
+        '<li class="tl' + (r.key ? ' tl--highlight' : '') + '">' +
+          '<span class="tl__time">' + esc(r.time) + '</span>' +
+          '<h4 class="tl__title">' + esc(r.what) + '</h4>' +
+          '<p class="tl__note">' + esc(r.note) + '</p>' +
+        '</li>').join('') + '</ol>';
+    }
 
     const spots = $('#spots');
     if (spots) {
