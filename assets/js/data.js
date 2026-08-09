@@ -50,8 +50,8 @@ const PLACES = [
     lat: 41.6568982, lng: -0.8785056,
     price: 'Ascensore 4 € · Museo Pilarista ~2 € · Rosario de Cristal 5 € (tutti inclusi)',
     hours: 'Basílica ~8:00–20:30',
-    days: [1, 3],
-    note: 'Interno della Basílica sempre gratuito. Lo stesso punto raccoglie ascensore panoramico, Museo Pilarista e Museo del Rosario de Cristal.'
+    days: [3],
+    note: 'Interno della Basílica sempre gratuito: si visita mercoledì alle 9:00, appena apre. Lo stesso punto raccoglie ascensore panoramico, Museo Pilarista e Museo del Rosario de Cristal.'
   },
   {
     name: 'Ruta Caesaraugusta — Museo del Foro',
@@ -131,8 +131,8 @@ const PLACES = [
     lat: 41.6526, lng: -0.8795,
     price: 'A consumazione',
     hours: 'Sere',
-    days: [2],
-    note: 'Il quartiere delle tapas: calle Estébanes, Libertad, Cuatro de Agosto.'
+    days: [1, 4],
+    note: 'Il quartiere delle tapas: calle Estébanes, Libertad, Cuatro de Agosto. Ci sono sia Bula (lunedì) sia Meli (giovedì). Martedì invece la cena è prenotata alla Miguería.'
   },
   {
     name: 'Bula del Tubo',
@@ -243,43 +243,44 @@ const CARD_SERVICES = [
 const ITINERARY = [
   {
     day: 1, date: 'Lunedì 10 agosto', tag: 'Sera · senza Card',
-    intro: 'Serata a costo zero, tutto a piedi in centro. Ritirare — senza attivare — la Zaragoza Card all’ufficio del turismo della stazione Delicias.',
+    intro: 'Serata a costo zero, tutto a piedi in centro. Ritirare — senza attivare — la Zaragoza Card all’ufficio del turismo della stazione Delicias. L’interno della Basílica si vede mercoledì mattina con calma.',
     stops: [
-      { time: '20:00', title: 'Basílica del Pilar', note: 'Interno gratuito, aperta fino alle ~20:30. Bellissima al tramonto.', place: 'Basílica del Pilar — Torre panoramica e musei' },
+      { time: '20:00', title: 'Plaza del Pilar', note: 'La piazza e l’esterno della Basílica illuminati. L’interno è in programma mercoledì mattina.', place: 'Plaza del Pilar' },
       { time: '20:45', title: 'Puente de Piedra', note: 'La foto classica del Pilar sull’Ebro nell’ora blu.', place: 'Puente de Piedra' },
       { time: '21:30', title: 'Bula del Tubo', note: 'Cena a tapas. È aperto il lunedì, a differenza di Meli.', place: 'Bula del Tubo' }
     ]
   },
   {
     day: 2, date: 'Martedì 11 agosto', tag: 'Giornata piena · si attiva la Card',
-    intro: 'La giornata della Caesaraugusta romana, spezzata in due dalla chiusura di metà giornata dei musei. Tutto nel centro storico, a piedi.',
+    intro: 'La giornata della Caesaraugusta romana. Qui il via alle 9:00 non è applicabile: i musei romani aprono alle 10:00 e chiudono dalle 14:00 alle 17:00, quindi la pausa lunga è imposta dagli orari, non scelta.',
     stops: [
       { time: '10:00', title: 'Ruta Caesaraugusta — Foro e Puerto Fluvial', note: 'Attivare qui la Card, al Museo del Foro: è il primo ingresso incluso del viaggio. I due siti sono entrambi in Plaza de la Seo.', place: 'Ruta Caesaraugusta — Museo del Foro', highlight: true },
-      { time: '~12:30', title: 'Museo de Zaragoza', note: 'Opzionale, gratuito e al chiuso: sale dedicate a Goya. Utile per riempire la mattina prima della pausa.', place: 'Museo de Zaragoza' },
-      { time: '14:00–17:00', title: 'Pranzo e pausa caldo', note: 'I musei romani chiudono comunque in questa fascia: nessuna occasione persa.' },
+      { time: '12:00', title: 'Museo de Zaragoza', note: 'Gratuito e al chiuso: sale dedicate a Goya. Riempie la mattina fino alla chiusura.', place: 'Museo de Zaragoza' },
+      { time: '14:00–16:00', title: 'Pranzo e pausa', note: 'Due ore, non tre. È il minimo possibile: i musei romani riaprono solo alle 17:00.' },
+      { time: '16:00', title: 'Giro a piedi in centro', note: 'Un’ora all’ombra tra i vicoli e le piazze, in attesa della riapertura.' },
       { time: '17:00', title: 'Ruta Caesaraugusta — Termas e Teatro', note: 'Aperti fino alle 21. Il Teatro è il più scenografico dei quattro.', place: 'Ruta Caesaraugusta — Museo del Teatro' },
-      { time: 'Sera', title: 'Cena a tapas in El Tubo', note: 'Calle Estébanes e dintorni.', place: 'El Tubo' }
+      { time: '20:00–21:45', title: 'Cena alla Miguería — prenotata', note: 'Plaza Santiago Sas 6, 50003 Zaragoza. Tavolo per 12 persone, confermato.', highlight: true }
     ]
   },
   {
     day: 3, date: 'Mercoledì 12 agosto', tag: 'Solo mattina · off dalle 13:00',
-    intro: 'Mattina tutta in Plaza del Pilar, senza spostamenti. Dalle 13:00 il programma si chiude: pomeriggio e sera sono dedicati all’eclissi.',
+    intro: 'Si parte alle 9:00 e si sta tutti in Plaza del Pilar, senza spostamenti. Dalle 13:00 il programma si chiude: pomeriggio e sera sono dedicati all’eclissi.',
     stops: [
-      { time: '10:00', title: 'La Seo + Museo de Tapices', note: 'Arazzi tra i migliori d’Europa. Chiude a pranzo: arrivare all’apertura.', place: 'La Seo – Catedral del Salvador + Museo de Tapices' },
-      { time: '11:15', title: 'Basílica del Pilar — la Virgen del Pilar', note: 'Interno della Basílica, sempre gratuito, con la cappella della Virgen del Pilar. A pochi passi da La Seo, nella stessa piazza.', place: 'Basílica del Pilar — Torre panoramica e musei' },
-      { time: '12:00', title: 'Torre panoramica e Museo Pilarista', note: 'Ascensore e vista sulla città, tutto nello stesso punto della Basílica.', place: 'Basílica del Pilar — Torre panoramica e musei' },
+      { time: '09:00', title: 'Basílica del Pilar — la Virgen del Pilar', note: 'Interno sempre gratuito, con la cappella della Virgen del Pilar. La Basílica apre verso le 8:00, quindi alle 9 si entra con calma e senza folla.', place: 'Basílica del Pilar — Torre panoramica e musei', highlight: true },
+      { time: '10:00', title: 'La Seo + Museo de Tapices', note: 'Apre alle 10:00 e chiude a pranzo: arrivare all’apertura. Arazzi tra i migliori d’Europa.', place: 'La Seo – Catedral del Salvador + Museo de Tapices' },
+      { time: '11:30', title: 'Torre panoramica e Museo Pilarista', note: 'Ascensore e vista sulla città, tutto nello stesso punto della Basílica.', place: 'Basílica del Pilar — Torre panoramica e musei' },
       { time: 'dalle 13:00', title: 'Off — eclissi solare', note: 'Nessuna visita in programma: pomeriggio e sera liberi per l’osservazione dell’eclissi.', highlight: true }
     ]
   },
   {
     day: 4, date: 'Giovedì 13 agosto', tag: 'Giornata piena',
-    intro: 'La giornata più piena, e scorre tutta da est a ovest: la finestra stretta di San Pablo, l’Aljafería nelle ore calde, la zona Expo la sera e rientro diretto a Delicias.',
+    intro: 'Si parte alle 9:00 dal Mercado Central, che apre a quell’ora. Poi la giornata scorre da est a ovest: San Pablo, l’Aljafería nelle ore calde, la zona Expo la sera e rientro diretto a Delicias.',
     stops: [
+      { time: '09:00', title: 'Mercado Central', note: 'Apre alle 9:00: colazione o spuntino nel mercato ristrutturato, prima che arrivi il caldo.', place: 'Mercado Central' },
       { time: '10:00', title: 'Iglesia de San Pablo', note: 'Torre mudéjar salibile, vista a 360°. Aperta solo 10:00–12:30: è l’unico giorno utile del viaggio.', place: 'Iglesia de San Pablo' },
-      { time: '11:30', title: 'Mercado Central', note: 'Aperitivo o spuntino nel mercato ristrutturato. Chiude alle 14.', place: 'Mercado Central' },
-      { time: '13:00', title: 'Pranzo', note: 'Breve: il pomeriggio è pieno.' },
-      { time: '15:00', title: 'Palazzo dell’Aljafería', note: 'Mudéjar UNESCO, ~1,5 h. Chiude alle 17:15, quindi bisogna essere dentro entro le 15:30. Al chiuso nelle ore peggiori del caldo, e sulla strada verso ovest.', place: 'Palazzo dell’Aljafería', highlight: true },
-      { time: '18:00', title: 'Acuario e zona Expo / Parque del Agua', note: 'Passeggiata serale tra Pabellón Puente e Torre del Agua. Linee 48 / Ci1 / Ci2 per rientrare a Delicias.', place: 'Acuario de Zaragoza' },
+      { time: '12:15', title: 'Pranzo e pausa', note: 'Un’ora e mezza, non tre: si riparte alle 13:45.' },
+      { time: '13:45', title: 'Palazzo dell’Aljafería', note: 'Mudéjar UNESCO, ~1,5 h. Al chiuso nelle ore peggiori del caldo, e sulla strada verso ovest. Chiude alle 17:15: con questo orario il margine è ampio.', place: 'Palazzo dell’Aljafería', highlight: true },
+      { time: '16:30', title: 'Acuario e zona Expo / Parque del Agua', note: 'Passeggiata tra Pabellón Puente e Torre del Agua. Linee 48 / Ci1 / Ci2 per rientrare a Delicias.', place: 'Acuario de Zaragoza' },
       { time: 'Sera', title: 'Cena a tapas al Meli del Tubo', note: 'L’unica serata piena in cui è aperto.', place: 'Meli del Tubo' }
     ]
   },
@@ -317,7 +318,7 @@ const TRANSPORT_FARES = [
    -------------------------------------------------------------------------- */
 const RULES = [
   { icon: '☀️', title: 'Caldo di agosto (35 °C+)',
-    text: 'Attività all’aperto la mattina presto e la sera; dalle 14 alle 17 al chiuso o in pausa. La chiusura pomeridiana dei musei romani aiuta a organizzare la siesta.' },
+    text: 'Si parte alle 9:00 per sfruttare le ore fresche, e le pause di metà giornata sono di 1,5–2 ore invece di tre. Unica eccezione il martedì, dove i musei romani chiudono dalle 14 alle 17 e la pausa lunga è imposta dagli orari.' },
   { icon: '🔒', title: 'Chiusure del lunedì',
     text: 'Ruta Caesaraugusta e quasi tutti i musei civici sono chiusi il lunedì: non attivare la Card e non pianificare musei quel giorno.' },
   { icon: '🎫', title: 'Attivazione della Card',
