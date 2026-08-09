@@ -320,6 +320,37 @@ const TRANSPORT_FARES = [
 ];
 
 /* --------------------------------------------------------------------------
+   Eclissi del 12 agosto: sicurezza, ragioni e cosa portare
+   -------------------------------------------------------------------------- */
+const ECLIPSE_SAFETY = [
+  'Il Sole si guarda <strong>solo</strong> con occhiali certificati <strong>ISO 12312-2</strong>. Gli occhiali da sole, per quanto scuri, non servono a niente ed è pericoloso usarli.',
+  'Mai guardare il Sole attraverso <strong>fotocamera, binocolo o telescopio senza filtro solare dedicato</strong>: concentrano la luce e il danno è immediato, anche se hai gli occhiali da eclissi addosso.',
+  'Controllare gli occhiali <strong>prima</strong>: se sono rigati, bucati o piegati vanno buttati.',
+  'Portarne <strong>un paio di scorta</strong>: si graffiano e si perdono facilmente.'
+];
+
+const ECLIPSE_WHY = 'Questa eclissi avviene con il <strong>Sole molto basso sull’orizzonte</strong>, ' +
+  'vicino al tramonto. Non basta essere nel posto giusto: serve una <strong>linea di vista libera ' +
+  'verso ovest</strong>. In città, tra i palazzi, il Sole a pochi gradi di altezza è semplicemente ' +
+  'coperto — ed è per questo che si esce verso il deserto delle Bardenas, dove l’orizzonte è libero ' +
+  'fin dove arriva l’occhio.';
+
+const ECLIPSE_KIT = [
+  { icon: '🕶️', what: 'Occhiali ISO 12312-2', why: 'Uno a testa, più uno di scorta. Senza, non si guarda.' },
+  { icon: '🧥', what: 'Felpa', why: 'Si sta fuori dalle 19:30 all’1:30: sei ore all’aperto di notte, e nelle Bardenas c’è vento.' },
+  { icon: '🔦', what: 'Torcia, meglio frontale', why: 'Si rientra al buio. La luce rossa non rovina la visione notturna.' },
+  { icon: '💧', what: 'Acqua e snack', why: 'Il pasto è alle 16:00 a Cadreita e il rientro è all’1:30: sono nove ore e mezza.' },
+  { icon: '👟', what: 'Scarpe chiuse', why: 'Terreno sassoso e irregolare, e al crepuscolo escono gli insetti.' },
+  { icon: '🔋', what: 'Powerbank carico', why: 'Con poca copertura il telefono cerca rete e si scarica in fretta.' }
+];
+
+const ECLIPSE_CHECK = [
+  'Orario esatto di inizio della fase parziale, inizio e fine della totalità',
+  'Durata della totalità',
+  'Altezza del Sole sull’orizzonte durante la totalità'
+];
+
+/* --------------------------------------------------------------------------
    Note pratiche
    -------------------------------------------------------------------------- */
 const RULES = [

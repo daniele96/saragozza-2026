@@ -236,6 +236,30 @@
   }
 
   /* ======================================================================
+     Eclissi
+     ====================================================================== */
+  function renderEclipse() {
+    const safety = $('#eclipseSafety');
+    if (safety) safety.innerHTML = ECLIPSE_SAFETY.map((s) => '<li><span>' + s + '</span></li>').join('');
+
+    const why = $('#eclipseWhy');
+    if (why) why.innerHTML = ECLIPSE_WHY;
+
+    const kit = $('#eclipseKit');
+    if (kit) {
+      kit.innerHTML = ECLIPSE_KIT.map((k) =>
+        '<div class="card">' +
+          '<h3 class="card__title"><span aria-hidden="true">' + k.icon + '</span> ' + esc(k.what) + '</h3>' +
+          '<p>' + esc(k.why) + '</p>' +
+        '</div>'
+      ).join('');
+    }
+
+    const check = $('#eclipseCheck');
+    if (check) check.innerHTML = ECLIPSE_CHECK.map((c) => '<li><span>' + esc(c) + '</span></li>').join('');
+  }
+
+  /* ======================================================================
      Note pratiche
      ====================================================================== */
   function renderRules() {
@@ -502,6 +526,7 @@
     renderServices();
     renderAttractions();
     renderItinerary();
+    renderEclipse();
     renderTransport();
     renderRules();
     initMap();

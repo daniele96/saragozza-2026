@@ -39,6 +39,7 @@
         <li><a class="nav__link" href="#card">Zaragoza Card</a></li>
         <li><a class="nav__link" href="#attrazioni">Attrazioni</a></li>
         <li><a class="nav__link" href="#itinerario">Itinerario</a></li>
+        <li><a class="nav__link" href="#eclissi">Eclissi</a></li>
         <li><a class="nav__link" href="#mappa">Mappa</a></li>
         <li><a class="nav__link" href="#trasporti">Trasporti</a></li>
         <li><a class="nav__link" href="#note">Note</a></li>
@@ -262,8 +263,50 @@
     </div>
   </section>
 
+  <!-- ============================== ECLISSI ============================== -->
+  <section class="section" id="eclissi">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__eyebrow">Mercoledì 12 agosto</p>
+        <h2 class="section__title">L’eclissi</h2>
+        <p class="section__lead">
+          È il motivo per cui siamo qui in queste date. Il pomeriggio e la notte del 12 sono
+          dedicati all’escursione nel deserto delle Bardenas.
+        </p>
+      </header>
+
+      <div class="callout mt-1">
+        <span class="callout__icon" aria-hidden="true">⚠️</span>
+        <div>
+          <p><strong>La sicurezza degli occhi non si negozia.</strong> Leggere questi quattro punti
+          prima del 12.</p>
+          <ul class="check-list mt-1" id="eclipseSafety"></ul>
+        </div>
+      </div>
+
+      <div class="grid grid--2 mt-2">
+        <div class="card">
+          <h3 class="card__title">🏜️ Perché si va nel deserto</h3>
+          <p id="eclipseWhy"></p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">🕑 Cosa resta da confermare</h3>
+          <p class="small">Dati da verificare su una fonte astronomica prima del 12:</p>
+          <ul class="check-list mt-1" id="eclipseCheck"></ul>
+          <p class="small mt-1">
+            Gli orari dell’escursione sono nell’<a href="#itinerario">itinerario di mercoledì</a>:
+            partenza dalla stazione alle 14:00, osservazione dalle 19:30, rientro all’1:30.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="mt-2">Cosa portarsi la sera del 12</h3>
+      <div class="grid grid--3 mt-1" id="eclipseKit"></div>
+    </div>
+  </section>
+
   <!-- ============================== MAPPA ============================== -->
-  <section class="section" id="mappa">
+  <section class="section section--alt" id="mappa">
     <div class="wrap">
       <header class="section__head">
         <p class="section__eyebrow">Mappa</p>
@@ -296,7 +339,7 @@
   </section>
 
   <!-- ============================ TRASPORTI ============================ -->
-  <section class="section section--alt" id="trasporti">
+  <section class="section" id="trasporti">
     <div class="wrap">
       <header class="section__head">
         <p class="section__eyebrow">Trasporti</p>
@@ -363,7 +406,7 @@
   </section>
 
   <!-- ============================== NOTE ============================== -->
-  <section class="section" id="note">
+  <section class="section section--alt" id="note">
     <div class="wrap">
       <header class="section__head">
         <p class="section__eyebrow">Note pratiche</p>
