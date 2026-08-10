@@ -100,6 +100,15 @@ const PLACES = [
     note: 'Cuore del centro storico. Qui c’è anche un ufficio del turismo, utile per informazioni.'
   },
   {
+    name: 'Bus turistico — partenza (Calle Don Jaime I)',
+    cat: 'logistica',
+    lat: 41.6555071, lng: -0.8765012,
+    price: 'Generale 10 €',
+    hours: 'Giro di ~90 minuti',
+    days: [2],
+    note: 'Fermata di partenza, vicino alla Lonja. Tariffe ridotte e offerte combinate (Acuario, Mobility City) nella sezione Trasporti.'
+  },
+  {
     name: 'Puente de Piedra',
     cat: 'panorama',
     lat: 41.6572038, lng: -0.8753503,
@@ -277,7 +286,7 @@ const ITINERARY = [
     day: 2, date: 'Martedì 11 agosto', tag: 'Giornata piena · bus, Acuario e resti romani',
     intro: 'Mattina fuori dal centro storico, tra bus turistico e Acuario. Nel pomeriggio, appena i musei romani riaprono alle 17:00, il bono della Ruta Caesaraugusta — fino alle 19:30, in tempo per la cena alla Miguería.',
     stops: [
-      { time: '10:00', title: 'Bus turistico', note: 'Giro panoramico di ~90 minuti, partenza da Calle Don Jaime I (vicino alla Lonja). Tariffa generale 10 €.' },
+      { time: '10:00', title: 'Bus turistico', note: 'Giro panoramico di ~90 minuti, partenza da Calle Don Jaime I (vicino alla Lonja). Tariffa generale 10 €.', place: 'Bus turistico — partenza (Calle Don Jaime I)' },
       { time: '11:30', title: 'Acuario de Zaragoza', note: 'Dal centro con le linee 48 / Ci1 / Ci2 verso il Parque del Agua. Valutare agli uffici del turismo il combinato bus turistico + Acuario, 21,60 €.', place: 'Acuario de Zaragoza', highlight: true },
       { time: '13:30–17:00', title: 'Pranzo e pausa', note: 'Pausa lunga: i musei romani riaprono solo alle 17:00, in linea con la chiusura di metà giornata.' },
       { time: '17:00–19:30', title: 'Ruta Caesaraugusta — 4 siti romani', note: 'Bono unico 7 €: Foro, Puerto Fluvial, Termas Públicas e Teatro. Fino alle 19:30, per arrivare puntuali alla cena.', place: 'Ruta Caesaraugusta — Museo del Foro', highlight: true },
