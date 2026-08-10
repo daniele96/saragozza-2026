@@ -163,15 +163,6 @@ const PLACES = [
     note: 'Da tenere per giovedì sera, l’unica serata piena in cui è aperto.'
   },
   {
-    name: 'Museo de Zaragoza',
-    cat: 'extra',
-    lat: 41.6510, lng: -0.8770,
-    price: 'Gratuito',
-    hours: 'Chiuso il lunedì',
-    days: [],
-    note: 'Sale dedicate a Goya. Gratuito, ma non più in programma: la mattina di martedì è ora occupata da bus turistico e Acuario.'
-  },
-  {
     name: 'Acuario de Zaragoza',
     cat: 'extra',
     lat: 41.6692044, lng: -0.8986434,
@@ -386,7 +377,7 @@ const ECLIPSE_CHECK = [
    -------------------------------------------------------------------------- */
 const RULES = [
   { icon: '☀️', title: 'Caldo di agosto (35 °C+)',
-    text: 'Si parte alle 9:00 per sfruttare le ore fresche, e le pause di metà giornata sono di 1,5–2 ore invece di tre. Unica eccezione il martedì, dove i musei romani chiudono dalle 14 alle 17 e la pausa lunga è imposta dagli orari.' },
+    text: 'Si parte alle 9:00 per sfruttare le ore fresche, e le pause di metà giornata sono di 1,5–2 ore invece di tre. Fa eccezione il martedì, che comincia alle 10:00 con il bus turistico e ha una pausa più lunga (13:30–17:00), imposta dalla chiusura dei musei romani.' },
   { icon: '🔒', title: 'Chiusure del lunedì',
     text: 'Ruta Caesaraugusta e quasi tutti i musei civici sono chiusi il lunedì: non pianificare musei quel giorno.' },
   { icon: '🎫', title: 'Niente più Zaragoza Card',
