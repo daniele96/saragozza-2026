@@ -203,8 +203,8 @@
     { id: 'dec-9', phase: 'Rientro', what: 'Chi mi viene a prendere a Bari il 23',
       why: 'Arrivo in aereo alle 22:55. Da chiarire se il passaggio è all’aeroporto di Bari o se serve un treno successivo.',
       when: 'entro il 20', level: 'media' },
-    { id: 'dec-5', phase: 'Saragozza', what: 'Acuario giovedì 13: si fa o si salta?',
-      why: 'Costo pieno, salvo il combinato con bus turistico (21,60 €). E ruba la serata.',
+    { id: 'dec-5', phase: 'Saragozza', what: 'Acuario martedì 11: comprare il combinato con il bus turistico?',
+      why: 'Costo pieno, salvo il combinato con bus turistico (21,60 €) acquistabile solo agli uffici del turismo.',
       when: 'in loco', level: 'bassa' },
     { id: 'dec-12', phase: 'Rientro', what: 'Cosa fare delle 3h20 di attesa a Valencia',
       why: 'Il transfer arriva alle 14:00 per un volo alle 17:25, dopo sette notti in tenda. Se c’è il deposito bagagli si può uscire.',
@@ -568,11 +568,10 @@
       { text: 'Meli è chiuso il lunedì → <strong>Bula</strong>, non confondersi.' }
     ]},
     { id: 'd2', title: 'Martedì 11', sub: 'La giornata da non sbagliare', points: [
-      { kind: 'key', text: '<strong>Comprare qui il bono Ruta Caesaraugusta (7 €):</strong> conviene per i quattro siti romani della giornata.' },
-      { text: 'A piedi da Delicias, 12–15 min lungo Avda. Madrid: si risparmia una corsa e alle 10 fa ancora fresco.' },
-      { text: 'Pausa 14:00–17:00 vera: i musei romani sono chiusi comunque, non si perde niente.' },
-      { text: 'Ruta Caesaraugusta nell’ordine Foro → Puerto Fluvial → Termas → Teatro. Chiudono alle 21.' },
-      { text: 'Priorità nei quattro: il <strong>Teatro</strong>. Se il caldo taglia la giornata, gli altri tre si sacrificano prima.' }
+      { kind: 'key', text: 'Bus turistico alle 10:00 da Calle Don Jaime I (vicino alla Lonja), poi Acuario: mattina fuori dal centro.' },
+      { text: 'Pranzo con pausa lunga fino alle 17:00: i musei romani sono chiusi comunque tra le 14 e le 17, non si perde niente.' },
+      { kind: 'key', text: '<strong>Comprare qui il bono Ruta Caesaraugusta (7 €):</strong> Foro → Puerto Fluvial → Termas → Teatro, dalle 17:00 alle 19:30 per essere puntuali alla cena delle 20:00.' },
+      { text: 'Priorità nei quattro: il <strong>Teatro</strong>. Se il tempo stringe, gli altri tre si sacrificano prima.' }
     ]},
     { id: 'd3', title: 'Mercoledì 12', sub: 'Mattina secca, poi eclissi', points: [
       { text: 'Due sole visite, entrambe in Plaza del Pilar: nessuno spostamento.' },
