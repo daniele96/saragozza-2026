@@ -122,24 +122,27 @@
   }
 
   /* ======================================================================
-     Zaragoza Card: servizi inclusi
+     Biglietti: cosa comprende ciascuno dei due bono combinati
      ====================================================================== */
-  function renderServices() {
-    const el = $('#servicesList');
-    if (!el) return;
-    el.innerHTML = CARD_SERVICES.map((s) =>
-      '<li><span><strong>' + esc(s.name) + '</strong> — ' + esc(s.detail) +
-      ' <span class="val">' + esc(s.value) + '</span></span></li>'
-    ).join('');
+  function renderTickets() {
+    const renderIncludes = (el, ticket) => {
+      if (!el) return;
+      el.innerHTML = ticket.includes.map((i) =>
+        '<li><span><strong>' + esc(i.name) + '</strong> — ' + esc(i.hours) +
+        ' <span class="val">' + esc(i.where) + '</span></span></li>'
+      ).join('');
+    };
+    renderIncludes($('#cattedraliList'), TICKET_CATTEDRALI);
+    renderIncludes($('#romanoList'), TICKET_ROMANO);
   }
 
   /* ======================================================================
-     Attrazioni incluse + tabella luoghi extra
+     Attrazioni fuori dai bono + tabella luoghi extra
      ====================================================================== */
   function renderAttractions() {
     const grid = $('#attrGrid');
     if (grid) {
-      grid.innerHTML = CARD_ATTRACTIONS.map((a) =>
+      grid.innerHTML = ATTRACTIONS.map((a) =>
         '<article class="attr">' +
           '<div class="attr__top">' +
             '<h3 class="attr__name">' + esc(a.name) + '</h3>' +
@@ -157,7 +160,7 @@
     if (tbody) {
       const typeOf = { panorama: 'Piazza / panorama', food: 'Tapas e mercati', extra: 'Museo / visita', logistica: 'Logistica' };
       tbody.innerHTML = PLACES
-        .filter((p) => p.cat !== 'card')
+        .filter((p) => p.cat !== 'romano' && p.cat !== 'cattedrali')
         .map((p) =>
           '<tr><td><strong>' + esc(p.name) + '</strong></td>' +
           '<td>' + esc(typeOf[p.cat] || '—') + '</td>' +
@@ -291,6 +294,32 @@
       fares.innerHTML = TRANSPORT_FARES.map((f) =>
         '<tr><td>' + esc(f.title) + '</td>' +
         '<td class="num"><strong>' + esc(f.price) + '</strong></td></tr>'
+      ).join('');
+    }
+  }
+
+  /* ======================================================================
+     Bus turistico (servizio a parte, non i bus urbani)
+     ====================================================================== */
+  function renderBusTuristico() {
+    const route = $('#busTuristicoRoute');
+    if (route) route.textContent = BUS_TURISTICO.route;
+
+    const fares = $('#busFaresTable');
+    if (fares) {
+      fares.innerHTML = BUS_TURISTICO.fares.map((f) =>
+        '<tr><td>' + esc(f.title) + '</td>' +
+        '<td class="num"><strong>' + esc(f.price) + '</strong></td></tr>'
+      ).join('');
+    }
+
+    const faresNote = $('#busFaresNote');
+    if (faresNote) faresNote.textContent = BUS_TURISTICO.faresNote;
+
+    const offers = $('#busOffersList');
+    if (offers) {
+      offers.innerHTML = BUS_TURISTICO.offers.map((o) =>
+        '<li><span><strong>' + esc(o.title) + '</strong> — ' + esc(o.detail) + '</span></li>'
       ).join('');
     }
   }
@@ -523,11 +552,12 @@
     initNav();
     initCountdown();
     renderAvailability();
-    renderServices();
+    renderTickets();
     renderAttractions();
     renderItinerary();
     renderEclipse();
     renderTransport();
+    renderBusTuristico();
     renderRules();
     initMap();
     initPlaceInteractions();

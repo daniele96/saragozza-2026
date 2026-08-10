@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Saragozza 2026 — Piano di viaggio 10–14 agosto</title>
-<meta name="description" content="Piano di viaggio di quattro giorni a Saragozza (10–14 agosto 2026): Zaragoza Card, attrazioni con prezzi, itinerario giorno per giorno, trasporti da Delicias e mappa interattiva.">
+<meta name="description" content="Piano di viaggio di quattro giorni a Saragozza (10–14 agosto 2026): biglietti per i monumenti, attrazioni con prezzi, itinerario giorno per giorno, trasporti da Delicias e mappa interattiva.">
 <meta name="theme-color" content="#B4532A">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Saragozza 2026 — Piano di viaggio">
@@ -36,7 +36,7 @@
     <nav class="nav" aria-label="Navigazione principale">
       <ul class="nav__list" id="navList">
         <li><a class="nav__link" href="#panoramica">Panoramica</a></li>
-        <li><a class="nav__link" href="#card">Zaragoza Card</a></li>
+        <li><a class="nav__link" href="#biglietti">Biglietti</a></li>
         <li><a class="nav__link" href="#attrazioni">Attrazioni</a></li>
         <li><a class="nav__link" href="#itinerario">Itinerario</a></li>
         <li><a class="nav__link" href="#eclissi">Eclissi</a></li>
@@ -78,12 +78,12 @@
           <span class="stat__label">giorni utili</span>
         </div>
         <div class="stat stat--ebro">
-          <span class="stat__value">24 €</span>
-          <span class="stat__label">Card 72 ore</span>
+          <span class="stat__value">19 €</span>
+          <span class="stat__label">biglietti monumenti (7+12)</span>
         </div>
         <div class="stat stat--gold">
-          <span class="stat__value">~40 €</span>
-          <span class="stat__label">valore incluso</span>
+          <span class="stat__value">10 €</span>
+          <span class="stat__label">bus turistico</span>
         </div>
         <div class="stat">
           <span class="stat__value" id="placeCount">19</span>
@@ -146,66 +146,49 @@
     </div>
   </section>
 
-  <!-- ========================= ZARAGOZA CARD ========================= -->
-  <section class="section section--alt" id="card">
+  <!-- ============================ BIGLIETTI ============================ -->
+  <section class="section section--alt" id="biglietti">
     <div class="wrap">
       <header class="section__head">
-        <p class="section__eyebrow">Zaragoza Card</p>
-        <h2 class="section__title">La tessera turistica ufficiale</h2>
+        <p class="section__eyebrow">Biglietti</p>
+        <h2 class="section__title">Niente più Zaragoza Card: due bono separati</h2>
         <p class="section__lead">
-          La validità parte dal <strong>primo utilizzo</strong>, non dall’acquisto: si ritira all’arrivo
-          e si attiva il giorno giusto.
+          La Zaragoza Card non è più attiva. Restano due biglietti combinati per i monumenti,
+          più il bus turistico come servizio a pagamento a parte.
         </p>
       </header>
 
       <div class="grid price-grid">
-        <div class="price">
-          <span class="price__dur">24 ore</span>
-          <span class="price__amount">18 €</span>
-          <p class="price__note">Troppo corta per questo itinerario.</p>
-          <p class="price__rides">5 corse di trasporto urbano</p>
-        </div>
-        <div class="price">
-          <span class="price__dur">48 ore</span>
-          <span class="price__amount">21 €</span>
-          <p class="price__note">Coprirebbe solo martedì e mercoledì.</p>
-          <p class="price__rides">7 corse di trasporto urbano</p>
+        <div class="price price--best">
+          <span class="price__flag">Siti romani</span>
+          <span class="price__dur">Bono Ruta Caesaraugusta</span>
+          <span class="price__amount">7 €</span>
+          <p class="price__note">Un biglietto unico per i 4 siti romani: Museo del Foro, Museo del Teatro, Termas Públicas e Puerto Fluvial.</p>
         </div>
         <div class="price price--best">
-          <span class="price__flag">Scelta consigliata</span>
-          <span class="price__dur">72 ore</span>
-          <span class="price__amount">24 €</span>
-          <p class="price__note">Da attivare <strong>martedì 11</strong>: copre Ruta Caesaraugusta, La Seo, la torre del Pilar e l’Aljafería di giovedì.</p>
-          <p class="price__rides">9 corse di trasporto urbano</p>
+          <span class="price__flag">Cattedrali</span>
+          <span class="price__dur">Entrada conjunta · 48 ore</span>
+          <span class="price__amount">12 €</span>
+          <p class="price__note">La Seo, Basílica del Pilar, Museo Pilarista, Rosario de Cristal e Subida a la Torre (solo con questo biglietto completo).</p>
         </div>
       </div>
 
       <div class="grid grid--2 mt-2">
         <div class="card">
-          <h3 class="card__title">✅ Cosa include</h3>
-          <ul class="check-list" id="servicesList"></ul>
-          <div class="value-bar">
-            <span>Solo bus turistico, Aljafería, La Seo, Ruta Caesaraugusta e visita guidata valgono già <b>~40 €</b> contro i 24 € della 72 ore.</span>
-          </div>
+          <h3 class="card__title">⛪ Cosa include l’entrada conjunta (12 €)</h3>
+          <ul class="check-list" id="cattedraliList"></ul>
         </div>
 
         <div class="card">
-          <h3 class="card__title">🎟️ Dove ritirarla e come attivarla</h3>
-          <p>
-            Uffici del turismo di <strong>Plaza del Pilar</strong> e della <strong>stazione Delicias</strong>
-            (Calle Rioja 33, aperto tutti i giorni 10:00–20:00), oppure online.
-          </p>
-          <p>
-            Si attiva al primo ingresso in un sito incluso. Per questo il piano prevede di
-            ritirarla lunedì sera all’arrivo e di <strong>attivarla martedì mattina al Museo del Foro</strong>:
-            il lunedì molti musei sono chiusi e mezza giornata di validità andrebbe sprecata.
-          </p>
-          <div class="callout mt-1">
-            <span class="callout__icon" aria-hidden="true">⚠️</span>
-            <p>Il trasporto pubblico incluso <strong>non è illimitato</strong>: 9 corse con la 72 ore.
-            Sufficienti, ma va contato.</p>
-          </div>
+          <h3 class="card__title">🏛️ Cosa include il bono Caesaraugusta (7 €)</h3>
+          <ul class="check-list" id="romanoList"></ul>
         </div>
+      </div>
+
+      <div class="callout mt-2">
+        <span class="callout__icon" aria-hidden="true">⚠️</span>
+        <p>La <strong>Subida a la Torre</strong> del Pilar non si vende da sola: è compresa solo
+        comprando l’entrada conjunta completa da 12 €.</p>
       </div>
     </div>
   </section>
@@ -215,9 +198,9 @@
     <div class="wrap">
       <header class="section__head">
         <p class="section__eyebrow">Attrazioni</p>
-        <h2 class="section__title">Cosa copre la Card, e quanto costerebbe</h2>
+        <h2 class="section__title">Prezzi fuori dai due bono</h2>
         <p class="section__lead">
-          Prezzi del biglietto singolo: sono quelli che la Card fa risparmiare.
+          Aggiornati ad agosto 2026, senza più la Zaragoza Card.
         </p>
       </header>
 
@@ -226,17 +209,16 @@
       <div class="callout callout--ebro mt-2">
         <span class="callout__icon" aria-hidden="true">ℹ️</span>
         <div>
-          <p>I quattro siti della <strong>Ruta Caesaraugusta</strong> hanno anche un bono combinato
-          a <strong>7 €</strong>, utile come riferimento di prezzo.</p>
-          <p>Alcuni prezzi singoli — in particolare La Seo — potrebbero essere leggermente più alti
-          nel 2026, ma il conto della convenienza non cambia.</p>
+          <p>I prezzi dei monumenti sono ora nella sezione <a href="#biglietti">Biglietti</a>:
+          bono <strong>Ruta Caesaraugusta 7 €</strong> ed entrada conjunta cattedrali <strong>12 €</strong>.</p>
+          <p>Verificare comunque orari e condizioni alla biglietteria: possono cambiare.</p>
         </div>
       </div>
 
-      <h3 class="mt-2">Altri luoghi dell’itinerario, fuori Card</h3>
+      <h3 class="mt-2">Altri luoghi dell’itinerario, senza biglietto combinato</h3>
       <div class="table-scroll">
         <table>
-          <caption class="visually-hidden">Luoghi dell’itinerario non inclusi nella Zaragoza Card</caption>
+          <caption class="visually-hidden">Luoghi dell’itinerario non inclusi nei biglietti combinati</caption>
           <thead>
             <tr><th scope="col">Luogo</th><th scope="col">Tipo</th><th scope="col">Note</th></tr>
           </thead>
@@ -389,17 +371,35 @@
         </div>
         <div class="card">
           <h3 class="card__title">🚏 Bus turistico</h3>
-          <p>Fa un anello nel centro e <strong>non passa da Delicias</strong>: per il tragitto alloggio–centro servono i bus urbani.</p>
+          <p>Fa un anello nel centro e <strong>non passa da Delicias</strong>: per il tragitto alloggio–centro servono i bus urbani. Dettagli e tariffe qui sotto.</p>
         </div>
       </div>
 
       <div class="callout callout--ebro mt-2">
         <span class="callout__icon" aria-hidden="true">🧮</span>
         <div>
-          <p><strong>Budget corse.</strong> Le 9 corse della Card 72 ore bastano: martedì si sta tutto
-          il giorno in centro a piedi e giovedì la zona Expo è servita direttamente da Delicias, per un
-          totale di 6–7 corse.</p>
-          <p>Le corse fuori Card — lunedì sera e venerdì mattina — si pagano a biglietto singolo (1,70 €) o in taxi.</p>
+          <p><strong>Budget corse.</strong> Senza più la Zaragoza Card ogni corsa dell’autobus urbano
+          si paga a parte: biglietto singolo 1,70 € a bordo, oppure Tarjeta Bus se si prevedono molte corse.</p>
+          <p>Il bus turistico è un servizio diverso, a pagamento separato: non serve per gli spostamenti alloggio–centro.</p>
+        </div>
+      </div>
+
+      <h3 class="mt-2">🚌 Bus turistico (opzionale, a parte)</h3>
+      <p class="small" id="busTuristicoRoute"></p>
+      <div class="grid grid--2 mt-1">
+        <div>
+          <div class="table-scroll">
+            <table>
+              <caption class="visually-hidden">Tariffe del bus turistico</caption>
+              <thead><tr><th scope="col">Tariffa</th><th scope="col" class="num">Prezzo</th></tr></thead>
+              <tbody id="busFaresTable"></tbody>
+            </table>
+          </div>
+          <p class="small mt-1" id="busFaresNote"></p>
+        </div>
+        <div>
+          <h4 class="card__title">Offerte combinate</h4>
+          <ul class="check-list" id="busOffersList"></ul>
         </div>
       </div>
     </div>
