@@ -56,7 +56,7 @@
         { time: '13:30', what: 'Volo W4 6189 Roma Fiumicino → Saragozza', note: 'Wizz Air. Verificare il terminal', key: true },
         { time: '15:40', what: 'Atterraggio a Saragozza', note: 'Volo di circa 2 ore' },
         { time: '~17:00', what: 'Mezzi pubblici verso l’alloggio a Delicias', note: 'Bus urbano oppure taxi, 9–12 €' },
-        { time: '20:00 →', what: 'Serata con il gruppo', note: 'Pilar, Puente de Piedra, tapas a Bula. Ritirare la Card a Delicias senza attivarla' }
+        { time: '20:00 →', what: 'Serata con il gruppo', note: 'Pilar, Puente de Piedra, tapas a Bula.' }
       ]
     },
     {
@@ -183,7 +183,7 @@
      ====================================================================== */
   const DECISIONS = [
     { id: 'dec-1', phase: 'Saragozza', what: 'Slot Aljafería per martedì 11, ore 10:00',
-      why: 'Ingresso a fasce orarie con quota: se si riempie salta l’impianto del martedì, e con esso l’attivazione della Card.',
+      why: 'Ingresso a fasce orarie con quota: se si riempie salta l’impianto del martedì.',
       when: 'subito', level: 'alta' },
     { id: 'dec-7', phase: 'Valencia', what: 'Orario del passaggio in auto del 14',
       why: 'In valutazione con chi guida. Decide due cose: se resta una mattina a Saragozza, e se il check-in a Valencia rientra nella finestra 15:00–19:00. Appena c’è, avvisare l’host.',
@@ -194,9 +194,6 @@
     { id: 'dec-15', phase: 'Eclissi', what: 'Come arrivare in stazione per le 14:00 del 12',
       why: 'Il programma in città chiude alle 13:00 in Plaza del Pilar e l’escursione parte dalla stazione alle 14:00. Serve capire con che mezzo e con quanto anticipo, e mangiare qualcosa: il pasto dell’escursione è alle 16:00 a Cadreita.',
       when: 'entro l’11', level: 'alta' },
-    { id: 'dec-4', phase: 'Saragozza', what: 'Zaragoza Card online o all’ufficio di Delicias?',
-      why: 'L’ufficio è comodo (10–20 tutti i giorni, in stazione), ma online si evita la coda del 10 agosto.',
-      when: 'entro l’8 agosto', level: 'media' },
     { id: 'dec-6', phase: 'Saragozza', what: 'Cena della sera del 12',
       why: 'Se Saragozza è in fascia di totalità i ristoranti saranno pieni: o si prenota, o si ripiega su tapas.',
       when: 'entro il 7 agosto', level: 'media' },
@@ -207,7 +204,7 @@
       why: 'Arrivo in aereo alle 22:55. Da chiarire se il passaggio è all’aeroporto di Bari o se serve un treno successivo.',
       when: 'entro il 20', level: 'media' },
     { id: 'dec-5', phase: 'Saragozza', what: 'Acuario giovedì 13: si fa o si salta?',
-      why: 'Costo pieno non coperto dalla Card, solo sconto. E ruba la serata.',
+      why: 'Costo pieno, salvo il combinato con bus turistico (21,60 €). E ruba la serata.',
       when: 'in loco', level: 'bassa' },
     { id: 'dec-12', phase: 'Rientro', what: 'Cosa fare delle 3h20 di attesa a Valencia',
       why: 'Il transfer arriva alle 14:00 per un volo alle 17:25, dopo sette notti in tenda. Se c’è il deposito bagagli si può uscire.',
@@ -233,7 +230,7 @@
         { id: 'p7', text: 'Biglietto treno València Nord → Benicàssim del 16' },
         { id: 'p3', text: 'Confermare l’alloggio a Delicias e l’orario di check-in del 10' },
         { id: 'p4', text: 'Eventuale tavolo per la sera del 12 — giorno dell’eclissi, città piena' },
-        { id: 'p5', text: 'Decidere se comprare la Zaragoza Card online' }
+        { id: 'p5', text: 'Decidere se comprare online i biglietti dei monumenti (bono Caesaraugusta 7 € + entrada conjunta 12 €)' }
       ]
     },
     {
@@ -247,7 +244,7 @@
         { id: 'v2', text: 'La Seo: chiusura a pranzo del mercoledì e orari delle funzioni' },
         { id: 'v3', text: 'Iglesia de San Pablo: torre salibile giovedì 13, finestra 10:00–12:30' },
         { id: 'v4', text: 'Patio de la Infanta: sede Ibercaja, ad agosto e il 14 può essere chiuso' },
-        { id: 'v5', text: 'Prezzo aggiornato dell’Acuario e sconto effettivo con la Card' },
+        { id: 'v5', text: 'Prezzo aggiornato dell’Acuario e del combinato con bus turistico (21,60 €)' },
         { id: 'v11', text: 'Valencia: il 15 agosto è festivo anche in Spagna, orari ridotti' },
         { id: 'v7', text: 'Meteo a 3 giorni per la sera del 12 — nuvolosità bassa a ovest' }
       ]
@@ -545,8 +542,8 @@
      Budget
      ====================================================================== */
   const BUDGET_FIXED = [
-    { label: 'Zaragoza Card 72 ore', min: 24, max: 24 },
-    { label: 'Corse bus fuori Card a Saragozza, ~4 × 1,70 €', min: 6.8, max: 6.8 },
+    { label: 'Biglietti monumenti (bono Caesaraugusta 7 € + entrada conjunta 12 €)', min: 19, max: 19 },
+    { label: 'Corse bus a Saragozza, ~4 × 1,70 €', min: 6.8, max: 6.8, note: 'Da rivedere: senza la Card ogni corsa si paga a parte' },
     { label: 'Treno Valencia → Benicàssim del 16', min: 8, max: 8 },
     { label: 'Transfer Rototom → aeroporto del 23', min: 30, max: 30, note: 'Ordine #3984, già pagato' }
   ];
@@ -558,7 +555,7 @@
     { label: 'Festival, 7 giorni di vitto e bevande', min: 140, max: 250, note: 'Da ricaricare sul cashless' },
     { label: 'Acqua, caffè, gelati col caldo', min: 25, max: 40, note: 'A 35 °C non è una voce da sottovalutare' },
     { label: 'Taxi e imprevisti', min: 0, max: 40 },
-    { label: 'Acuario di Saragozza, se si fa', min: null, max: null, note: 'Da verificare: solo sconto con la Card' }
+    { label: 'Acuario di Saragozza, se si fa', min: null, max: null, note: 'Da verificare: intero o combinato con bus turistico (21,60 €)' }
   ];
 
   /* ======================================================================
@@ -566,13 +563,12 @@
      ====================================================================== */
   const DAY_NOTES = [
     { id: 'd1', title: 'Lunedì 10', sub: 'Arrivo', points: [
-      { kind: 'key', text: 'Ritirare la Card a Delicias (C/ Rioja 33, 10:00–20:00) <strong>senza attivarla</strong>. Se la attivano lunedì si perde mezza giornata di validità e il piano del martedì cade.' },
-      { text: 'Al ritiro chiedere: calendario della visita guidata inclusa, elenco dei locali per la tapa, e se serve prenotare l’Aljafería.' },
+      { text: 'Chiedere all’ufficio turismo di Delicias (C/ Rioja 33, 10:00–20:00) se serve prenotare l’Aljafería.' },
       { text: 'Il Pilar chiude verso le 20:30: se il volo o il viaggio slittano si salta l’interno e si va diretti al Puente de Piedra, sempre aperto.' },
       { text: 'Meli è chiuso il lunedì → <strong>Bula</strong>, non confondersi.' }
     ]},
     { id: 'd2', title: 'Martedì 11', sub: 'La giornata da non sbagliare', points: [
-      { kind: 'key', text: '<strong>Attivare la Card qui, all’Aljafería:</strong> è il primo ingresso incluso del viaggio.' },
+      { kind: 'key', text: '<strong>Comprare qui il bono Ruta Caesaraugusta (7 €):</strong> conviene per i quattro siti romani della giornata.' },
       { text: 'A piedi da Delicias, 12–15 min lungo Avda. Madrid: si risparmia una corsa e alle 10 fa ancora fresco.' },
       { text: 'Pausa 14:00–17:00 vera: i musei romani sono chiusi comunque, non si perde niente.' },
       { text: 'Ruta Caesaraugusta nell’ordine Foro → Puerto Fluvial → Termas → Teatro. Chiudono alle 21.' },
@@ -600,7 +596,7 @@
   const PRIORITIES = [
     { text: 'Eclissi', note: 'è il motivo della tappa di Saragozza, tutto il resto è negoziabile' },
     { text: 'Museo de Tapices a La Seo', note: 'gli arazzi' },
-    { text: 'Aljafería', note: 'mudéjar UNESCO, e serve per attivare la Card' },
+    { text: 'Aljafería', note: 'mudéjar UNESCO' },
     { text: 'Torre di San Pablo', note: 'finestra irripetibile, solo giovedì mattina' },
     { text: 'Teatro romano', note: '' },
     { text: 'Torre del Pilar', note: '' },
@@ -620,13 +616,12 @@
     { risk: 'Bagaglio a mano fuori misura', fix: 'Wizz e ITA hanno regole diverse: misurare e pesare a casa.' },
     { risk: 'Trolley stivato per pieno carico il 23', fix: 'Imbarcare presto: a Bari eviterebbe l’attesa al nastro a mezzanotte.' },
     { risk: 'Treno del 16, domenica di apertura festival', fix: 'Biglietto in anticipo, verificare se serve prenotazione del posto.' },
-    { risk: 'Card attivata per errore lunedì', fix: 'Dirlo esplicitamente allo sportello: ritiro sì, attivazione no.' },
     { risk: 'Cielo coperto a ovest il 12', fix: 'Piano B meteo deciso entro mezzogiorno del 12, non dopo.' },
     { risk: 'Sole troppo basso, coperto dagli edifici', fix: 'Punto scelto in anticipo sull’azimut verificato, non improvvisato.' },
     { risk: 'Saragozza piena il 12', fix: 'Prenotare cena e trasporti prima.' },
     { risk: 'Colpo di calore in una giornata piena', fix: 'Pausa 14–17 non negoziabile, acqua sempre dietro.' },
     { risk: 'Finestra di San Pablo persa', fix: 'Sveglia presto giovedì: è l’unico slot del viaggio.' },
-    { risk: 'Le 9 corse della Card finiscono', fix: 'Martedì a piedi, giovedì rientro diretto → ne restano di scorta.' },
+    { risk: 'Troppe corse bus non budgettate', fix: 'Senza Card ogni corsa si paga a parte: martedì a piedi e giovedì rientro diretto da Expo tengono il conto basso.' },
     { risk: 'Lucchetto della tenda smarrito', fix: '5 € in reception. Agganciarlo sempre nello stesso posto.' }
   ];
 

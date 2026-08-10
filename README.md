@@ -1,8 +1,8 @@
 # Saragozza 2026
 
 Sito statico di pianificazione per un viaggio di quattro giorni a Saragozza (10–14 agosto 2026):
-Zaragoza Card, attrazioni con prezzi, itinerario giorno per giorno, trasporti da Delicias e
-mappa interattiva con tutti i luoghi.
+biglietti per i monumenti, attrazioni con prezzi, itinerario giorno per giorno, trasporti da
+Delicias e mappa interattiva con tutti i luoghi.
 
 **Online:** https://daniele96.github.io/saragozza-2026/
 
@@ -29,7 +29,7 @@ La pagina personale tiene spunte e appunti nel `localStorage` del browser: nulla
 altrove, ma nulla è nemmeno sincronizzato tra dispositivi. Il pulsante *Esporta stato in .md*
 serve per portarsi via il contenuto.
 
-Per modificare contenuti si tocca solo `assets/js/data.js`: le sezioni Panoramica, Card,
+Per modificare contenuti si tocca solo `assets/js/data.js`: le sezioni Panoramica, Biglietti,
 Attrazioni, Itinerario, Mappa, Trasporti e Note sono generate da quelle strutture.
 
 ## Sviluppo in locale
