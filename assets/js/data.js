@@ -159,8 +159,8 @@ const PLACES = [
     lat: 41.6510, lng: -0.8770,
     price: 'Gratuito',
     hours: 'Chiuso il lunedì',
-    days: [2],
-    note: 'Sale dedicate a Goya. Opzionale e gratuito, da infilare se la mattina di martedì avanza tempo dopo i siti romani.'
+    days: [],
+    note: 'Sale dedicate a Goya. Gratuito, ma non più in programma: la mattina di martedì è ora occupata da bus turistico e Acuario.'
   },
   {
     name: 'Acuario de Zaragoza',
@@ -168,8 +168,8 @@ const PLACES = [
     lat: 41.6692044, lng: -0.8986434,
     price: 'Prezzo pieno; combinato con bus turistico diurno o Megabus: 21,60 €',
     hours: '~10:00–20:00',
-    days: [4],
-    note: 'Il più grande acquario d’acqua dolce d’Europa, nel Parque del Agua. Linee 48 / Ci1 / Ci2 verso Delicias. Il combinato bus turistico + Acuario si acquista solo agli uffici del turismo.'
+    days: [2],
+    note: 'Il più grande acquario d’acqua dolce d’Europa, nel Parque del Agua. Visitato martedì mattina dopo il bus turistico. Linee 48 / Ci1 / Ci2 verso Delicias. Il combinato bus turistico + Acuario si acquista solo agli uffici del turismo.'
   },
   {
     name: 'Zona Expo 2008',
@@ -274,14 +274,13 @@ const ITINERARY = [
     ]
   },
   {
-    day: 2, date: 'Martedì 11 agosto', tag: 'Giornata piena · bono Caesaraugusta',
-    intro: 'La giornata della Caesaraugusta romana. Qui il via alle 9:00 non è applicabile: i musei romani aprono alle 10:00 e chiudono dalle 14:00 alle 17:00, quindi la pausa lunga è imposta dagli orari, non scelta.',
+    day: 2, date: 'Martedì 11 agosto', tag: 'Giornata piena · bus, Acuario e resti romani',
+    intro: 'Mattina fuori dal centro storico, tra bus turistico e Acuario. Nel pomeriggio, appena i musei romani riaprono alle 17:00, il bono della Ruta Caesaraugusta — fino alle 19:30, in tempo per la cena alla Miguería.',
     stops: [
-      { time: '10:00', title: 'Ruta Caesaraugusta — Foro e Puerto Fluvial', note: 'Comprare qui il bono dei 4 siti (7 €), al Museo del Foro. I due siti sono entrambi in Plaza de la Seo.', place: 'Ruta Caesaraugusta — Museo del Foro', highlight: true },
-      { time: '12:00', title: 'Museo de Zaragoza', note: 'Gratuito e al chiuso: sale dedicate a Goya. Riempie la mattina fino alla chiusura.', place: 'Museo de Zaragoza' },
-      { time: '14:00–16:00', title: 'Pranzo e pausa', note: 'Due ore, non tre. È il minimo possibile: i musei romani riaprono solo alle 17:00.' },
-      { time: '16:00', title: 'Giro a piedi in centro', note: 'Un’ora all’ombra tra i vicoli e le piazze, in attesa della riapertura.' },
-      { time: '17:00', title: 'Ruta Caesaraugusta — Termas e Teatro', note: 'Aperti fino alle 21. Il Teatro è il più scenografico dei quattro.', place: 'Ruta Caesaraugusta — Museo del Teatro' },
+      { time: '10:00', title: 'Bus turistico', note: 'Giro panoramico di ~90 minuti, partenza da Calle Don Jaime I (vicino alla Lonja). Tariffa generale 10 €.' },
+      { time: '11:30', title: 'Acuario de Zaragoza', note: 'Dal centro con le linee 48 / Ci1 / Ci2 verso il Parque del Agua. Valutare agli uffici del turismo il combinato bus turistico + Acuario, 21,60 €.', place: 'Acuario de Zaragoza', highlight: true },
+      { time: '13:30–17:00', title: 'Pranzo e pausa', note: 'Pausa lunga: i musei romani riaprono solo alle 17:00, in linea con la chiusura di metà giornata.' },
+      { time: '17:00–19:30', title: 'Ruta Caesaraugusta — 4 siti romani', note: 'Bono unico 7 €: Foro, Puerto Fluvial, Termas Públicas e Teatro. Fino alle 19:30, per arrivare puntuali alla cena.', place: 'Ruta Caesaraugusta — Museo del Foro', highlight: true },
       { time: '20:00–21:45', title: 'Cena alla Miguería — prenotata', note: 'Plaza Santiago Sas 6, 50003 Zaragoza. Tavolo per 12 persone, confermato.', highlight: true }
     ]
   },
@@ -309,7 +308,7 @@ const ITINERARY = [
       { time: '10:00', title: 'Iglesia de San Pablo', note: 'Torre mudéjar salibile, vista a 360°. Aperta solo 10:00–12:30: è l’unico giorno utile del viaggio.', place: 'Iglesia de San Pablo' },
       { time: '12:15', title: 'Pranzo e pausa', note: 'Un’ora e mezza, non tre: si riparte alle 13:45.' },
       { time: '13:45', title: 'Palazzo dell’Aljafería', note: 'Mudéjar UNESCO, ~1,5 h. Al chiuso nelle ore peggiori del caldo, e sulla strada verso ovest. Chiude alle 17:15: con questo orario il margine è ampio.', place: 'Palazzo dell’Aljafería', highlight: true },
-      { time: '16:30', title: 'Acuario e zona Expo / Parque del Agua', note: 'Passeggiata tra Pabellón Puente e Torre del Agua. Linee 48 / Ci1 / Ci2 per rientrare a Delicias.', place: 'Acuario de Zaragoza' },
+      { time: '16:30', title: 'Zona Expo / Parque del Agua', note: 'Passeggiata gratuita tra Pabellón Puente e Torre del Agua — l’Acuario è già visto martedì. Linee 48 / Ci1 / Ci2 per rientrare a Delicias.', place: 'Zona Expo 2008' },
       { time: 'Sera', title: 'Cena a tapas al Meli del Tubo', note: 'L’unica serata piena in cui è aperto.', place: 'Meli del Tubo' }
     ]
   },
