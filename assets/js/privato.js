@@ -182,8 +182,8 @@
      Decisioni e cose da definire — tutto il viaggio, per urgenza
      ====================================================================== */
   const DECISIONS = [
-    { id: 'dec-1', phase: 'Saragozza', what: 'Slot Aljafería per martedì 11, ore 10:00',
-      why: 'Ingresso a fasce orarie con quota: se si riempie salta l’impianto del martedì.',
+    { id: 'dec-1', phase: 'Saragozza', what: 'Slot Aljafería per giovedì 13, ore 13:45',
+      why: 'Ingresso a fasce orarie con quota: se si riempie salta l’impianto del giovedì.',
       when: 'subito', level: 'alta' },
     { id: 'dec-7', phase: 'Valencia', what: 'Orario del passaggio in auto del 14',
       why: 'In valutazione con chi guida. Decide due cose: se resta una mattina a Saragozza, e se il check-in a Valencia rientra nella finestra 15:00–19:00. Appena c’è, avvisare l’host.',
@@ -225,7 +225,7 @@
     {
       id: 'pren', icon: '📅', title: 'Prenotazioni e biglietti',
       items: [
-        { id: 'p1', text: 'Slot Aljafería martedì 11, fascia 10:00 — la più urgente' },
+        { id: 'p1', text: 'Slot Aljafería giovedì 13, fascia 13:45 — la più urgente' },
         { id: 'p6', text: 'Avvisare l’host di Suites Rooms dell’orario di arrivo del 14' },
         { id: 'p7', text: 'Biglietto treno València Nord → Benicàssim del 16' },
         { id: 'p3', text: 'Confermare l’alloggio a Delicias e l’orario di check-in del 10' },
@@ -240,7 +240,7 @@
         { id: 'v8', text: 'Orario del treno Bitonto → Andria del 10 agosto (Ferrotramviaria)' },
         { id: 'v9', text: 'Terminal Wizz Air a Fiumicino e chiusura drop-off bagagli' },
         { id: 'v10', text: 'Renfe: orari del 16 agosto e se il treno richiede prenotazione del posto' },
-        { id: 'v1', text: 'Aljafería aperta l’11 agosto — è sede delle Cortes de Aragón' },
+        { id: 'v1', text: 'Aljafería aperta il 13 agosto — è sede delle Cortes de Aragón' },
         { id: 'v2', text: 'La Seo: chiusura a pranzo del mercoledì e orari delle funzioni' },
         { id: 'v3', text: 'Iglesia de San Pablo: torre salibile giovedì 13, finestra 10:00–12:30' },
         { id: 'v4', text: 'Patio de la Infanta: sede Ibercaja, ad agosto e il 14 può essere chiuso' },
@@ -581,7 +581,6 @@
     { id: 'd4', title: 'Giovedì 13', sub: 'La finestra stretta', points: [
       { kind: 'key', text: '<strong>San Pablo apre solo 10:00–12:30, mar–sab.</strong> Giovedì 13 è l’unico giorno utile del viaggio per salire sulla torre: se si perde, non si recupera.' },
       { text: 'Mercado Central subito dopo, chiude alle 14.' },
-      { text: 'Museo de Zaragoza solo se avanza tempo: è gratuito, zero rimpianti a saltarlo.' },
       { text: 'Rientro da Expo diretto a Delicias con 48 / Ci1 / Ci2, senza passare dal centro.' },
       { text: '<strong>Meli del Tubo:</strong> unica serata piena in cui è aperto. È stasera o mai.' }
     ]},
@@ -602,7 +601,7 @@
     { text: 'Una sera vera a El Tubo', note: 'senza corsa' },
     { text: 'Gli altri tre siti della Ruta Caesaraugusta', note: '' },
     { text: 'Acuario e zona Expo', note: '' },
-    { text: 'Museo de Zaragoza, Patio de la Infanta', note: 'primi a cadere' }
+    { text: 'Patio de la Infanta', note: 'primo a cadere' }
   ];
 
   /* ======================================================================
