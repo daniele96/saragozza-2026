@@ -525,7 +525,7 @@
 
   const SPOTS = [
     { name: 'Parque del Agua / zona Expo',
-      pro: 'Spazi molto ampi e aperti, orizzonte libero. È già in programma il 13, quindi lo vedo prima. Vicino all’alloggio con le linee 48 / Ci1 / Ci2.',
+      pro: 'Spazi molto ampi e aperti, orizzonte libero. Fa parte anche del programma di giovedì 13, ma quel giorno è dopo l’eclissi: se lo scegli come piano B non l’avrai ancora visto di persona. Vicino all’alloggio con le linee 48 / Ci1 / Ci2.',
       con: 'Alberatura da evitare. Sarà il posto più affollato della città.' },
     { name: 'Puente del Tercer Milenio',
       pro: 'Ponte alto sull’Ebro, vista aperta lungo il fiume.',
@@ -619,7 +619,7 @@
     { risk: 'Saragozza piena il 12', fix: 'Prenotare cena e trasporti prima.' },
     { risk: 'Colpo di calore in una giornata piena', fix: 'Pausa 14–17 non negoziabile, acqua sempre dietro.' },
     { risk: 'Finestra di San Pablo persa', fix: 'Sveglia presto giovedì: è l’unico slot del viaggio.' },
-    { risk: 'Troppe corse bus non budgettate', fix: 'Senza Card ogni corsa si paga a parte: martedì a piedi e giovedì rientro diretto da Expo tengono il conto basso.' },
+    { risk: 'Troppe corse bus non budgettate', fix: 'Senza Card ogni corsa si paga a parte: contare in anticipo le linee 48 / Ci1 / Ci2 per l’Acuario di martedì e il rientro di giovedì da Expo.' },
     { risk: 'Lucchetto della tenda smarrito', fix: '5 € in reception. Agganciarlo sempre nello stesso posto.' }
   ];
 
