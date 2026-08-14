@@ -105,6 +105,7 @@
   const VAL_EXTRA = [
     { what: 'Museo de Bellas Artes', why: 'Tra i più importanti di Spagna: Goya, Velázquez, Sorolla. <strong>Ingresso gratuito</strong> e al chiuso — la miglior riserva per le ore calde', tag: 'gratis · al chiuso' },
     { what: 'La Almoina', why: 'Il centro archeologico sotto la piazza della cattedrale: la Valentia romana. Se ti è piaciuta la Caesaraugusta di Saragozza, è il seguito naturale', tag: 'al chiuso' },
+    { what: 'Museu de les Ciències', why: 'Nella Ciutat de les Arts, al chiuso e climatizzato. Tariffa 2026: <strong>9,90 €</strong> intero, 7,60 € ridotto, 7,10 € gruppi — molto più leggero dell’Oceanogràfic', tag: '9,90 € · al chiuso' },
     { what: 'Mercat de Colón', why: 'Edificio modernista oggi spazio gastronomico. Aperto anche la domenica, quando il Mercat Central è chiuso', tag: 'gratis' },
     { what: 'Jardí del Túria in bici', why: 'Il vecchio letto del fiume, 9 km di parco che attraversa la città fino alla Ciutat de les Arts. Valencia è piatta e piena di bici pubbliche', tag: 'all’aperto' },
     { what: 'Estació del Nord', why: 'La stazione modernista è un edificio da vedere, e il 16 ci passi comunque per prendere il treno', tag: 'gratis' },
@@ -140,7 +141,7 @@
     {
       id: 'val14', date: 'Venerdì 14 agosto', title: 'Dal pranzo',
       tag: 'Arrivo',
-      warn: 'L’orario dipende dal passaggio in auto, ancora da definire: con partenza da Saragozza entro le 09:00–10:00 arrivi per pranzo.',
+      warn: '✅ Oceanogràfic visitato oggi, in anticipo sul piano: il pomeriggio del 15 è libero da quell’impegno.',
       rows: [
         { time: '~13:00', what: 'Pranzo: paella valenciana', note: 'È il momento giusto del viaggio: a Valencia la paella è piatto da pranzo, molti posti non la fanno la sera. Quella autentica è con pollo e coniglio, non il misto di mare', key: true },
         { time: '15:00–19:00', what: 'Check-in e pausa', note: 'Dopo 3h30 di auto a 35 °C non è tempo perso' },
@@ -148,31 +149,35 @@
         { time: '18:30', what: 'Catedral e torre del Micalet', note: 'La torre si sale: è il panorama classico della città' },
         { time: '19:30', what: 'Barrio del Carmen', note: 'Il quartiere più bello da girare a piedi al tramonto' },
         { time: '20:30', what: 'Torres de Serranos', note: 'Porta medievale sul Turia, bellissima all’ora blu' },
-        { time: '21:30', what: 'Cena a tapas', note: 'Carmen oppure Ruzafa, il quartiere più vivo la sera' }
+        { time: '21:30', what: 'Cena a tapas', note: 'Carmen oppure Ruzafa, il quartiere più vivo la sera' },
+        { time: '✅ Fatto', what: 'Oceanogràfic', note: 'Visitato oggi in anticipo sul piano originale (era previsto per il 15): il più grande acquario d’Europa', key: true }
       ]
     },
     {
       id: 'val15', date: 'Sabato 15 agosto', title: 'La giornata piena',
       tag: 'Sabato festivo',
-      warn: 'Il 15 cade di sabato e nella Comunitat Valenciana l’apertura commerciale è permessa: il Mercat Central è visitabile, ed è l’unica finestra del viaggio.',
+      warn: 'Oceanogràfic già fatto il 14 → giornata riorganizzata. Uscita dall’alloggio alle 10:00. Il 15 cade di sabato e nella Comunitat Valenciana l’apertura commerciale è permessa: il Mercat Central è visitabile, ed è l’unica finestra del viaggio.',
       rows: [
-        { time: '08:30', what: 'Colazione: horchata e fartons', note: 'La cosa locale da fare' },
-        { time: '09:30', what: 'Mercat Central', note: 'Modernista, tra i mercati coperti più grandi d’Europa. Chiude alle 15:00, e domenica è chiuso: è ora o mai', key: true },
-        { time: '10:45', what: 'Llotja de la Seda', note: 'Patrimonio UNESCO, proprio di fronte al mercato' },
-        { time: '11:15', what: 'Iglesia de los Santos Juanes', note: 'Stessa piazza, nessuno spostamento' },
-        { time: '12:30', what: 'Ciutat de les Arts i les Ciències', note: 'L’architettura di Calatrava, Umbracle e specchi d’acqua. Ci si arriva col Jardí del Túria a piedi, ma sono 4 km: col sole a picco meglio bus' },
-        { time: '13:30–17:30', what: 'Oceanogràfic', note: 'Il più grande acquario d’Europa, al chiuso e climatizzato nelle ore peggiori: è la mossa giusta della giornata', key: true },
-        { time: '20:00', what: 'Ruzafa', note: 'Il mare lo fai a Benicàssim, quindi la sera del 15 non serve andare alla Malvarrosa: meglio Ruzafa, che è anche la scelta migliore per la serata. Restano come alternative il tramonto alla Malvarrosa o La Albufera con le risaie' }
+        { time: '10:00', what: 'Uscita dall’alloggio', note: 'Colazione veloce lungo strada: horchata e fartons in una horchatería del centro', key: true },
+        { time: '10:30', what: 'Mercat Central', note: 'Modernista, tra i mercati coperti più grandi d’Europa. Chiude alle 15:00, e domenica è chiuso: con l’uscita alle 10 c’è comunque largo margine', key: true },
+        { time: '11:30', what: 'Llotja de la Seda', note: 'Patrimonio UNESCO, proprio di fronte al mercato' },
+        { time: '12:00', what: 'Iglesia de los Santos Juanes', note: 'Stessa piazza, nessuno spostamento' },
+        { time: '12:30', what: 'Catedral e torre del Micalet', note: 'Se non già vista il 14: la torre si sale, panorama classico della città' },
+        { time: '13:30', what: 'Pranzo', note: 'Zona Carmen/Mercado — non serve rifare la paella se già presa il 14' },
+        { time: '15:00–18:00', what: 'Riserva al chiuso e climatizzata', note: 'Ore calde: scegli tra Museo de Bellas Artes (gratis), La Almoina, o Hemisfèric/Museu de les Ciències — vedi §Riserve', key: true },
+        { time: '18:30', what: 'Barrio del Carmen o Torres de Serranos', note: 'Passeggiata all’ora blu, se non già fatta il 14' },
+        { time: '21:30', what: 'Cena e serata sociale a Ruzafa', note: 'Il mare lo fai a Benicàssim, quindi la sera del 15 non serve andare alla Malvarrosa: meglio Ruzafa, che è anche la scelta migliore per bere e conoscere gente. Restano come alternative il tramonto alla Malvarrosa o La Albufera con le risaie', key: true }
       ]
     },
     {
-      id: 'val16', date: 'Domenica 16 agosto', title: 'Mattina, poi treno',
+      id: 'val16', date: 'Domenica 16 agosto', title: 'Mattina fino a pranzo, poi treno',
       tag: 'Materiale di riserva',
-      warn: 'Sai già che partirai prima col treno: questo serve solo se il treno è tardi.',
+      warn: 'Sai già che partirai prima col treno: questo serve solo se il treno è tardi. Il margine reale dipende dall’orario del treno, ancora da confermare.',
       rows: [
         { time: '10:00–10:30', what: 'Check-out', note: 'Finestra fissa' },
         { time: '10:30', what: 'Mercat de Colón', note: 'Modernista, oggi spazio gastronomico: la domenica è aperto, a differenza del Mercat Central' },
         { time: '11:15', what: 'Torres de Quart o Jardí del Túria', note: 'Giro corto vicino all’alloggio, senza impegno' },
+        { time: 'verso pranzo', what: 'Pranzo leggero prima del treno', note: 'Vicino alla stazione, per non avere fretta con i bagagli' },
         { time: '—', what: 'Treno per Benicàssim da València Nord', note: 'Biglietto in anticipo: è la domenica di apertura del festival' }
       ]
     }
@@ -215,7 +220,8 @@
     'Punto di osservazione dell’eclissi — escursione organizzata alle Bardenas: trasporto, punto e orari sono decisi da loro',
     'Scalo di Roma del 23 — stessa compagnia, stessa prenotazione, solo bagaglio a mano',
     'Check-in online glamping — fatto a marzo, ordine #VU8YwLWr',
-    'Abbonamento festival con diritto di campeggio — acquistato con camping'
+    'Abbonamento festival con diritto di campeggio — acquistato con camping',
+    'Due acquari in quattro giorni — Oceanogràfic visitato il 14, in anticipo: libera il pomeriggio del 15'
   ];
 
   /* ======================================================================
