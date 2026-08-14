@@ -141,31 +141,33 @@
     {
       id: 'val14', date: 'Venerdì 14 agosto', title: 'Dal pranzo',
       tag: 'Arrivo',
-      warn: '✅ Oceanogràfic visitato oggi, in anticipo sul piano: il pomeriggio del 15 è libero da quell’impegno.',
+      warn: 'Fatti: check-in, cena, Oceanogràfic (in anticipo, era previsto per il 15). Non fatti: paella, Ciutat Vella, Catedral+Micalet, Barrio del Carmen, Torres de Serranos → recuperati nel 15.',
       rows: [
-        { time: '~13:00', what: 'Pranzo: paella valenciana', note: 'È il momento giusto del viaggio: a Valencia la paella è piatto da pranzo, molti posti non la fanno la sera. Quella autentica è con pollo e coniglio, non il misto di mare', key: true },
-        { time: '15:00–19:00', what: 'Check-in e pausa', note: 'Dopo 3h30 di auto a 35 °C non è tempo perso' },
-        { time: '17:30', what: 'Ciutat Vella', note: 'Plaza de la Virgen, Plaza de la Reina, Basílica de la Virgen de los Desamparados' },
-        { time: '18:30', what: 'Catedral e torre del Micalet', note: 'La torre si sale: è il panorama classico della città' },
-        { time: '19:30', what: 'Barrio del Carmen', note: 'Il quartiere più bello da girare a piedi al tramonto' },
-        { time: '20:30', what: 'Torres de Serranos', note: 'Porta medievale sul Turia, bellissima all’ora blu' },
-        { time: '21:30', what: 'Cena a tapas', note: 'Carmen oppure Ruzafa, il quartiere più vivo la sera' },
-        { time: '✅ Fatto', what: 'Oceanogràfic', note: 'Visitato oggi in anticipo sul piano originale (era previsto per il 15): il più grande acquario d’Europa', key: true }
+        { time: '~13:00', what: 'Pranzo: paella valenciana', note: 'È il momento giusto del viaggio: a Valencia la paella è piatto da pranzo, molti posti non la fanno la sera. Quella autentica è con pollo e coniglio, non il misto di mare — ❌ non fatto, recuperato il 15' },
+        { time: '15:00–19:00', what: 'Check-in e pausa', note: '✅ fatto', key: true },
+        { time: '17:30', what: 'Ciutat Vella', note: 'Plaza de la Virgen, Plaza de la Reina, Basílica de la Virgen de los Desamparados — ❌ non fatto, recuperato il 15' },
+        { time: '18:30', what: 'Catedral e torre del Micalet', note: 'La torre si sale: è il panorama classico della città — ❌ non fatto, recuperato il 15' },
+        { time: '—', what: 'Oceanogràfic', note: '✅ fatto oggi, in anticipo sul piano originale (era previsto per il 15): il più grande acquario d’Europa', key: true },
+        { time: '19:30', what: 'Barrio del Carmen', note: 'Il quartiere più bello da girare a piedi al tramonto — ❌ non fatto, recuperato il 15' },
+        { time: '20:30', what: 'Torres de Serranos', note: 'Porta medievale sul Turia, bellissima all’ora blu — ❌ non fatto, recuperato il 15' },
+        { time: '21:30', what: 'Cena a tapas', note: '✅ fatto', key: true }
       ]
     },
     {
-      id: 'val15', date: 'Sabato 15 agosto', title: 'La giornata piena',
+      id: 'val15', date: 'Sabato 15 agosto', title: 'La giornata piena, con recupero del 14',
       tag: 'Sabato festivo',
-      warn: 'Oceanogràfic già fatto il 14 → giornata riorganizzata. Uscita dall’alloggio alle 10:00. Il 15 cade di sabato e nella Comunitat Valenciana l’apertura commerciale è permessa: il Mercat Central è visitabile, ed è l’unica finestra del viaggio.',
+      warn: 'Giornata densa: oltre al programma originale (Mercat Central e dintorni), recupera tutta la parte storica non fatta il 14 — Ciutat Vella, Catedral+Micalet, Barrio del Carmen, Torres de Serranos — e la paella. Uscita dall’alloggio alle 10:00. <strong>Se il tempo stringe, taglia in quest’ordine:</strong> 1) riserva al chiuso pomeridiana, 2) Torres de Serranos, 3) Ciutat Vella. Non tagliare Mercat Central e la serata a Ruzafa.',
       rows: [
         { time: '10:00', what: 'Uscita dall’alloggio', note: 'Colazione veloce lungo strada: horchata e fartons in una horchatería del centro', key: true },
-        { time: '10:30', what: 'Mercat Central', note: 'Modernista, tra i mercati coperti più grandi d’Europa. Chiude alle 15:00, e domenica è chiuso: con l’uscita alle 10 c’è comunque largo margine', key: true },
+        { time: '10:30', what: 'Mercat Central', note: 'Modernista, tra i mercati coperti più grandi d’Europa. Chiude alle 15:00: unica finestra del viaggio', key: true },
         { time: '11:30', what: 'Llotja de la Seda', note: 'Patrimonio UNESCO, proprio di fronte al mercato' },
         { time: '12:00', what: 'Iglesia de los Santos Juanes', note: 'Stessa piazza, nessuno spostamento' },
-        { time: '12:30', what: 'Catedral e torre del Micalet', note: 'Se non già vista il 14: la torre si sale, panorama classico della città' },
-        { time: '13:30', what: 'Pranzo', note: 'Zona Carmen/Mercado — non serve rifare la paella se già presa il 14' },
-        { time: '15:00–18:00', what: 'Riserva al chiuso e climatizzata', note: 'Ore calde: scegli tra Museo de Bellas Artes (gratis), La Almoina, o Hemisfèric/Museu de les Ciències — vedi §Riserve', key: true },
-        { time: '18:30', what: 'Barrio del Carmen o Torres de Serranos', note: 'Passeggiata all’ora blu, se non già fatta il 14' },
+        { time: '12:30', what: 'Catedral e torre del Micalet', note: 'Recuperato dal 14: la torre si sale, panorama classico della città. Stesso isolato del mercato' },
+        { time: '13:15', what: 'Ciutat Vella', note: 'Recuperato dal 14: Plaza de la Virgen, Plaza de la Reina, Basílica — a due passi dalla Catedral' },
+        { time: '14:00', what: 'Pranzo: paella valenciana', note: 'Recuperato dal 14: ultimo turno buono prima che le cucine rallentino', key: true },
+        { time: '15:00–18:00', what: 'Riserva al chiuso e climatizzata', note: 'Ore calde, finestra ridotta: Museo de Bellas Artes (gratis), La Almoina, o Museu de les Ciències (9,90 €). Prima cosa da tagliare se il tempo stringe' },
+        { time: '18:30', what: 'Barrio del Carmen', note: 'Recuperato dal 14: passeggiata all’ora blu' },
+        { time: '19:30', what: 'Torres de Serranos', note: 'Recuperato dal 14: porta medievale sul Turia, bellissima all’ora blu' },
         { time: '21:30', what: 'Cena e serata sociale a Ruzafa', note: 'Il mare lo fai a Benicàssim, quindi la sera del 15 non serve andare alla Malvarrosa: meglio Ruzafa, che è anche la scelta migliore per bere e conoscere gente. Restano come alternative il tramonto alla Malvarrosa o La Albufera con le risaie', key: true }
       ]
     },
