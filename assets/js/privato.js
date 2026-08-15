@@ -143,7 +143,7 @@
       tag: 'Arrivo',
       warn: 'Fatti: check-in, cena, Oceanogràfic (in anticipo, era previsto per il 15). Non fatti: paella, Ciutat Vella, Catedral+Micalet, Barrio del Carmen, Torres de Serranos → recuperati nel 15.',
       rows: [
-        { time: '~13:00', what: 'Pranzo: paella valenciana', note: 'È il momento giusto del viaggio: a Valencia la paella è piatto da pranzo, molti posti non la fanno la sera. Quella autentica è con pollo e coniglio, non il misto di mare — ❌ non fatto, recuperato il 15' },
+        { time: '~13:00', what: 'Pranzo: paella valenciana', note: 'È il momento giusto del viaggio: a Valencia la paella è piatto da pranzo, molti posti non la fanno la sera. Quella autentica è con pollo e coniglio, non il misto di mare — ❌ non fatto, ma non va recuperata: già provata altrove' },
         { time: '15:00–19:00', what: 'Check-in e pausa', note: '✅ fatto', key: true },
         { time: '17:30', what: 'Ciutat Vella', note: 'Plaza de la Virgen, Plaza de la Reina, Basílica de la Virgen de los Desamparados — ❌ non fatto, recuperato il 15' },
         { time: '18:30', what: 'Catedral e torre del Micalet', note: 'La torre si sale: è il panorama classico della città — ❌ non fatto, recuperato il 15' },
@@ -164,8 +164,8 @@
         { time: '12:00', what: 'Iglesia de los Santos Juanes', note: 'Stessa piazza, nessuno spostamento' },
         { time: '12:30', what: 'Catedral e torre del Micalet', note: 'Recuperato dal 14: la torre si sale, panorama classico della città. Stesso isolato del mercato' },
         { time: '13:15', what: 'Ciutat Vella', note: 'Recuperato dal 14: Plaza de la Virgen, Plaza de la Reina, Basílica — a due passi dalla Catedral' },
-        { time: '14:00', what: 'Pranzo: paella valenciana', note: 'Recuperato dal 14: ultimo turno buono prima che le cucine rallentino', key: true },
-        { time: '15:00–18:00', what: 'Riserva al chiuso e climatizzata', note: 'Ore calde, finestra ridotta: Museo de Bellas Artes (gratis), La Almoina, o Museu de les Ciències (9,90 €). Prima cosa da tagliare se il tempo stringe' },
+        { time: '13:45', what: 'Pranzo veloce', note: 'Paella già provata altrove, non serve rifarla: qualcosa di rapido per guadagnare tempo sul resto della giornata' },
+        { time: '14:15–18:00', what: 'Riserva al chiuso e climatizzata', note: 'Finestra allungata grazie al pranzo veloce. Ore calde: Museo de Bellas Artes (gratis), La Almoina, o Museu de les Ciències (9,90 €). Prima cosa da tagliare se il tempo stringe' },
         { time: '18:30', what: 'Barrio del Carmen', note: 'Recuperato dal 14: passeggiata all’ora blu' },
         { time: '19:30', what: 'Torres de Serranos', note: 'Recuperato dal 14: porta medievale sul Turia, bellissima all’ora blu' },
         { time: '21:30', what: 'Cena e serata sociale a Ruzafa', note: 'Il mare lo fai a Benicàssim, quindi la sera del 15 non serve andare alla Malvarrosa: meglio Ruzafa, che è anche la scelta migliore per bere e conoscere gente. Restano come alternative il tramonto alla Malvarrosa o La Albufera con le risaie', key: true }
