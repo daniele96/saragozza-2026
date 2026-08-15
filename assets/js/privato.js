@@ -127,6 +127,7 @@
 
   const NIGHT_TIPS = [
     { id: 'nl1', text: 'Gli orari: cena 21:00–22:30, i bar si riempiono dalle 23:00, i club dall’1:00. Se esci alle 22:00 trovi il vuoto e pensi che sia morta' },
+    { id: 'nl10', text: 'Ruzafa Pub Crawl: ritrovo 21:45–22:00 (di solito Hôme Youth Hostel), giro tra bar come Jagger/Barber/Flash/XL con shot di benvenuto, finisce in discoteca con ingresso incluso (Bowie, Picca, Play Club o Oven), ~15 €, pubblico internazionale — ottimo se esci prima, altrimenti si va diretti agli stessi club più tardi' },
     { id: 'nl2', text: 'La città è compatta: dal Carmen a Ruzafa sono 15 minuti a piedi, quindi in una sera puoi fare entrambe' },
     { id: 'nl3', text: 'Bar degli hostel con terrazza o rooftop, aperti anche a chi non dorme lì: è il posto più efficace in assoluto se viaggi da solo' },
     { id: 'nl4', text: 'Pub crawl serali: partono dal Carmen e sono organizzati esattamente per conoscere gente' },
@@ -156,7 +157,7 @@
     {
       id: 'val15', date: 'Sabato 15 agosto', title: 'La giornata piena, con recupero del 14',
       tag: 'Sabato festivo',
-      warn: 'Giornata densa: oltre al programma originale (Mercat Central e dintorni), recupera tutta la parte storica non fatta il 14 — Ciutat Vella, Catedral+Micalet, Barrio del Carmen, Torres de Serranos — e la paella. Uscita dall’alloggio alle 10:00. <strong>Se il tempo stringe, taglia in quest’ordine:</strong> 1) riserva al chiuso pomeridiana, 2) Torres de Serranos, 3) Ciutat Vella. Non tagliare Mercat Central e la serata a Ruzafa.',
+      warn: 'Giornata densa: oltre al programma originale (Mercat Central e dintorni), recupera tutta la parte storica non fatta il 14 — Ciutat Vella, Catedral+Micalet, Barrio del Carmen, Torres de Serranos. Uscita dall’alloggio alle 10:00. <strong>Se il tempo stringe, taglia in quest’ordine:</strong> 1) riserva al chiuso pomeridiana, 2) Torres de Serranos, 3) Ciutat Vella. Non tagliare Mercat Central e la notte a Ruzafa. ⚠️ Con gli orari della notte il rientro sarà verso le 3–4: da tenere presente per il check-out del 16.',
       rows: [
         { time: '10:00', what: 'Uscita dall’alloggio', note: 'Colazione veloce lungo strada: horchata e fartons in una horchatería del centro', key: true },
         { time: '10:30', what: 'Mercat Central', note: 'Modernista, tra i mercati coperti più grandi d’Europa. Chiude alle 15:00: unica finestra del viaggio', key: true },
@@ -168,7 +169,10 @@
         { time: '14:15–18:00', what: 'Riserva al chiuso e climatizzata', note: 'Finestra allungata grazie al pranzo veloce. Ore calde: Museo de Bellas Artes (gratis), La Almoina, o Museu de les Ciències (9,90 €). Prima cosa da tagliare se il tempo stringe' },
         { time: '18:30', what: 'Barrio del Carmen', note: 'Recuperato dal 14: passeggiata all’ora blu' },
         { time: '19:30', what: 'Torres de Serranos', note: 'Recuperato dal 14: porta medievale sul Turia, bellissima all’ora blu' },
-        { time: '21:30', what: 'Cena e serata sociale a Ruzafa', note: 'Il mare lo fai a Benicàssim, quindi la sera del 15 non serve andare alla Malvarrosa: meglio Ruzafa, che è anche la scelta migliore per bere e conoscere gente. Restano come alternative il tramonto alla Malvarrosa o La Albufera con le risaie', key: true }
+        { time: '21:00–23:30', what: 'Rientro, pausa, doccia', note: '' },
+        { time: '23:30', what: 'Cena/spuntino', note: 'Prima di uscire' },
+        { time: '00:15', what: 'Uscita verso Ruzafa', note: 'Bar già in pieno svolgimento: Cádiz, Sueca, Literato Azorín. Il mare lo fai a Benicàssim, quindi non serve andare alla Malvarrosa: Ruzafa è la scelta migliore per bere e conoscere gente', key: true },
+        { time: '~1:30', what: 'Discoteca per ballare', note: 'Bowie, Picca, Play Club o Oven — gli stessi locali dove finirebbe anche il Ruzafa Pub Crawl organizzato (ritrovo 21:45–22:00, perso con questi orari)', key: true }
       ]
     },
     {
